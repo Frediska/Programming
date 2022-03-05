@@ -23,6 +23,7 @@ namespace Programming.View
                 EnumsListBox.Items.Add(enumValue);
             }
 
+
             EnumsListBox.SelectedIndex = 0;
         }
 
@@ -58,7 +59,21 @@ namespace Programming.View
         }
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            int IndexEnum = ValuesListBox.SelectedIndex+1;
+            IntValueTextBox.Text = IndexEnum.ToString();
+        }
 
+        private void ButtonForParsing_Click(object sender, EventArgs e)
+        {
+            Weekday value;
+            if (Enum.TryParse(WeekdayParsingTextBox.Text, out value))
+            {
+                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)value+1})";
+            }
+            else
+            {
+                WeekdayLabel.Text = "Нет такого дня недели";
+            }
         }
     }
 }

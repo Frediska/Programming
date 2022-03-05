@@ -37,9 +37,15 @@
             this.EnumsListBox = new System.Windows.Forms.ListBox();
             this.IntValueTextBox = new System.Windows.Forms.TextBox();
             this.ValuesListBox = new System.Windows.Forms.ListBox();
+            this.WeekdayParsingGroupBox = new System.Windows.Forms.GroupBox();
+            this.WeekdayParsingTextBox = new System.Windows.Forms.TextBox();
+            this.ValueForParsingLabel = new System.Windows.Forms.Label();
+            this.ButtonForParsing = new System.Windows.Forms.Button();
+            this.WeekdayLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPageEnums.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.WeekdayParsingGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -54,6 +60,7 @@
             // 
             // tabPageEnums
             // 
+            this.tabPageEnums.Controls.Add(this.WeekdayParsingGroupBox);
             this.tabPageEnums.Controls.Add(this.groupBox1);
             this.tabPageEnums.Location = new System.Drawing.Point(4, 25);
             this.tabPageEnums.Name = "tabPageEnums";
@@ -132,6 +139,53 @@
             this.ValuesListBox.TabIndex = 1;
             this.ValuesListBox.SelectedIndexChanged += new System.EventHandler(this.ValuesListBox_SelectedIndexChanged);
             // 
+            // WeekdayParsingGroupBox
+            // 
+            this.WeekdayParsingGroupBox.Controls.Add(this.WeekdayLabel);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ButtonForParsing);
+            this.WeekdayParsingGroupBox.Controls.Add(this.ValueForParsingLabel);
+            this.WeekdayParsingGroupBox.Controls.Add(this.WeekdayParsingTextBox);
+            this.WeekdayParsingGroupBox.Location = new System.Drawing.Point(3, 282);
+            this.WeekdayParsingGroupBox.Name = "WeekdayParsingGroupBox";
+            this.WeekdayParsingGroupBox.Size = new System.Drawing.Size(456, 131);
+            this.WeekdayParsingGroupBox.TabIndex = 4;
+            this.WeekdayParsingGroupBox.TabStop = false;
+            this.WeekdayParsingGroupBox.Text = "Weekday Parsing";
+            // 
+            // WeekdayParsingTextBox
+            // 
+            this.WeekdayParsingTextBox.Location = new System.Drawing.Point(13, 60);
+            this.WeekdayParsingTextBox.Name = "WeekdayParsingTextBox";
+            this.WeekdayParsingTextBox.Size = new System.Drawing.Size(267, 22);
+            this.WeekdayParsingTextBox.TabIndex = 0;
+            // 
+            // ValueForParsingLabel
+            // 
+            this.ValueForParsingLabel.AutoSize = true;
+            this.ValueForParsingLabel.Location = new System.Drawing.Point(10, 41);
+            this.ValueForParsingLabel.Name = "ValueForParsingLabel";
+            this.ValueForParsingLabel.Size = new System.Drawing.Size(145, 16);
+            this.ValueForParsingLabel.TabIndex = 1;
+            this.ValueForParsingLabel.Text = "Type value for Parsing:";
+            // 
+            // ButtonForParsing
+            // 
+            this.ButtonForParsing.Location = new System.Drawing.Point(286, 60);
+            this.ButtonForParsing.Name = "ButtonForParsing";
+            this.ButtonForParsing.Size = new System.Drawing.Size(75, 23);
+            this.ButtonForParsing.TabIndex = 2;
+            this.ButtonForParsing.Text = "Parse";
+            this.ButtonForParsing.UseVisualStyleBackColor = true;
+            this.ButtonForParsing.Click += new System.EventHandler(this.ButtonForParsing_Click);
+            // 
+            // WeekdayLabel
+            // 
+            this.WeekdayLabel.AutoSize = true;
+            this.WeekdayLabel.Location = new System.Drawing.Point(13, 89);
+            this.WeekdayLabel.Name = "WeekdayLabel";
+            this.WeekdayLabel.Size = new System.Drawing.Size(0, 16);
+            this.WeekdayLabel.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -145,6 +199,8 @@
             this.tabPageEnums.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.WeekdayParsingGroupBox.ResumeLayout(false);
+            this.WeekdayParsingGroupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -160,6 +216,11 @@
         private System.Windows.Forms.ListBox EnumsListBox;
         private System.Windows.Forms.TextBox IntValueTextBox;
         private System.Windows.Forms.ListBox ValuesListBox;
+        private System.Windows.Forms.GroupBox WeekdayParsingGroupBox;
+        private System.Windows.Forms.Button ButtonForParsing;
+        private System.Windows.Forms.Label ValueForParsingLabel;
+        private System.Windows.Forms.TextBox WeekdayParsingTextBox;
+        private System.Windows.Forms.Label WeekdayLabel;
     }
 }
 
