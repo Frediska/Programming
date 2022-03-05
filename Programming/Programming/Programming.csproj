@@ -52,6 +52,7 @@
     <Compile Include="Model\Enums\Color.cs" />
     <Compile Include="Model\Enums\Genre.cs" />
     <Compile Include="Model\Enums\Weekday.cs" />
+    <Compile Include="View\Enums.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
