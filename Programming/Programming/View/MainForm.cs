@@ -25,6 +25,15 @@ namespace Programming.View
 
 
             EnumsListBox.SelectedIndex = 0;
+
+            var value = Enum.GetValues(typeof(Season));
+                foreach (var values in value)
+            {
+                ChooseSeasonComboBox.Items.Add(values);
+            }
+
+            ChooseSeasonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,7 +68,7 @@ namespace Programming.View
         }
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int IndexEnum = ValuesListBox.SelectedIndex+1;
+            int IndexEnum = ValuesListBox.SelectedIndex;
             IntValueTextBox.Text = IndexEnum.ToString();
         }
 
@@ -68,11 +77,37 @@ namespace Programming.View
             Weekday value;
             if (Enum.TryParse(WeekdayParsingTextBox.Text, out value))
             {
-                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)value+1})";
+                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)value})";
             }
             else
             {
                 WeekdayLabel.Text = "Нет такого дня недели";
+            }
+        }
+
+        private void GoButton_Click(object sender, EventArgs e)
+        {
+            var itemName = ChooseSeasonComboBox.SelectedItem;
+
+            switch (itemName)
+            {
+                case Season.Winter:
+                    BackColor = ColorTranslator.FromHtml("#ffffff");
+                    MessageBox.Show("Бррр! Холодно!");
+                    break;
+                case Season.Spring:
+                    BackColor = ColorTranslator.FromHtml("#559c45");
+                    break;
+                case Season.Summer:
+                    BackColor = ColorTranslator.FromHtml("#ffffff");
+                    MessageBox.Show("Ура! Солнце!");
+                    break;
+                case Season.Autumn:
+                    BackColor = ColorTranslator.FromHtml("#e29c45");
+                    break;
+
+                default:
+                    throw new NotImplementedException();
             }
         }
     }
