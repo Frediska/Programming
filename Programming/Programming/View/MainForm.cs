@@ -68,7 +68,7 @@ namespace Programming.View
         }
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int IndexEnum = ValuesListBox.SelectedIndex;
+            int IndexEnum = (int)ValuesListBox.SelectedIndex;
             IntValueTextBox.Text = IndexEnum.ToString();
         }
 
