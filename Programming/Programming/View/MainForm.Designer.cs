@@ -88,7 +88,7 @@
             this.SeasonHandleGroupBox.Controls.Add(this.GoButton);
             this.SeasonHandleGroupBox.Location = new System.Drawing.Point(465, 282);
             this.SeasonHandleGroupBox.Name = "SeasonHandleGroupBox";
-            this.SeasonHandleGroupBox.Size = new System.Drawing.Size(324, 131);
+            this.SeasonHandleGroupBox.Size = new System.Drawing.Size(324, 136);
             this.SeasonHandleGroupBox.TabIndex = 5;
             this.SeasonHandleGroupBox.TabStop = false;
             this.SeasonHandleGroupBox.Text = "Season Handle";
@@ -130,7 +130,7 @@
             this.WeekdayParsingGroupBox.Controls.Add(this.WeekdayParsingTextBox);
             this.WeekdayParsingGroupBox.Location = new System.Drawing.Point(3, 282);
             this.WeekdayParsingGroupBox.Name = "WeekdayParsingGroupBox";
-            this.WeekdayParsingGroupBox.Size = new System.Drawing.Size(456, 131);
+            this.WeekdayParsingGroupBox.Size = new System.Drawing.Size(456, 136);
             this.WeekdayParsingGroupBox.TabIndex = 4;
             this.WeekdayParsingGroupBox.TabStop = false;
             this.WeekdayParsingGroupBox.Text = "Weekday Parsing";
