@@ -26,10 +26,10 @@ namespace Programming.View
 
             EnumsListBox.SelectedIndex = 0;
 
-            var value = Enum.GetValues(typeof(Season));
-                foreach (var values in value)
+            var values = Enum.GetValues(typeof(Season));
+                foreach (var value in values)
             {
-                ChooseSeasonComboBox.Items.Add(values);
+                ChooseSeasonComboBox.Items.Add(value);
             }
 
             ChooseSeasonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -74,10 +74,10 @@ namespace Programming.View
 
         private void ButtonForParsing_Click(object sender, EventArgs e)
         {
-            Weekday value;
-            if (Enum.TryParse(WeekdayParsingTextBox.Text, out value))
+            Weekday weekday;
+            if (Enum.TryParse(WeekdayParsingTextBox.Text, out weekday))
             {
-                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)value})";
+                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)weekday})";
             }
             else
             {
