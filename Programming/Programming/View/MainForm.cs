@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Programming.Model.Enums;
-using Color = Programming.Model.Enums.Color;
+using Colors = Programming.Model.Enums.Colors;
 
 namespace Programming.View
 {
@@ -26,7 +26,7 @@ namespace Programming.View
 
             EnumsListBox.SelectedIndex = 0;
 
-            var values = Enum.GetValues(typeof(Season));
+            var values = Enum.GetValues(typeof(Seasons));
                 foreach (var value in values)
             {
                 ChooseSeasonComboBox.Items.Add(value);
@@ -51,10 +51,10 @@ namespace Programming.View
                     ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Genre)));
                     break;
                 case Enums.Color:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Color)));
+                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Colors)));
                     break;
                 case Enums.Season:
-                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Season)));
+                    ValuesListBox.Items.AddRange(Enum.GetNames(typeof(Seasons)));
                     break;
                 case Enums.EducationForm:
                     ValuesListBox.Items.AddRange(Enum.GetNames(typeof(EducationForm)));
@@ -91,18 +91,18 @@ namespace Programming.View
 
             switch (itemName)
             {
-                case Season.Winter:
+                case Seasons.Winter:
                     BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show("Бррр! Холодно!");
                     break;
-                case Season.Spring:
+                case Seasons.Spring:
                     BackColor = ColorTranslator.FromHtml("#559c45");
                     break;
-                case Season.Summer:
+                case Seasons.Summer:
                     BackColor = ColorTranslator.FromHtml("#ffffff");
                     MessageBox.Show("Ура! Солнце!");
                     break;
-                case Season.Autumn:
+                case Seasons.Autumn:
                     BackColor = ColorTranslator.FromHtml("#e29c45");
                     break;
 
