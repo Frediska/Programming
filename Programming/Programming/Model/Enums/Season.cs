@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Enums
 {
-    public enum Colors
+    public enum Season
     {
-        White,
-        Black,
-        Red,
-        Green,
-        Blue,
-        Purple,
-        Yellow,
-        Magenta
+        Winter,
+        Spring,
+        Summer,
+        Autumn
     }
 }
