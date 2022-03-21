@@ -151,7 +151,7 @@
             this.ParsingButton.TabIndex = 2;
             this.ParsingButton.Text = "Parse";
             this.ParsingButton.UseVisualStyleBackColor = true;
-            this.ParsingButton.Click += new System.EventHandler(this.ButtonForParsing_Click);
+            this.ParsingButton.Click += new System.EventHandler(this.ParsingButton_Click);
             // 
             // ValueForParsingLabel
             // 

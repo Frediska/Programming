@@ -72,7 +72,7 @@ namespace Programming.View
             IntValueTextBox.Text = IndexEnum.ToString();
         }
 
-        private void ButtonForParsing_Click(object sender, EventArgs e)
+        private void ParsingButton_Click(object sender, EventArgs e)
         {
             Weekday weekday;
             if (Enum.TryParse(WeekdayParsingTextBox.Text, out weekday))
