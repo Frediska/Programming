@@ -30,7 +30,7 @@ namespace Programming.Model.Classes
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException("the duration of the song must be positive and greater than zero.");
+                    throw new ArgumentException("the duration of the song must be positive and greater than zero");
                 }
                 _durationSecond = value;
             }
