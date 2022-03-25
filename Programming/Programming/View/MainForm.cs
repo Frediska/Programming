@@ -23,9 +23,7 @@ namespace Programming.View
                 EnumsListBox.Items.Add(enumValue);
             }
 
-
             EnumsListBox.SelectedIndex = 0;
-
             var values = Enum.GetValues(typeof(Season));
                 foreach (var value in values)
             {
@@ -33,7 +31,6 @@ namespace Programming.View
             }
 
             ChooseSeasonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
