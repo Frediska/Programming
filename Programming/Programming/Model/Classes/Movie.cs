@@ -47,9 +47,9 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 2022 || value < 1900)
+                if (value > DateTime.Now.Year || value < 1900)
                 {
-                    throw new ArgumentException("the film's release year must be between 1900 and 2022");
+                    throw new ArgumentException($"the film's release year must be between 1900 and {DateTime.Now.Year}");
                 }
                 _releaseYear = value;
             }

@@ -10,6 +10,15 @@ namespace Programming.Model.Classes
     {
         private string _number;
 
+        public Contact(string number, string firstName, string lastName, string email)
+        {
+            Number = number;
+            FirstName = firstName;
+            LastName = lastName;
+            Email = email;
+        }
+
+        public Contact() { }
         public string Number
         {
             get 
