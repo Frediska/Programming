@@ -105,6 +105,7 @@ namespace Programming.View
 
                 default:
                     throw new NotImplementedException();
+
             }
         }
     }
