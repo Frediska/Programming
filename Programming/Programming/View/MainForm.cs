@@ -25,7 +25,7 @@ namespace Programming.View
 
             EnumsListBox.SelectedIndex = 0;
             var values = Enum.GetValues(typeof(Season));
-                foreach (var value in values)
+            foreach (var value in values)
             {
                 ChooseSeasonComboBox.Items.Add(value);
             }
@@ -65,8 +65,8 @@ namespace Programming.View
         }
         private void ValuesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int IndexEnum = (int)ValuesListBox.SelectedIndex;
-            IntValueTextBox.Text = IndexEnum.ToString();
+            int indexEnum = (int)ValuesListBox.SelectedIndex;
+            IntValueTextBox.Text = indexEnum.ToString();
         }
 
         private void ParsingButton_Click(object sender, EventArgs e)
@@ -84,9 +84,9 @@ namespace Programming.View
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            var itemName = ChooseSeasonComboBox.SelectedItem;
+            var selectSeason = ChooseSeasonComboBox.SelectedItem;
 
-            switch (itemName)
+            switch (selectSeason)
             {
                 case Season.Winter:
                     BackColor = ColorTranslator.FromHtml("#ffffff");

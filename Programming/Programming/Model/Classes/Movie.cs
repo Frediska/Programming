@@ -9,15 +9,15 @@ namespace Programming.Model.Classes
     public class Movie
     {
         private int _durationMinutes;
-        private int _yearRelease;
+        private int _releaseYear;
         private double _rating;
 
-        public Movie(int durationMinutes, int yearRealease, int rating, string nameFilm, string genre)
+        public Movie(int durationMinutes, int releaseYear, int rating, string name, string genre)
         {
             DurationMinutes = durationMinutes;
-            YearRelease = yearRealease;
+            ReleaseYear = releaseYear;
             Rating = rating;
-            NameFilm = nameFilm;
+            Name = name;
             Genre = genre;
         }
 
@@ -39,11 +39,11 @@ namespace Programming.Model.Classes
             }
         }
 
-        public int YearRelease
+        public int ReleaseYear
         {
             get 
             { 
-                return _yearRelease; 
+                return _releaseYear; 
             }
             set
             {
@@ -51,7 +51,7 @@ namespace Programming.Model.Classes
                 {
                     throw new ArgumentException("the film's release year must be between 1900 and 2022");
                 }
-                _yearRelease = value;
+                _releaseYear = value;
             }
         }
 
@@ -71,7 +71,7 @@ namespace Programming.Model.Classes
             }
         }
 
-        public string NameFilm { get; set; }
+        public string Name { get; set; }
 
         public string Genre { get; set; }
     }

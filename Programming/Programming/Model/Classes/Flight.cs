@@ -10,11 +10,11 @@ namespace Programming.Model.Classes
     {
         private int _flightTimeMinutes;
 
-        public Flight(int flightTimeMinutes, string departurePoint, string destinationPoint)
+        public Flight(int flightTimeMinutes, string departure, string destination)
         {
             FlightTimeMinutes = flightTimeMinutes;
-            DeparturePoint = departurePoint;
-            DestinationPoint = destinationPoint;
+            Departure = departure;
+            Destination = destination;
         }
 
         public Flight() { }
@@ -35,7 +35,7 @@ namespace Programming.Model.Classes
             }
         }
 
-        public string DeparturePoint { get; set; }
-        public string DestinationPoint { get; set; }
+        public string Departure { get; set; }
+        public string Destination { get; set; }
     }
 }

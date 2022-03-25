@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
-    public class Discipline
+    public class Subject
     {
         private int _mark;
-        private string _TeacherLastName;
+        private string _teacherLastName;
         private string _name;
     }
 }
