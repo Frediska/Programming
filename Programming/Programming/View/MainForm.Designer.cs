@@ -54,12 +54,12 @@
             this.ReleaseYearLabel = new System.Windows.Forms.Label();
             this.RatingLabel = new System.Windows.Forms.Label();
             this.GenreLabel = new System.Windows.Forms.Label();
-            this.FilmNameLabel = new System.Windows.Forms.Label();
+            this.TitleMovieLabel = new System.Windows.Forms.Label();
             this.ReleaseYearTextBox = new System.Windows.Forms.TextBox();
             this.GenreTextBox = new System.Windows.Forms.TextBox();
-            this.DurationTextBox = new System.Windows.Forms.TextBox();
+            this.DurationMinutesTextBox = new System.Windows.Forms.TextBox();
             this.RatingTextBox = new System.Windows.Forms.TextBox();
-            this.FilmNameTextBox = new System.Windows.Forms.TextBox();
+            this.TitleMovieTextBox = new System.Windows.Forms.TextBox();
             this.MoviesListBox = new System.Windows.Forms.ListBox();
             this.RectanglesGroupBox = new System.Windows.Forms.GroupBox();
             this.FindRectanglesButton = new System.Windows.Forms.Button();
@@ -308,12 +308,12 @@
             this.MoviesGroupBox.Controls.Add(this.ReleaseYearLabel);
             this.MoviesGroupBox.Controls.Add(this.RatingLabel);
             this.MoviesGroupBox.Controls.Add(this.GenreLabel);
-            this.MoviesGroupBox.Controls.Add(this.FilmNameLabel);
+            this.MoviesGroupBox.Controls.Add(this.TitleMovieLabel);
             this.MoviesGroupBox.Controls.Add(this.ReleaseYearTextBox);
             this.MoviesGroupBox.Controls.Add(this.GenreTextBox);
-            this.MoviesGroupBox.Controls.Add(this.DurationTextBox);
+            this.MoviesGroupBox.Controls.Add(this.DurationMinutesTextBox);
             this.MoviesGroupBox.Controls.Add(this.RatingTextBox);
-            this.MoviesGroupBox.Controls.Add(this.FilmNameTextBox);
+            this.MoviesGroupBox.Controls.Add(this.TitleMovieTextBox);
             this.MoviesGroupBox.Controls.Add(this.MoviesListBox);
             this.MoviesGroupBox.Location = new System.Drawing.Point(299, 0);
             this.MoviesGroupBox.Name = "MoviesGroupBox";
@@ -367,14 +367,14 @@
             this.GenreLabel.TabIndex = 7;
             this.GenreLabel.Text = "Genre:";
             // 
-            // FilmNameLabel
+            // TitleMovieLabel
             // 
-            this.FilmNameLabel.AutoSize = true;
-            this.FilmNameLabel.Location = new System.Drawing.Point(144, 23);
-            this.FilmNameLabel.Name = "FilmNameLabel";
-            this.FilmNameLabel.Size = new System.Drawing.Size(38, 13);
-            this.FilmNameLabel.TabIndex = 6;
-            this.FilmNameLabel.Text = "Name:";
+            this.TitleMovieLabel.AutoSize = true;
+            this.TitleMovieLabel.Location = new System.Drawing.Point(144, 23);
+            this.TitleMovieLabel.Name = "TitleMovieLabel";
+            this.TitleMovieLabel.Size = new System.Drawing.Size(30, 13);
+            this.TitleMovieLabel.TabIndex = 6;
+            this.TitleMovieLabel.Text = "Title:";
             // 
             // ReleaseYearTextBox
             // 
@@ -382,6 +382,7 @@
             this.ReleaseYearTextBox.Name = "ReleaseYearTextBox";
             this.ReleaseYearTextBox.Size = new System.Drawing.Size(109, 20);
             this.ReleaseYearTextBox.TabIndex = 5;
+            this.ReleaseYearTextBox.TextChanged += new System.EventHandler(this.ReleaseYearTextBox_TextChanged);
             // 
             // GenreTextBox
             // 
@@ -389,13 +390,15 @@
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(109, 20);
             this.GenreTextBox.TabIndex = 4;
+            this.GenreTextBox.TextChanged += new System.EventHandler(this.GenreTextBox_TextChanged);
             // 
-            // DurationTextBox
+            // DurationMinutesTextBox
             // 
-            this.DurationTextBox.Location = new System.Drawing.Point(144, 205);
-            this.DurationTextBox.Name = "DurationTextBox";
-            this.DurationTextBox.Size = new System.Drawing.Size(109, 20);
-            this.DurationTextBox.TabIndex = 3;
+            this.DurationMinutesTextBox.Location = new System.Drawing.Point(144, 205);
+            this.DurationMinutesTextBox.Name = "DurationMinutesTextBox";
+            this.DurationMinutesTextBox.Size = new System.Drawing.Size(109, 20);
+            this.DurationMinutesTextBox.TabIndex = 3;
+            this.DurationMinutesTextBox.TextChanged += new System.EventHandler(this.DurationMinutesTextBox_TextChanged);
             // 
             // RatingTextBox
             // 
@@ -403,13 +406,15 @@
             this.RatingTextBox.Name = "RatingTextBox";
             this.RatingTextBox.Size = new System.Drawing.Size(109, 20);
             this.RatingTextBox.TabIndex = 2;
+            this.RatingTextBox.TextChanged += new System.EventHandler(this.RatingTextBox_TextChanged);
             // 
-            // FilmNameTextBox
+            // TitleMovieTextBox
             // 
-            this.FilmNameTextBox.Location = new System.Drawing.Point(144, 39);
-            this.FilmNameTextBox.Name = "FilmNameTextBox";
-            this.FilmNameTextBox.Size = new System.Drawing.Size(109, 20);
-            this.FilmNameTextBox.TabIndex = 1;
+            this.TitleMovieTextBox.Location = new System.Drawing.Point(144, 39);
+            this.TitleMovieTextBox.Name = "TitleMovieTextBox";
+            this.TitleMovieTextBox.Size = new System.Drawing.Size(109, 20);
+            this.TitleMovieTextBox.TabIndex = 1;
+            this.TitleMovieTextBox.TextChanged += new System.EventHandler(this.TitleMovieTextBox_TextChanged);
             // 
             // MoviesListBox
             // 
@@ -418,6 +423,7 @@
             this.MoviesListBox.Name = "MoviesListBox";
             this.MoviesListBox.Size = new System.Drawing.Size(132, 264);
             this.MoviesListBox.TabIndex = 0;
+            this.MoviesListBox.SelectedIndexChanged += new System.EventHandler(this.MoviesListBox_SelectedIndexChanged);
             // 
             // RectanglesGroupBox
             // 
@@ -570,13 +576,13 @@
         private System.Windows.Forms.TextBox WidthTextBox;
         private System.Windows.Forms.GroupBox MoviesGroupBox;
         private System.Windows.Forms.Button FindRectanglesButton;
-        private System.Windows.Forms.TextBox DurationTextBox;
+        private System.Windows.Forms.TextBox DurationMinutesTextBox;
         private System.Windows.Forms.TextBox RatingTextBox;
-        private System.Windows.Forms.TextBox FilmNameTextBox;
+        private System.Windows.Forms.TextBox TitleMovieTextBox;
         private System.Windows.Forms.ListBox MoviesListBox;
         private System.Windows.Forms.TextBox ReleaseYearTextBox;
         private System.Windows.Forms.TextBox GenreTextBox;
-        private System.Windows.Forms.Label FilmNameLabel;
+        private System.Windows.Forms.Label TitleMovieLabel;
         private System.Windows.Forms.Label RatingLabel;
         private System.Windows.Forms.Label GenreLabel;
         private System.Windows.Forms.Label ReleaseYearLabel;

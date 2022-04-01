@@ -12,12 +12,12 @@ namespace Programming.Model.Classes
         private int _releaseYear;
         private double _rating;
 
-        public Movie(int durationMinutes, int releaseYear, int rating, string name, string genre)
+        public Movie(int durationMinutes, int releaseYear, int rating, string title, string genre)
         {
             DurationMinutes = durationMinutes;
             ReleaseYear = releaseYear;
             Rating = rating;
-            Name = name;
+            Title = title;
             Genre = genre;
         }
 
@@ -31,9 +31,9 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
+                if (value < 40)
                 {
-                    throw new ArgumentException("duration must be positive and greater then zero");
+                    throw new ArgumentException("duration must be positive and greater then 60");
                 }
                 _durationMinutes = value;
             }
@@ -71,7 +71,7 @@ namespace Programming.Model.Classes
             }
         }
 
-        public string Name { get; set; }
+        public string Title { get; set; }
 
         public string Genre { get; set; }
     }
