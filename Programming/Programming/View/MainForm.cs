@@ -17,6 +17,10 @@ namespace Programming.View
     {
         const int CountElements = 5;
 
+        System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
+
+        System.Drawing.Color CorrectColor = System.Drawing.Color.White;
+
         private Rectangle[] _rectangles;
 
         private Rectangle _currentRectangles;
