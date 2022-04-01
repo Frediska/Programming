@@ -19,6 +19,7 @@ namespace Programming.Model.Classes
         }
 
         public Contact() { }
+
         public string Number
         {
             get 
