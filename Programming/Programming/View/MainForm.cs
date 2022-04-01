@@ -114,6 +114,21 @@ namespace Programming.View
             return maxWidthIndex;
         }
 
+        private int FindMovieWithMaxRating(Movie[] movies)
+        {
+            int maxRatingIndex = 0;
+            double maxRating = 0;
+            for (int i = 0; i < CountElements; i++)
+            {
+                if(movies[i].Rating > maxRating)
+                {
+                    maxRating = movies[i].Rating;
+                    maxRatingIndex = i;
+                }
+            }
+            return maxRatingIndex;
+        }
+
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
@@ -311,6 +326,12 @@ namespace Programming.View
         {
             int findMaxWidthIndex = FindRectangleWithMaxWidth(_rectangles);
             RectanglesListBox.SelectedIndex = findMaxWidthIndex;
+        }
+
+        private void FindMoviesButton_Click(object sender, EventArgs e)
+        {
+            int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
+            MoviesListBox.SelectedIndex = findMaxRatingIndex;
         }
     }
 }

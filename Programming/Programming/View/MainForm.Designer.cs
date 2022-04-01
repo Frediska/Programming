@@ -330,6 +330,7 @@
             this.FindMoviesButton.TabIndex = 11;
             this.FindMoviesButton.Text = "Find";
             this.FindMoviesButton.UseVisualStyleBackColor = true;
+            this.FindMoviesButton.Click += new System.EventHandler(this.FindMoviesButton_Click);
             // 
             // DurationLabel
             // 
