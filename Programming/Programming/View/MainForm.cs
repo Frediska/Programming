@@ -57,16 +57,14 @@ namespace Programming.View
 
             _random = new Random();
 
-            _rectangles = CreateRectangles();
-            RectanglesListBox.SelectedIndex = 0;
+            CreateRectangles();
 
-            _movies = CreateMovies();
-            MoviesListBox.SelectedIndex = 0;
+            CreateMovies();         
         }
 
-        private Rectangle[] CreateRectangles()
+        private void CreateRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[ElementsCount];
+            _rectangles = new Rectangle[ElementsCount];
             var colors = Enum.GetValues(typeof(Color));
             for (int i = 0; i < ElementsCount; i++)
             {
@@ -75,15 +73,15 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 10001) / 10.0;
                 _currentRectangle.Color = colors.GetValue
                     (_random.Next(0, colors.Length)).ToString();
-                rectangles[i] = _currentRectangle;
+                _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
-            return rectangles;
+            RectanglesListBox.SelectedIndex = 0;
         }
 
-        private Movie[] CreateMovies()
+        private void CreateMovies()
         {
-            Movie[] movies = new Movie[ElementsCount];
+            _movies = new Movie[ElementsCount];
             var genres = Enum.GetValues(typeof(Genre));
             for (int i = 0; i < ElementsCount; i++)
             {
@@ -94,10 +92,10 @@ namespace Programming.View
                     (_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = _titlesMovies[i];
                 _currentMovie.DurationMinutes = _random.Next(30, 210);
-                movies[i] = _currentMovie;
+                _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
-            return movies;
+            MoviesListBox.SelectedIndex = 0;
         }
 
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
