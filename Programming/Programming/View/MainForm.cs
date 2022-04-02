@@ -16,7 +16,7 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        const int CountElements = 5;
+        const int ElementsCount = 5;
 
         private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
 
@@ -65,9 +65,9 @@ namespace Programming.View
 
         private Rectangle[] CreateRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[CountElements];
+            Rectangle[] rectangles = new Rectangle[ElementsCount];
             var colors = Enum.GetValues(typeof(Color));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentRectangle = new Rectangle();
                 _currentRectangle.Length = _randomValues.Next(1, 10001) / 10.0;
@@ -82,9 +82,9 @@ namespace Programming.View
 
         private Movie[] CreateMovies()
         {
-            Movie[] movies = new Movie[CountElements];
+            Movie[] movies = new Movie[ElementsCount];
             var genres = Enum.GetValues(typeof(Genre));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
                 _currentMovie.Rating = _randomValues.Next(101) / 10.0;
@@ -103,7 +103,7 @@ namespace Programming.View
         {
             int maxWidthIndex = 0;
             double maxWidth = 0;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if (rectangles[i].Width > maxWidth)
                 {
@@ -118,7 +118,7 @@ namespace Programming.View
         {
             int maxRatingIndex = 0;
             double maxRating = 0;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if(movies[i].Rating > maxRating)
                 {
