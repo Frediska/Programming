@@ -29,7 +29,8 @@ namespace Programming.Model.Classes
             {
                 if (value <= 0)
                 {
-                    throw new ArgumentException("flight time must be positive and greater then zero");
+                    throw new ArgumentException(
+                        "flight time must be positive and greater then zero");
                 }
                 _flightTimeMinutes = value;
             }

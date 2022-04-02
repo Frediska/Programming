@@ -9,6 +9,7 @@ namespace Programming.Model.Classes
     public class Rectangle
     {
         private double _length;
+
         private double _width;
 
         public Rectangle(double length, double width, string color)
@@ -30,7 +31,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("length value must be positive");
+                    throw new ArgumentException(
+                        "length value must be positive");
                 }
                 _length = value;
             }
@@ -46,7 +48,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("width value must be positive");
+                    throw new ArgumentException(
+                        "width value must be positive");
                 }
                 _width = value;
             }

@@ -33,7 +33,7 @@ namespace Programming.View
 
         private Movie _currentMovie;
 
-        private Random _randomValues;
+        private Random _random;
 
 
         public MainForm()
@@ -52,9 +52,10 @@ namespace Programming.View
                 ChooseSeasonComboBox.Items.Add(value);
             }
 
-            ChooseSeasonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            ChooseSeasonComboBox.DropDownStyle = 
+                System.Windows.Forms.ComboBoxStyle.DropDownList;
 
-            _randomValues = new Random();
+            _random = new Random();
 
             _rectangles = CreateRectangles();
             RectanglesListBox.SelectedIndex = 0;
@@ -70,10 +71,10 @@ namespace Programming.View
             for (int i = 0; i < ElementsCount; i++)
             {
                 _currentRectangle = new Rectangle();
-                _currentRectangle.Length = _randomValues.Next(1, 10001) / 10.0;
-                _currentRectangle.Width = _randomValues.Next(1, 10001) / 10.0;
+                _currentRectangle.Length = _random.Next(1, 10001) / 10.0;
+                _currentRectangle.Width = _random.Next(1, 10001) / 10.0;
                 _currentRectangle.Color = colors.GetValue
-                    (_randomValues.Next(0, colors.Length)).ToString();
+                    (_random.Next(0, colors.Length)).ToString();
                 rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
@@ -87,12 +88,12 @@ namespace Programming.View
             for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
-                _currentMovie.Rating = _randomValues.Next(101) / 10.0;
-                _currentMovie.ReleaseYear = _randomValues.Next(1900, DateTime.Now.Year + 1);
+                _currentMovie.Rating = _random.Next(101) / 10.0;
+                _currentMovie.ReleaseYear = _random.Next(1900, DateTime.Now.Year + 1);
                 _currentMovie.Genre = genres.GetValue
-                    (_randomValues.Next(0, genres.Length)).ToString();
+                    (_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = _titlesMovies[i];
-                _currentMovie.DurationMinutes = _randomValues.Next(30, 210);
+                _currentMovie.DurationMinutes = _random.Next(30, 210);
                 movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
@@ -189,9 +190,9 @@ namespace Programming.View
         {
             try
             {
-                string currrentLength = LengthTextBox.Text;
-                double lengthRectangleValue = double.Parse(currrentLength);
-                _currentRectangle.Length = lengthRectangleValue;
+                string lengthAsString = LengthTextBox.Text;
+                double rectangleLength = double.Parse(lengthAsString);
+                _currentRectangle.Length = rectangleLength;
             }
             catch
             {
@@ -205,9 +206,9 @@ namespace Programming.View
         {
             try
             {
-                string currentWidth = WidthTextBox.Text;
-                double widthRectangleValue = double.Parse(currentWidth);
-                _currentRectangle.Width = widthRectangleValue;
+                string widthAsString = WidthTextBox.Text;
+                double rectangleWidth = double.Parse(widthAsString);
+                _currentRectangle.Width = rectangleWidth;
             }
             catch
             {
@@ -219,29 +220,29 @@ namespace Programming.View
 
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
-            string colorRectangleValue = ColorTextBox.Text;
-            _currentRectangle.Color = colorRectangleValue;
+            string rectangleColor = ColorTextBox.Text;
+            _currentRectangle.Color = rectangleColor;
         }
 
         private void TitleMovieTextBox_TextChanged(object sender, EventArgs e)
         {
-            string titleMovieValue = TitleMovieTextBox.Text;
-            _currentMovie.Title = titleMovieValue;
+            string movieTitle = TitleMovieTextBox.Text;
+            _currentMovie.Title = movieTitle;
         }
 
         private void GenreTextBox_TextChanged(object sender, EventArgs e)
         {
-            string genreValue = GenreTextBox.Text;
-            _currentMovie.Genre = genreValue;
+            string genre = GenreTextBox.Text;
+            _currentMovie.Genre = genre;
         }
 
         private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentReleaseYear = ReleaseYearTextBox.Text;
-                int releaseYearValue = int.Parse(currentReleaseYear);
-                _currentMovie.ReleaseYear = releaseYearValue;
+                string releaseYearAsString = ReleaseYearTextBox.Text;
+                int releaseYear = int.Parse(releaseYearAsString);
+                _currentMovie.ReleaseYear = releaseYear;
             }
             catch
             {
@@ -255,9 +256,9 @@ namespace Programming.View
         {
             try
             {
-                string currentRating = RatingTextBox.Text;
-                double ratingMovieValue = double.Parse(currentRating);
-                _currentMovie.Rating = ratingMovieValue;
+                string ratingAsString = RatingTextBox.Text;
+                double rating = double.Parse(ratingAsString);
+                _currentMovie.Rating = rating;
             }
             catch
             {
@@ -271,9 +272,9 @@ namespace Programming.View
         {
             try
             {
-                string currentDurationMinutes = DurationMinutesTextBox.Text;
-                int durationMinutesValue = int.Parse(currentDurationMinutes);
-                _currentMovie.DurationMinutes = durationMinutesValue;
+                string durationMinutesAsString = DurationMinutesTextBox.Text;
+                int durationMinutes = int.Parse(durationMinutesAsString);
+                _currentMovie.DurationMinutes = durationMinutes;
             }
             catch
             {
@@ -288,7 +289,8 @@ namespace Programming.View
             Weekday weekday;
             if (Enum.TryParse(WeekdayParsingTextBox.Text, out weekday))
             {
-                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)weekday})";
+                WeekdayLabel.Text = $"Это день недели " +
+                    $"({WeekdayParsingTextBox.Text} = {(int)weekday})";
             }
             else
             {

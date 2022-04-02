@@ -9,7 +9,9 @@ namespace Programming.Model.Classes
     public class Time
     {
         private int _hours;
+
         private int _minutes;
+        
         private int _seconds;
 
         public Time(int hours, int minutes, int seconds)
@@ -29,9 +31,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 23 || value < 0)
+                if (value < 0 || value > 23)
                 {
-                    throw new ArgumentException("the hour value must be between 0 and 23");
+                    throw new ArgumentException(
+                        "the hour value must be between 0 and 23");
                 }
                 _hours = value;
             }
@@ -45,9 +48,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 60 || value < 0)
+                if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException("the minute value must be between 0 and 60");
+                    throw new ArgumentException(
+                        "the minute value must be between 0 and 60");
                 }
                 _minutes = value;
             }
@@ -61,9 +65,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 60 || value < 0)
+                if (value < 0 || value > 59)
                 {
-                    throw new ArgumentException("the second value must be between 0 and 60");
+                    throw new ArgumentException(
+                        "the second value must be between 0 and 60");
                 }
                 _seconds = value;
             }

@@ -26,9 +26,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 5 || value < 2)
+                if (value < 2 || value > 5)
                 {
-                    throw new ArgumentException("the mark must be between 2 (unsatisfactory) and 5 (excellent)");
+                    throw new ArgumentException(
+                        "the mark must be between 2 (unsatisfactory) and 5 (excellent)");
                 }
                 _mark = value;
             }

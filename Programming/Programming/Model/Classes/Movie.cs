@@ -33,7 +33,8 @@ namespace Programming.Model.Classes
             {
                 if (value < 30)
                 {
-                    throw new ArgumentException("duration must be positive and greater then 30");
+                    throw new ArgumentException(
+                        "duration must be positive and greater then 30");
                 }
                 _durationMinutes = value;
             }
@@ -47,9 +48,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > DateTime.Now.Year || value < 1900)
+                if (value < 1900 || value > DateTime.Now.Year)
                 {
-                    throw new ArgumentException($"the film's release year must be between 1900 and {DateTime.Now.Year}");
+                    throw new ArgumentException(
+                        $"the film's release year must be between 1900 and {DateTime.Now.Year}");
                 }
                 _releaseYear = value;
             }
@@ -63,9 +65,10 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value > 10.0 || value < 0.0)
+                if (value < 0.0 || value > 10.0)
                 {
-                    throw new ArgumentException("the rating of the film must be between 0 and 10");
+                    throw new ArgumentException(
+                        "the rating of the film must be between 0 and 10");
                 }
                 _rating = value;
             }
