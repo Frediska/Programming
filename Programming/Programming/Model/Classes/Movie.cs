@@ -31,9 +31,9 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 40)
+                if (value < 30)
                 {
-                    throw new ArgumentException("duration must be positive and greater then 60");
+                    throw new ArgumentException("duration must be positive and greater then 30");
                 }
                 _durationMinutes = value;
             }

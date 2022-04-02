@@ -92,7 +92,7 @@ namespace Programming.View
                 _currentMovie.Genre = genres.GetValue
                     (_randomValues.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = _titlesMovies[i];
-                _currentMovie.DurationMinutes = _randomValues.Next(40, 210);
+                _currentMovie.DurationMinutes = _randomValues.Next(30, 210);
                 movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
