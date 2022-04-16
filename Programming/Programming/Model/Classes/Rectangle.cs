@@ -8,6 +8,8 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
+        private static int _allRectanglesCount;
+
         private double _length;
 
         private double _width;
@@ -21,6 +23,14 @@ namespace Programming.Model.Classes
         }
 
         public Rectangle() { }
+
+        public static int AllRectanglesCount
+        {
+            get
+            {
+                return _allRectanglesCount;
+            }
+        }
 
         public Point2D Center { get; set; }
 
