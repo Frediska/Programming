@@ -9,6 +9,7 @@ namespace Programming.Model.Classes
     public class Rectangle
     {
         private double _length;
+
         private double _width;
 
         public Rectangle(double length, double width, string color)
@@ -28,7 +29,11 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(nameof(Length), value);
+                if (value < 0)
+                {
+                    throw new ArgumentException(
+                        "length value must be positive");
+                }
                 _length = value;
             }
         }
@@ -41,7 +46,11 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(nameof(Width), value);
+                if (value < 0)
+                {
+                    throw new ArgumentException(
+                        "width value must be positive");
+                }
                 _width = value;
             }
         }

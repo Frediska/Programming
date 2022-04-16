@@ -27,7 +27,11 @@ namespace Programming.Model.Classes
             }
             set
             {
-                Validator.AssertOnPositiveValue(nameof(FlightTimeMinutes), value);
+                if (value <= 0)
+                {
+                    throw new ArgumentException(
+                        "flight time must be positive and greater then zero");
+                }
                 _flightTimeMinutes = value;
             }
         }

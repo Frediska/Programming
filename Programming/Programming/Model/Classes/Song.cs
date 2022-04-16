@@ -8,11 +8,11 @@ namespace Programming.Model.Classes
 {
     public class Song
     {
-        private int _durationSecond;
+        private int _durationSeconds;
 
-        public Song(int durationSecond, string name, string artist, string album)
+        public Song(int durationSeconds, string name, string artist, string album)
         {
-            DurationSecond = durationSecond;
+            DurationSeconds = durationSeconds;
             Name = name;
             Artist = artist;
             Album = album;
@@ -20,16 +20,20 @@ namespace Programming.Model.Classes
 
         public Song() { }
 
-        public int DurationSecond
+        public int DurationSeconds
         {
             get 
             { 
-                return _durationSecond; 
+                return _durationSeconds; 
             }
             set
             {
-                Validator.AssertOnPositiveValue(nameof(DurationSecond), value);
-                _durationSecond = value;
+                if (value <= 0)
+                {
+                    throw new ArgumentException(
+                        "the duration of the song must be positive and greater than zero");
+                }
+                _durationSeconds = value;
             }
         }
 
