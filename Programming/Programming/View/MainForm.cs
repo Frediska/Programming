@@ -16,7 +16,7 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        const int ElementsCount = 5;
+        private const int ElementsCount = 5;
 
         private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
 
