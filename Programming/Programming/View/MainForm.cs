@@ -75,6 +75,8 @@ namespace Programming.View
                     (_random.Next(0, colors.Length)).ToString();
                 _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
+                _currentRectangle.Center = new Point2D(
+                    _random.Next(1, 100), _random.Next(1, 100));
             }
             RectanglesListBox.SelectedIndex = 0;
         }
@@ -171,6 +173,8 @@ namespace Programming.View
             RectangleLengthTextBox.Text = _currentRectangle.Length.ToString();
             RectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
             RectangleColorTextBox.Text = _currentRectangle.Color;
+            RectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
+            RectangleYTextBox.Text = _currentRectangle.Center.Y.ToString();
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
