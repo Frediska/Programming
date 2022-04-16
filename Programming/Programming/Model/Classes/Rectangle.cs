@@ -28,10 +28,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException("length value must be positive");
-                }
+                Validator.AssertOnPositiveValue(nameof(Length), value);
                 _length = value;
             }
         }
@@ -44,10 +41,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 0)
-                {
-                    throw new ArgumentException("width value must be positive");
-                }
+                Validator.AssertOnPositiveValue(nameof(Width), value);
                 _width = value;
             }
         }

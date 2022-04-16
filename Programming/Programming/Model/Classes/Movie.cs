@@ -31,10 +31,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 40)
-                {
-                    throw new ArgumentException("duration must be positive and greater then 60");
-                }
+                Validator.AssertOnPositiveValue(nameof(DurationMinutes), value);
                 _durationMinutes = value;
             }
         }

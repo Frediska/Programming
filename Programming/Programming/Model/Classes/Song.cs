@@ -28,10 +28,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("the duration of the song must be positive and greater than zero");
-                }
+                Validator.AssertOnPositiveValue(nameof(DurationSecond), value);
                 _durationSecond = value;
             }
         }
