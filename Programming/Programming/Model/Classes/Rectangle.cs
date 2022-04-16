@@ -14,21 +14,37 @@ namespace Programming.Model.Classes
 
         private double _width;
 
+        private int _id;
+
         public Rectangle(double length, double width, string color, Point2D center)
         {
             Length = length;
             Width = width;
             Color = color;
             Center = center;
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
         }
 
-        public Rectangle() { }
+        public Rectangle() 
+        {
+            _allRectanglesCount++;
+            _id = _allRectanglesCount;
+        }
 
         public static int AllRectanglesCount
         {
             get
             {
                 return _allRectanglesCount;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
             }
         }
 
