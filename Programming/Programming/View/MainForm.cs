@@ -16,7 +16,7 @@ namespace Programming.View
 {
     public partial class MainForm : Form
     {
-        const int CountElements = 5;
+        const int ElementsCount = 5;
 
         private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
 
@@ -33,7 +33,7 @@ namespace Programming.View
 
         private Movie _currentMovie;
 
-        private Random _randomValues;
+        private Random _random;
 
 
         public MainForm()
@@ -52,58 +52,57 @@ namespace Programming.View
                 ChooseSeasonComboBox.Items.Add(value);
             }
 
-            ChooseSeasonComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            ChooseSeasonComboBox.DropDownStyle = 
+                System.Windows.Forms.ComboBoxStyle.DropDownList;
 
-            _randomValues = new Random();
+            _random = new Random();
 
-            _rectangles = CreateRectangles();
-            RectanglesListBox.SelectedIndex = 0;
+            CreateRectangles();
 
-            _movies = CreateMovies();
-            MoviesListBox.SelectedIndex = 0;
+            CreateMovies();         
         }
 
-        private Rectangle[] CreateRectangles()
+        private void CreateRectangles()
         {
-            Rectangle[] rectangles = new Rectangle[CountElements];
+            _rectangles = new Rectangle[ElementsCount];
             var colors = Enum.GetValues(typeof(Color));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentRectangle = new Rectangle();
-                _currentRectangle.Length = _randomValues.Next(1, 10001) / 10.0;
-                _currentRectangle.Width = _randomValues.Next(1, 10001) / 10.0;
+                _currentRectangle.Length = _random.Next(1, 10001) / 10.0;
+                _currentRectangle.Width = _random.Next(1, 10001) / 10.0;
                 _currentRectangle.Color = colors.GetValue
-                    (_randomValues.Next(0, colors.Length)).ToString();
-                rectangles[i] = _currentRectangle;
+                    (_random.Next(0, colors.Length)).ToString();
+                _rectangles[i] = _currentRectangle;
                 RectanglesListBox.Items.Add($"Rectangle {i + 1}");
             }
-            return rectangles;
+            RectanglesListBox.SelectedIndex = 0;
         }
 
-        private Movie[] CreateMovies()
+        private void CreateMovies()
         {
-            Movie[] movies = new Movie[CountElements];
+            _movies = new Movie[ElementsCount];
             var genres = Enum.GetValues(typeof(Genre));
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 _currentMovie = new Movie();
-                _currentMovie.Rating = _randomValues.Next(101) / 10.0;
-                _currentMovie.ReleaseYear = _randomValues.Next(1900, DateTime.Now.Year + 1);
+                _currentMovie.Rating = _random.Next(101) / 10.0;
+                _currentMovie.ReleaseYear = _random.Next(1900, DateTime.Now.Year + 1);
                 _currentMovie.Genre = genres.GetValue
-                    (_randomValues.Next(0, genres.Length)).ToString();
+                    (_random.Next(0, genres.Length)).ToString();
                 _currentMovie.Title = _titlesMovies[i];
-                _currentMovie.DurationMinutes = _randomValues.Next(40, 210);
-                movies[i] = _currentMovie;
+                _currentMovie.DurationMinutes = _random.Next(30, 210);
+                _movies[i] = _currentMovie;
                 MoviesListBox.Items.Add($"Movie {i + 1}");
             }
-            return movies;
+            MoviesListBox.SelectedIndex = 0;
         }
 
         private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
         {
             int maxWidthIndex = 0;
             double maxWidth = 0;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if (rectangles[i].Width > maxWidth)
                 {
@@ -118,7 +117,7 @@ namespace Programming.View
         {
             int maxRatingIndex = 0;
             double maxRating = 0;
-            for (int i = 0; i < CountElements; i++)
+            for (int i = 0; i < ElementsCount; i++)
             {
                 if(movies[i].Rating > maxRating)
                 {
@@ -169,118 +168,118 @@ namespace Programming.View
         {
             int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
             _currentRectangle = _rectangles[selectedIndexRectangle];
-            LengthTextBox.Text = _currentRectangle.Length.ToString();
-            WidthTextBox.Text = _currentRectangle.Width.ToString();
-            ColorTextBox.Text = _currentRectangle.Color;
+            RectangleLengthTextBox.Text = _currentRectangle.Length.ToString();
+            RectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
+            RectangleColorTextBox.Text = _currentRectangle.Color;
         }
 
         private void MoviesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndexMovie = MoviesListBox.SelectedIndex;
             _currentMovie = _movies[selectedIndexMovie];
-            TitleMovieTextBox.Text = _currentMovie.Title;
-            GenreTextBox.Text = _currentMovie.Genre;
-            ReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
-            RatingTextBox.Text = _currentMovie.Rating.ToString();
-            DurationMinutesTextBox.Text = _currentMovie.DurationMinutes.ToString();
+            MovieTitleTextBox.Text = _currentMovie.Title;
+            MovieGenreTextBox.Text = _currentMovie.Genre;
+            MovieReleaseYearTextBox.Text = _currentMovie.ReleaseYear.ToString();
+            MovieRatingTextBox.Text = _currentMovie.Rating.ToString();
+            MovieDurationMinutesTextBox.Text = _currentMovie.DurationMinutes.ToString();
         }
 
-        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        private void RectangleLengthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currrentLength = LengthTextBox.Text;
-                double lengthRectangleValue = double.Parse(currrentLength);
-                _currentRectangle.Length = lengthRectangleValue;
+                string lengthAsString = RectangleLengthTextBox.Text;
+                double rectangleLength = double.Parse(lengthAsString);
+                _currentRectangle.Length = rectangleLength;
             }
             catch
             {
-                LengthTextBox.BackColor = ErrorColor;
+                RectangleLengthTextBox.BackColor = ErrorColor;
                 return;
             }
-            LengthTextBox.BackColor = CorrectColor;
+            RectangleLengthTextBox.BackColor = CorrectColor;
         }
 
-        private void WidthTextBox_TextChanged(object sender, EventArgs e)
+        private void RectangleWidthTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentWidth = WidthTextBox.Text;
-                double widthRectangleValue = double.Parse(currentWidth);
-                _currentRectangle.Width = widthRectangleValue;
+                string widthAsString = RectangleWidthTextBox.Text;
+                double rectangleWidth = double.Parse(widthAsString);
+                _currentRectangle.Width = rectangleWidth;
             }
             catch
             {
-                WidthTextBox.BackColor = ErrorColor;
+                RectangleWidthTextBox.BackColor = ErrorColor;
                 return;
             }
-            WidthTextBox.BackColor = CorrectColor;
+            RectangleWidthTextBox.BackColor = CorrectColor;
         }
 
-        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        private void RectangleColorTextBox_TextChanged(object sender, EventArgs e)
         {
-            string colorRectangleValue = ColorTextBox.Text;
-            _currentRectangle.Color = colorRectangleValue;
+            string rectangleColor = RectangleColorTextBox.Text;
+            _currentRectangle.Color = rectangleColor;
         }
 
-        private void TitleMovieTextBox_TextChanged(object sender, EventArgs e)
+        private void MovieTitleTextBox_TextChanged(object sender, EventArgs e)
         {
-            string titleMovieValue = TitleMovieTextBox.Text;
-            _currentMovie.Title = titleMovieValue;
+            string movieTitle = MovieTitleTextBox.Text;
+            _currentMovie.Title = movieTitle;
         }
 
-        private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        private void MovieGenreTextBox_TextChanged(object sender, EventArgs e)
         {
-            string genreValue = GenreTextBox.Text;
-            _currentMovie.Genre = genreValue;
+            string genre = MovieGenreTextBox.Text;
+            _currentMovie.Genre = genre;
         }
 
-        private void ReleaseYearTextBox_TextChanged(object sender, EventArgs e)
+        private void MovieReleaseYearTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentReleaseYear = ReleaseYearTextBox.Text;
-                int releaseYearValue = int.Parse(currentReleaseYear);
-                _currentMovie.ReleaseYear = releaseYearValue;
+                string releaseYearAsString = MovieReleaseYearTextBox.Text;
+                int releaseYear = int.Parse(releaseYearAsString);
+                _currentMovie.ReleaseYear = releaseYear;
             }
             catch
             {
-                ReleaseYearTextBox.BackColor = ErrorColor;
+                MovieReleaseYearTextBox.BackColor = ErrorColor;
                 return;
             }
-            ReleaseYearTextBox.BackColor = CorrectColor;
+            MovieReleaseYearTextBox.BackColor = CorrectColor;
         }
 
-        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        private void MovieRatingTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentRating = RatingTextBox.Text;
-                double ratingMovieValue = double.Parse(currentRating);
-                _currentMovie.Rating = ratingMovieValue;
+                string ratingAsString = MovieRatingTextBox.Text;
+                double rating = double.Parse(ratingAsString);
+                _currentMovie.Rating = rating;
             }
             catch
             {
-                RatingTextBox.BackColor = ErrorColor;
+                MovieRatingTextBox.BackColor = ErrorColor;
                 return;
             }
-            RatingTextBox.BackColor = CorrectColor;
+            MovieRatingTextBox.BackColor = CorrectColor;
         }
 
-        private void DurationMinutesTextBox_TextChanged(object sender, EventArgs e)
+        private void MovieDurationMinutesTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                string currentDurationMinutes = DurationMinutesTextBox.Text;
-                int durationMinutesValue = int.Parse(currentDurationMinutes);
-                _currentMovie.DurationMinutes = durationMinutesValue;
+                string durationMinutesAsString = MovieDurationMinutesTextBox.Text;
+                int durationMinutes = int.Parse(durationMinutesAsString);
+                _currentMovie.DurationMinutes = durationMinutes;
             }
             catch
             {
-                DurationMinutesTextBox.BackColor = ErrorColor;
+                MovieDurationMinutesTextBox.BackColor = ErrorColor;
                 return;
             }
-            DurationMinutesTextBox.BackColor = CorrectColor;
+            MovieDurationMinutesTextBox.BackColor = CorrectColor;
         }
 
         private void ParsingButton_Click(object sender, EventArgs e)
@@ -288,7 +287,8 @@ namespace Programming.View
             Weekday weekday;
             if (Enum.TryParse(WeekdayParsingTextBox.Text, out weekday))
             {
-                WeekdayLabel.Text = $"Это день недели ({WeekdayParsingTextBox.Text} = {(int)weekday})";
+                WeekdayLabel.Text = $"Это день недели " +
+                    $"({WeekdayParsingTextBox.Text} = {(int)weekday})";
             }
             else
             {
