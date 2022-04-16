@@ -35,13 +35,13 @@ namespace Programming.Model.Classes
                 if (value.Length != 11)
                 {
                     throw new ArgumentException(
-                        "the value of the number field must consist of 11 digits");
+                        $"the value of the {nameof(Number)} field must consist of 11 digits");
                 }
 
                 if (long.TryParse(value, out long num) == false)
                 {
                     throw new ArgumentException(
-                        "the value of the number field must consist of digits only");
+                        $"the value of the {nameof(Number)} field must consist of digits only");
                 }
                 _number = value;
             }

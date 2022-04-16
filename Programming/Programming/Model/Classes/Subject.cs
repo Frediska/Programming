@@ -26,11 +26,7 @@ namespace Programming.Model.Classes
             }
             set
             {
-                if (value < 2 || value > 5)
-                {
-                    throw new ArgumentException(
-                        "the mark must be between 2 (unsatisfactory) and 5 (excellent)");
-                }
+                Validator.AssertValueInRange(nameof(Mark), value, 2, 5);
                 _mark = value;
             }
         }
