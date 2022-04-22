@@ -338,5 +338,29 @@ namespace Programming.View
             int findMaxRatingIndex = FindMovieWithMaxRating(_movies);
             MoviesListBox.SelectedIndex = findMaxRatingIndex;
         }
+
+        private void AddRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Image.FromFile(
+                @"C:\Users\Александр\source\repos\Programming\Programming\Programming\Resources\rectangle_add_24x24.png");
+        }
+
+        private void AddRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddRectangleButton.Image = Image.FromFile(
+                @"C:\Users\Александр\source\repos\Programming\Programming\Programming\Resources\rectangle_add_24x24_uncolor.png");
+        }
+
+        private void RemoveRectangleButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Image.FromFile(
+                @"C:\Users\Александр\source\repos\Programming\Programming\Programming\Resources\rectangle_remove_24x24.png");
+        }
+
+        private void RemoveRectangleButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveRectangleButton.Image = Image.FromFile(
+                @"C:\Users\Александр\source\repos\Programming\Programming\Programming\Resources\rectangle_remove_24x24_uncolor.png");
+        }
     }
 }

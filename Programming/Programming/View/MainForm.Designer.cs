@@ -88,10 +88,10 @@
             this.SelectedRectangleXTextBox = new System.Windows.Forms.TextBox();
             this.SelectedRectangleIDTextBox = new System.Windows.Forms.TextBox();
             this.CanvaPanel = new System.Windows.Forms.Panel();
-            this.DeleteRectangleButton = new System.Windows.Forms.Button();
-            this.CreateRectangleButton = new System.Windows.Forms.Button();
             this.RectanglesLabel = new System.Windows.Forms.Label();
             this.Rectangles2ListBox = new System.Windows.Forms.ListBox();
+            this.RemoveRectangleButton = new System.Windows.Forms.Button();
+            this.AddRectangleButton = new System.Windows.Forms.Button();
             this.EnumsTabControl.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -631,8 +631,8 @@
             this.tabPage1.Controls.Add(this.SelectedRectangleXTextBox);
             this.tabPage1.Controls.Add(this.SelectedRectangleIDTextBox);
             this.tabPage1.Controls.Add(this.CanvaPanel);
-            this.tabPage1.Controls.Add(this.DeleteRectangleButton);
-            this.tabPage1.Controls.Add(this.CreateRectangleButton);
+            this.tabPage1.Controls.Add(this.RemoveRectangleButton);
+            this.tabPage1.Controls.Add(this.AddRectangleButton);
             this.tabPage1.Controls.Add(this.RectanglesLabel);
             this.tabPage1.Controls.Add(this.Rectangles2ListBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -749,28 +749,6 @@
             this.CanvaPanel.Size = new System.Drawing.Size(475, 409);
             this.CanvaPanel.TabIndex = 4;
             // 
-            // DeleteRectangleButton
-            // 
-            this.DeleteRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.DeleteRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteRectangleButton.Location = new System.Drawing.Point(191, 200);
-            this.DeleteRectangleButton.Name = "DeleteRectangleButton";
-            this.DeleteRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.DeleteRectangleButton.TabIndex = 3;
-            this.DeleteRectangleButton.Text = "button2";
-            this.DeleteRectangleButton.UseVisualStyleBackColor = true;
-            // 
-            // CreateRectangleButton
-            // 
-            this.CreateRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CreateRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateRectangleButton.Location = new System.Drawing.Point(45, 200);
-            this.CreateRectangleButton.Name = "CreateRectangleButton";
-            this.CreateRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.CreateRectangleButton.TabIndex = 2;
-            this.CreateRectangleButton.Text = "button1";
-            this.CreateRectangleButton.UseVisualStyleBackColor = true;
-            // 
             // RectanglesLabel
             // 
             this.RectanglesLabel.AutoSize = true;
@@ -790,6 +768,36 @@
             this.Rectangles2ListBox.Name = "Rectangles2ListBox";
             this.Rectangles2ListBox.Size = new System.Drawing.Size(297, 164);
             this.Rectangles2ListBox.TabIndex = 0;
+            // 
+            // RemoveRectangleButton
+            // 
+            this.RemoveRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.RemoveRectangleButton.FlatAppearance.BorderSize = 0;
+            this.RemoveRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.RemoveRectangleButton.Image = global::Programming.Properties.Resources.rectangle_remove_24x24_uncolor;
+            this.RemoveRectangleButton.Location = new System.Drawing.Point(191, 195);
+            this.RemoveRectangleButton.Name = "RemoveRectangleButton";
+            this.RemoveRectangleButton.Size = new System.Drawing.Size(75, 41);
+            this.RemoveRectangleButton.TabIndex = 3;
+            this.RemoveRectangleButton.UseVisualStyleBackColor = true;
+            this.RemoveRectangleButton.MouseEnter += new System.EventHandler(this.RemoveRectangleButton_MouseEnter);
+            this.RemoveRectangleButton.MouseLeave += new System.EventHandler(this.RemoveRectangleButton_MouseLeave);
+            // 
+            // AddRectangleButton
+            // 
+            this.AddRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddRectangleButton.BackColor = System.Drawing.Color.Transparent;
+            this.AddRectangleButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.AddRectangleButton.FlatAppearance.BorderSize = 0;
+            this.AddRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddRectangleButton.Image = global::Programming.Properties.Resources.rectangle_add_24x24_uncolor;
+            this.AddRectangleButton.Location = new System.Drawing.Point(45, 195);
+            this.AddRectangleButton.Name = "AddRectangleButton";
+            this.AddRectangleButton.Size = new System.Drawing.Size(75, 41);
+            this.AddRectangleButton.TabIndex = 2;
+            this.AddRectangleButton.UseVisualStyleBackColor = false;
+            this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddRectangleButton_MouseEnter);
+            this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
             // 
             // MainForm
             // 
@@ -883,8 +891,8 @@
         private System.Windows.Forms.TextBox SelectedRectangleXTextBox;
         private System.Windows.Forms.TextBox SelectedRectangleIDTextBox;
         private System.Windows.Forms.Panel CanvaPanel;
-        private System.Windows.Forms.Button DeleteRectangleButton;
-        private System.Windows.Forms.Button CreateRectangleButton;
+        private System.Windows.Forms.Button RemoveRectangleButton;
+        private System.Windows.Forms.Button AddRectangleButton;
         private System.Windows.Forms.Label RectanglesLabel;
         private System.Windows.Forms.ListBox Rectangles2ListBox;
     }
