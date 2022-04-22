@@ -77,21 +77,21 @@
             this.RectangleLengthTextBox = new System.Windows.Forms.TextBox();
             this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.Rectangles2ListBox = new System.Windows.Forms.ListBox();
-            this.RectanglesLabel = new System.Windows.Forms.Label();
-            this.CreateRectangleButton = new System.Windows.Forms.Button();
-            this.DeleteRectangleButton = new System.Windows.Forms.Button();
-            this.CanvaPanel = new System.Windows.Forms.Panel();
-            this.SelectedRectangleIDTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedRectangleXTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedRectangleYTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedRectangleWidthTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedRectangleLenghtTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedRectangleIDLabel = new System.Windows.Forms.Label();
-            this.SelectedRectangleXLabel = new System.Windows.Forms.Label();
-            this.SelectedRectangleYLabel = new System.Windows.Forms.Label();
-            this.SelectedRectangleWidthLabel = new System.Windows.Forms.Label();
             this.SelectedRectangleLenghtLabel = new System.Windows.Forms.Label();
+            this.SelectedRectangleWidthLabel = new System.Windows.Forms.Label();
+            this.SelectedRectangleYLabel = new System.Windows.Forms.Label();
+            this.SelectedRectangleXLabel = new System.Windows.Forms.Label();
+            this.SelectedRectangleIDLabel = new System.Windows.Forms.Label();
+            this.SelectedRectangleLenghtTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedRectangleWidthTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedRectangleYTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedRectangleXTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedRectangleIDTextBox = new System.Windows.Forms.TextBox();
+            this.CanvaPanel = new System.Windows.Forms.Panel();
+            this.DeleteRectangleButton = new System.Windows.Forms.Button();
+            this.CreateRectangleButton = new System.Windows.Forms.Button();
+            this.RectanglesLabel = new System.Windows.Forms.Label();
+            this.Rectangles2ListBox = new System.Windows.Forms.ListBox();
             this.EnumsTabControl.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.SeasonHandleGroupBox.SuspendLayout();
@@ -643,14 +643,133 @@
             this.tabPage1.Text = "Rectangles";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // Rectangles2ListBox
+            // SelectedRectangleLenghtLabel
             // 
-            this.Rectangles2ListBox.FormattingEnabled = true;
-            this.Rectangles2ListBox.ItemHeight = 16;
-            this.Rectangles2ListBox.Location = new System.Drawing.Point(7, 29);
-            this.Rectangles2ListBox.Name = "Rectangles2ListBox";
-            this.Rectangles2ListBox.Size = new System.Drawing.Size(297, 164);
-            this.Rectangles2ListBox.TabIndex = 0;
+            this.SelectedRectangleLenghtLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleLenghtLabel.AutoSize = true;
+            this.SelectedRectangleLenghtLabel.Location = new System.Drawing.Point(7, 365);
+            this.SelectedRectangleLenghtLabel.Name = "SelectedRectangleLenghtLabel";
+            this.SelectedRectangleLenghtLabel.Size = new System.Drawing.Size(50, 16);
+            this.SelectedRectangleLenghtLabel.TabIndex = 14;
+            this.SelectedRectangleLenghtLabel.Text = "Lenght:";
+            // 
+            // SelectedRectangleWidthLabel
+            // 
+            this.SelectedRectangleWidthLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleWidthLabel.AutoSize = true;
+            this.SelectedRectangleWidthLabel.Location = new System.Drawing.Point(14, 337);
+            this.SelectedRectangleWidthLabel.Name = "SelectedRectangleWidthLabel";
+            this.SelectedRectangleWidthLabel.Size = new System.Drawing.Size(44, 16);
+            this.SelectedRectangleWidthLabel.TabIndex = 13;
+            this.SelectedRectangleWidthLabel.Text = "Width:";
+            // 
+            // SelectedRectangleYLabel
+            // 
+            this.SelectedRectangleYLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleYLabel.AutoSize = true;
+            this.SelectedRectangleYLabel.Location = new System.Drawing.Point(39, 309);
+            this.SelectedRectangleYLabel.Name = "SelectedRectangleYLabel";
+            this.SelectedRectangleYLabel.Size = new System.Drawing.Size(19, 16);
+            this.SelectedRectangleYLabel.TabIndex = 12;
+            this.SelectedRectangleYLabel.Text = "Y:";
+            // 
+            // SelectedRectangleXLabel
+            // 
+            this.SelectedRectangleXLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleXLabel.AutoSize = true;
+            this.SelectedRectangleXLabel.Location = new System.Drawing.Point(40, 281);
+            this.SelectedRectangleXLabel.Name = "SelectedRectangleXLabel";
+            this.SelectedRectangleXLabel.Size = new System.Drawing.Size(18, 16);
+            this.SelectedRectangleXLabel.TabIndex = 11;
+            this.SelectedRectangleXLabel.Text = "X:";
+            // 
+            // SelectedRectangleIDLabel
+            // 
+            this.SelectedRectangleIDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleIDLabel.AutoSize = true;
+            this.SelectedRectangleIDLabel.Location = new System.Drawing.Point(37, 253);
+            this.SelectedRectangleIDLabel.Name = "SelectedRectangleIDLabel";
+            this.SelectedRectangleIDLabel.Size = new System.Drawing.Size(21, 16);
+            this.SelectedRectangleIDLabel.TabIndex = 10;
+            this.SelectedRectangleIDLabel.Text = "Id:";
+            // 
+            // SelectedRectangleLenghtTextBox
+            // 
+            this.SelectedRectangleLenghtTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleLenghtTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedRectangleLenghtTextBox.Location = new System.Drawing.Point(64, 363);
+            this.SelectedRectangleLenghtTextBox.Name = "SelectedRectangleLenghtTextBox";
+            this.SelectedRectangleLenghtTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SelectedRectangleLenghtTextBox.TabIndex = 9;
+            // 
+            // SelectedRectangleWidthTextBox
+            // 
+            this.SelectedRectangleWidthTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleWidthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedRectangleWidthTextBox.Location = new System.Drawing.Point(64, 335);
+            this.SelectedRectangleWidthTextBox.Name = "SelectedRectangleWidthTextBox";
+            this.SelectedRectangleWidthTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SelectedRectangleWidthTextBox.TabIndex = 8;
+            // 
+            // SelectedRectangleYTextBox
+            // 
+            this.SelectedRectangleYTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleYTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedRectangleYTextBox.Location = new System.Drawing.Point(64, 307);
+            this.SelectedRectangleYTextBox.Name = "SelectedRectangleYTextBox";
+            this.SelectedRectangleYTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SelectedRectangleYTextBox.TabIndex = 7;
+            // 
+            // SelectedRectangleXTextBox
+            // 
+            this.SelectedRectangleXTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedRectangleXTextBox.Location = new System.Drawing.Point(64, 279);
+            this.SelectedRectangleXTextBox.Name = "SelectedRectangleXTextBox";
+            this.SelectedRectangleXTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SelectedRectangleXTextBox.TabIndex = 6;
+            // 
+            // SelectedRectangleIDTextBox
+            // 
+            this.SelectedRectangleIDTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SelectedRectangleIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedRectangleIDTextBox.Location = new System.Drawing.Point(64, 251);
+            this.SelectedRectangleIDTextBox.Name = "SelectedRectangleIDTextBox";
+            this.SelectedRectangleIDTextBox.Size = new System.Drawing.Size(100, 22);
+            this.SelectedRectangleIDTextBox.TabIndex = 5;
+            // 
+            // CanvaPanel
+            // 
+            this.CanvaPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CanvaPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CanvaPanel.Location = new System.Drawing.Point(311, 6);
+            this.CanvaPanel.Name = "CanvaPanel";
+            this.CanvaPanel.Size = new System.Drawing.Size(475, 409);
+            this.CanvaPanel.TabIndex = 4;
+            // 
+            // DeleteRectangleButton
+            // 
+            this.DeleteRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.DeleteRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteRectangleButton.Location = new System.Drawing.Point(191, 200);
+            this.DeleteRectangleButton.Name = "DeleteRectangleButton";
+            this.DeleteRectangleButton.Size = new System.Drawing.Size(75, 26);
+            this.DeleteRectangleButton.TabIndex = 3;
+            this.DeleteRectangleButton.Text = "button2";
+            this.DeleteRectangleButton.UseVisualStyleBackColor = true;
+            // 
+            // CreateRectangleButton
+            // 
+            this.CreateRectangleButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CreateRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateRectangleButton.Location = new System.Drawing.Point(45, 200);
+            this.CreateRectangleButton.Name = "CreateRectangleButton";
+            this.CreateRectangleButton.Size = new System.Drawing.Size(75, 26);
+            this.CreateRectangleButton.TabIndex = 2;
+            this.CreateRectangleButton.Text = "button1";
+            this.CreateRectangleButton.UseVisualStyleBackColor = true;
             // 
             // RectanglesLabel
             // 
@@ -661,118 +780,16 @@
             this.RectanglesLabel.TabIndex = 1;
             this.RectanglesLabel.Text = "Rectangles:";
             // 
-            // CreateRectangleButton
+            // Rectangles2ListBox
             // 
-            this.CreateRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateRectangleButton.Location = new System.Drawing.Point(45, 199);
-            this.CreateRectangleButton.Name = "CreateRectangleButton";
-            this.CreateRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.CreateRectangleButton.TabIndex = 2;
-            this.CreateRectangleButton.Text = "button1";
-            this.CreateRectangleButton.UseVisualStyleBackColor = true;
-            // 
-            // DeleteRectangleButton
-            // 
-            this.DeleteRectangleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteRectangleButton.Location = new System.Drawing.Point(174, 199);
-            this.DeleteRectangleButton.Name = "DeleteRectangleButton";
-            this.DeleteRectangleButton.Size = new System.Drawing.Size(75, 26);
-            this.DeleteRectangleButton.TabIndex = 3;
-            this.DeleteRectangleButton.Text = "button2";
-            this.DeleteRectangleButton.UseVisualStyleBackColor = true;
-            // 
-            // CanvaPanel
-            // 
-            this.CanvaPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CanvaPanel.Location = new System.Drawing.Point(311, 6);
-            this.CanvaPanel.Name = "CanvaPanel";
-            this.CanvaPanel.Size = new System.Drawing.Size(475, 409);
-            this.CanvaPanel.TabIndex = 4;
-            // 
-            // SelectedRectangleIDTextBox
-            // 
-            this.SelectedRectangleIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedRectangleIDTextBox.Location = new System.Drawing.Point(64, 251);
-            this.SelectedRectangleIDTextBox.Name = "SelectedRectangleIDTextBox";
-            this.SelectedRectangleIDTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SelectedRectangleIDTextBox.TabIndex = 5;
-            // 
-            // SelectedRectangleXTextBox
-            // 
-            this.SelectedRectangleXTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedRectangleXTextBox.Location = new System.Drawing.Point(64, 279);
-            this.SelectedRectangleXTextBox.Name = "SelectedRectangleXTextBox";
-            this.SelectedRectangleXTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SelectedRectangleXTextBox.TabIndex = 6;
-            // 
-            // SelectedRectangleYTextBox
-            // 
-            this.SelectedRectangleYTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedRectangleYTextBox.Location = new System.Drawing.Point(64, 307);
-            this.SelectedRectangleYTextBox.Name = "SelectedRectangleYTextBox";
-            this.SelectedRectangleYTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SelectedRectangleYTextBox.TabIndex = 7;
-            // 
-            // SelectedRectangleWidthTextBox
-            // 
-            this.SelectedRectangleWidthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedRectangleWidthTextBox.Location = new System.Drawing.Point(64, 335);
-            this.SelectedRectangleWidthTextBox.Name = "SelectedRectangleWidthTextBox";
-            this.SelectedRectangleWidthTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SelectedRectangleWidthTextBox.TabIndex = 8;
-            // 
-            // SelectedRectangleLenghtTextBox
-            // 
-            this.SelectedRectangleLenghtTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedRectangleLenghtTextBox.Location = new System.Drawing.Point(64, 363);
-            this.SelectedRectangleLenghtTextBox.Name = "SelectedRectangleLenghtTextBox";
-            this.SelectedRectangleLenghtTextBox.Size = new System.Drawing.Size(100, 22);
-            this.SelectedRectangleLenghtTextBox.TabIndex = 9;
-            // 
-            // SelectedRectangleIDLabel
-            // 
-            this.SelectedRectangleIDLabel.AutoSize = true;
-            this.SelectedRectangleIDLabel.Location = new System.Drawing.Point(37, 253);
-            this.SelectedRectangleIDLabel.Name = "SelectedRectangleIDLabel";
-            this.SelectedRectangleIDLabel.Size = new System.Drawing.Size(21, 16);
-            this.SelectedRectangleIDLabel.TabIndex = 10;
-            this.SelectedRectangleIDLabel.Text = "Id:";
-            // 
-            // SelectedRectangleXLabel
-            // 
-            this.SelectedRectangleXLabel.AutoSize = true;
-            this.SelectedRectangleXLabel.Location = new System.Drawing.Point(40, 281);
-            this.SelectedRectangleXLabel.Name = "SelectedRectangleXLabel";
-            this.SelectedRectangleXLabel.Size = new System.Drawing.Size(18, 16);
-            this.SelectedRectangleXLabel.TabIndex = 11;
-            this.SelectedRectangleXLabel.Text = "X:";
-            // 
-            // SelectedRectangleYLabel
-            // 
-            this.SelectedRectangleYLabel.AutoSize = true;
-            this.SelectedRectangleYLabel.Location = new System.Drawing.Point(39, 309);
-            this.SelectedRectangleYLabel.Name = "SelectedRectangleYLabel";
-            this.SelectedRectangleYLabel.Size = new System.Drawing.Size(19, 16);
-            this.SelectedRectangleYLabel.TabIndex = 12;
-            this.SelectedRectangleYLabel.Text = "Y:";
-            // 
-            // SelectedRectangleWidthLabel
-            // 
-            this.SelectedRectangleWidthLabel.AutoSize = true;
-            this.SelectedRectangleWidthLabel.Location = new System.Drawing.Point(14, 337);
-            this.SelectedRectangleWidthLabel.Name = "SelectedRectangleWidthLabel";
-            this.SelectedRectangleWidthLabel.Size = new System.Drawing.Size(44, 16);
-            this.SelectedRectangleWidthLabel.TabIndex = 13;
-            this.SelectedRectangleWidthLabel.Text = "Width:";
-            // 
-            // SelectedRectangleLenghtLabel
-            // 
-            this.SelectedRectangleLenghtLabel.AutoSize = true;
-            this.SelectedRectangleLenghtLabel.Location = new System.Drawing.Point(7, 365);
-            this.SelectedRectangleLenghtLabel.Name = "SelectedRectangleLenghtLabel";
-            this.SelectedRectangleLenghtLabel.Size = new System.Drawing.Size(50, 16);
-            this.SelectedRectangleLenghtLabel.TabIndex = 14;
-            this.SelectedRectangleLenghtLabel.Text = "Lenght:";
+            this.Rectangles2ListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.Rectangles2ListBox.FormattingEnabled = true;
+            this.Rectangles2ListBox.ItemHeight = 16;
+            this.Rectangles2ListBox.Location = new System.Drawing.Point(7, 29);
+            this.Rectangles2ListBox.Name = "Rectangles2ListBox";
+            this.Rectangles2ListBox.Size = new System.Drawing.Size(297, 164);
+            this.Rectangles2ListBox.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -783,6 +800,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "MainForm";
             this.Text = "Programming Demo";
             this.EnumsTabControl.ResumeLayout(false);

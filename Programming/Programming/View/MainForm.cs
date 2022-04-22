@@ -22,7 +22,7 @@ namespace Programming.View
 
         private readonly System.Drawing.Color CorrectColor = System.Drawing.Color.White;
 
-        private Rectangle[] _rectangles;
+        private List<Rectangle> _rectangles;
 
         private Movie[] _movies;
 
@@ -64,7 +64,7 @@ namespace Programming.View
 
         private void CreateRectangles()
         {
-            _rectangles = new Rectangle[ElementsCount];
+            _rectangles = new List<Rectangle>(ElementsCount);
             var colors = Enum.GetValues(typeof(Color));
             for (int i = 0; i < ElementsCount; i++)
             {
@@ -73,7 +73,7 @@ namespace Programming.View
                 _currentRectangle.Width = _random.Next(1, 10001) / 10.0;
                 _currentRectangle.Color = colors.GetValue
                     (_random.Next(0, colors.Length)).ToString();
-                _rectangles[i] = _currentRectangle;
+                _rectangles.Add(_currentRectangle);
                 RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
                 _currentRectangle.Center = new Point2D(
                     _random.Next(1, 100), _random.Next(1, 100));
@@ -100,7 +100,7 @@ namespace Programming.View
             MoviesListBox.SelectedIndex = 0;
         }
 
-        private int FindRectangleWithMaxWidth(Rectangle[] rectangles)
+        private int FindRectangleWithMaxWidth(List<Rectangle> rectangles)
         {
             int maxWidthIndex = 0;
             double maxWidth = 0;
