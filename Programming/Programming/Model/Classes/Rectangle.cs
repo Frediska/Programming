@@ -59,6 +59,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Length), value);
+                Validator.AssertValueInRange(nameof(Length), value, 10, 110);
                 _length = value;
             }
         }
@@ -72,6 +73,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Width), value);
+                Validator.AssertValueInRange(nameof(Width), value, 10, 110);
                 _width = value;
             }
         }
