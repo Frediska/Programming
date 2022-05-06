@@ -10,7 +10,7 @@ namespace Programming.Model.Classes
     {
         public static void AssertOnPositiveValue(string nameProperty, int value)
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 throw new ArgumentException(
                     $"the value of the {nameProperty} must be positive.");
@@ -19,7 +19,7 @@ namespace Programming.Model.Classes
 
         public static void AssertOnPositiveValue(string nameProperty, double value)
         {
-            if (value <= 0)
+            if (value < 0)
             {
                 throw new ArgumentException(
                     $"the value of the {nameProperty} must be positive.");
