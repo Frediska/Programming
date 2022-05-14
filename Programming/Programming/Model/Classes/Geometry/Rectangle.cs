@@ -8,6 +8,14 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
+        private static int MaxRectangleWidth = 110;
+
+        private static int MaxRectangleLength = 110;
+
+        private static int MinRectangleWidth = 10;
+
+        private static int MinRectangleLength = 10;
+
         private static int _allRectanglesCount;
 
         private int _length;
@@ -66,7 +74,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Length), value);
-                Validator.AssertValueInRange(nameof(Length), value, 10, 110);
+                Validator.AssertValueInRange(nameof(Length), value, MinRectangleLength, MaxRectangleLength);
                 _length = value;
             }
         }
@@ -80,7 +88,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Width), value);
-                Validator.AssertValueInRange(nameof(Width), value, 10, 110);
+                Validator.AssertValueInRange(nameof(Width), value, MinRectangleWidth, MaxRectangleWidth);
                 _width = value;
             }
         }

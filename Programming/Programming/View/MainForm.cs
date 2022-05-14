@@ -166,25 +166,25 @@ namespace Programming.View
         {
             if (rectangle != null)
             {
-                var copyRectangle = new Rectangle(rectangle);
+                var newRectangle = new Rectangle(rectangle);
                 var oldRectangle = _rectangles[Rectangles2ListBox.SelectedIndex];
 
-                var halfDifferenceWidth = Math.Abs(oldRectangle.Width - copyRectangle.Width) / 2;
-                var halfDifferenceLength = Math.Abs(oldRectangle.Length - copyRectangle.Length) / 2;
+                var halfDifferenceWidth = Math.Abs(oldRectangle.Width - newRectangle.Width) / 2;
+                var halfDifferenceLength = Math.Abs(oldRectangle.Length - newRectangle.Length) / 2;
 
-                if (copyRectangle.Center.X == oldRectangle.Center.X && copyRectangle.Center.Y == oldRectangle.Center.Y)
+                if (newRectangle.Center.X == oldRectangle.Center.X && newRectangle.Center.Y == oldRectangle.Center.Y)
                 {
-                    copyRectangle.Center.X = oldRectangle.Width >= copyRectangle.Width
+                    newRectangle.Center.X = oldRectangle.Width >= newRectangle.Width
                         ? oldRectangle.Center.X + halfDifferenceWidth
                         : oldRectangle.Center.X - halfDifferenceWidth;
 
-                    copyRectangle.Center.Y = oldRectangle.Length >= copyRectangle.Length
+                    newRectangle.Center.Y = oldRectangle.Length >= newRectangle.Length
                         ? oldRectangle.Center.Y + halfDifferenceLength
                         : oldRectangle.Center.Y - halfDifferenceLength;
                 }
 
-                var index = _rectangles.FindIndex(r => r.Id == copyRectangle.Id);
-                _rectangles[index] = copyRectangle;
+                var index = _rectangles.FindIndex(r => r.Id == newRectangle.Id);
+                _rectangles[index] = newRectangle;
 
                 var control = CanvasPanel.Controls[index];
                 control.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
