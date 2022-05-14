@@ -16,6 +16,15 @@ namespace Programming.Model.Classes
 
         private int _id;
 
+        public Rectangle(Rectangle rectangle)
+        {
+            Id = rectangle.Id;
+            Length = rectangle.Length;
+            Width = rectangle.Width;
+            Color = rectangle.Color;
+            Center = new Point2D(rectangle.Center.X, rectangle.Center.Y);
+        }
+
         public Rectangle(int length, int width, string color, Point2D center)
         {
             Length = length;
@@ -42,10 +51,8 @@ namespace Programming.Model.Classes
 
         public int Id
         {
-            get
-            {
-                return _id;
-            }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public Point2D Center { get; set; }

@@ -159,6 +159,66 @@ namespace Programming.View
             }
         }
 
+        private void UpdateRectangleInfo(Rectangle rectangle)
+        {
+            if (rectangle != null)
+            {
+                var copyRectangle = new Rectangle(rectangle);
+                var oldRectangle = _rectangles[Rectangles2ListBox.SelectedIndex];
+
+                var halfDifferenceWidth = Math.Abs(oldRectangle.Width - copyRectangle.Width) / 2;
+                var halfDifferenceLength = Math.Abs(oldRectangle.Length - copyRectangle.Length) / 2;
+
+                if (copyRectangle.Center.X == oldRectangle.Center.X && copyRectangle.Center.Y == oldRectangle.Center.Y)
+                {
+                    copyRectangle.Center.X = oldRectangle.Width >= copyRectangle.Width
+                        ? oldRectangle.Center.X + halfDifferenceWidth
+                        : oldRectangle.Center.X - halfDifferenceWidth;
+
+                    copyRectangle.Center.Y = oldRectangle.Length >= copyRectangle.Length
+                        ? oldRectangle.Center.Y + halfDifferenceLength
+                        : oldRectangle.Center.Y - halfDifferenceLength;
+                }
+
+                var index = _rectangles.FindIndex(r => r.Id == copyRectangle.Id);
+                _rectangles[index] = copyRectangle;
+
+                UpdatePanel(copyRectangle, index);
+                FindCollisions();
+            }
+        }
+
+        private void UpdatePanel(Rectangle rectangle, int index)
+        {
+            var control = CanvasPanel.Controls[index];
+            control.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
+            control.Width = rectangle.Width;
+            control.Height = rectangle.Length;
+        }
+
+        private void ClearRectangleInfo()
+        {
+            Rectangles2ListBox.Items.Clear();
+            SelectedRectangleIDTextBox.Clear();
+            SelectedRectangleXTextBox.Clear();
+            SelectedRectangleYTextBox.Clear();
+            SelectedRectangleWidthTextBox.Clear();
+            SelectedRectangleLengthTextBox.Clear();
+            SelectedRectangleXTextBox.BackColor = CorrectColor;
+            SelectedRectangleYTextBox.BackColor = CorrectColor;
+            SelectedRectangleWidthTextBox.BackColor = CorrectColor;
+            SelectedRectangleLengthTextBox.BackColor = CorrectColor;
+            RectanglesListBox.Items.Clear();
+            RectangleColorTextBox.Clear();
+            RectangleIDTextBox.Clear();
+            RectangleXTextBox.Clear();
+            RectangleYTextBox.Clear();
+            RectangleWidthTextBox.Clear();
+            RectangleLengthTextBox.Clear();
+            RectangleWidthTextBox.BackColor = CorrectColor;
+            RectangleLengthTextBox.BackColor = CorrectColor;
+        }
+
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValuesListBox.Items.Clear();
@@ -226,7 +286,7 @@ namespace Programming.View
             if (Rectangles2ListBox.SelectedIndex != -1)
             {
                 int indexSelectedRectangle = Rectangles2ListBox.SelectedIndex;
-                _currentRectangle = _rectangles[indexSelectedRectangle];
+                _currentRectangle = new Rectangle(_rectangles[indexSelectedRectangle]);
                 SelectedRectangleLengthTextBox.Text = _currentRectangle.Length.ToString();
                 SelectedRectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
                 SelectedRectangleXTextBox.Text = _currentRectangle.Center.X.ToString();
@@ -413,21 +473,23 @@ namespace Programming.View
         {
             var colors = Enum.GetValues(typeof(Color));
             _currentRectangle = new Rectangle();
-            _currentRectangle.Width = _random.Next(10, 101);
-            _currentRectangle.Length = _random.Next(10, 101);
-            _currentRectangle.Center = new Point2D(_random.Next(0, 400), _random.Next(0, 200));
-            _currentRectangle.Color = colors.GetValue
+            var rectangle = _currentRectangle;
+            rectangle.Width = _random.Next(10, 110);
+            rectangle.Length = _random.Next(10, 110);
+            rectangle.Center = new Point2D(_random.Next(0, CanvasPanel.Width - rectangle.Width),
+                _random.Next(0, CanvasPanel.Height - rectangle.Length));
+            rectangle.Color = colors.GetValue
                     (_random.Next(0, colors.Length)).ToString();
-            _rectangles.Add(_currentRectangle);
-            RectanglesListBox.Items.Add($"Rectangle {_currentRectangle.Id}");
-            Rectangles2ListBox.Items.Add($"{_currentRectangle.Id}: " +
-            $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
-            $" W: {_currentRectangle.Width};" + $" L: {_currentRectangle.Length})");
+            _rectangles.Add(rectangle);
+            RectanglesListBox.Items.Add($"Rectangle {rectangle.Id}");
+            Rectangles2ListBox.Items.Add($"{rectangle.Id}: " +
+            $"(X: {rectangle.Center.X};" + $" Y: {rectangle.Center.Y};" +
+            $" W: {rectangle.Width};" + $" L: {rectangle.Length})");
 
             Panel rectanglePanel = new Panel();
-            rectanglePanel.Width = _currentRectangle.Width;
-            rectanglePanel.Height = _currentRectangle.Length;
-            rectanglePanel.Location = new Point(_currentRectangle.Center.X, _currentRectangle.Center.Y);
+            rectanglePanel.Width = rectangle.Width;
+            rectanglePanel.Height = rectangle.Length;
+            rectanglePanel.Location = new Point(rectangle.Center.X, rectangle.Center.Y);
             rectanglePanel.BackColor = unIntersects;
             _rectanglePanels.Add(rectanglePanel);
             CanvasPanel.Controls.Add(rectanglePanel);
@@ -439,28 +501,11 @@ namespace Programming.View
             if (_rectangles.Count > 0)
             {
                 int selectedIndexRectangle = Rectangles2ListBox.SelectedIndex;
+                if (selectedIndexRectangle == -1) return;
                 _rectangles.RemoveAt(selectedIndexRectangle);
                 CanvasPanel.Controls.RemoveAt(selectedIndexRectangle);
                 _rectanglePanels.RemoveAt(selectedIndexRectangle);
-                Rectangles2ListBox.Items.Clear();
-                SelectedRectangleIDTextBox.Clear();
-                SelectedRectangleXTextBox.Clear();
-                SelectedRectangleYTextBox.Clear();
-                SelectedRectangleWidthTextBox.Clear();
-                SelectedRectangleLengthTextBox.Clear();
-                SelectedRectangleXTextBox.BackColor = CorrectColor;
-                SelectedRectangleYTextBox.BackColor = CorrectColor;
-                SelectedRectangleWidthTextBox.BackColor = CorrectColor;
-                SelectedRectangleLengthTextBox.BackColor = CorrectColor;
-                RectanglesListBox.Items.Clear();
-                RectangleColorTextBox.Clear();
-                RectangleIDTextBox.Clear();
-                RectangleXTextBox.Clear();
-                RectangleYTextBox.Clear();
-                RectangleWidthTextBox.Clear();
-                RectangleLengthTextBox.Clear();
-                RectangleWidthTextBox.BackColor = CorrectColor;
-                RectangleLengthTextBox.BackColor = CorrectColor;
+                ClearRectangleInfo();
                 
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
@@ -484,6 +529,7 @@ namespace Programming.View
                 string xRectangleAsString = SelectedRectangleXTextBox.Text;
                 int rectangleX = int.Parse(xRectangleAsString);
                 _currentRectangle.Center.X = rectangleX;
+                UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
                 $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
@@ -507,6 +553,7 @@ namespace Programming.View
                 string yRectangleAsString = SelectedRectangleYTextBox.Text;
                 int rectangleY = int.Parse(yRectangleAsString);
                 _currentRectangle.Center.Y = rectangleY;
+                UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
             $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
@@ -530,6 +577,7 @@ namespace Programming.View
                 string widthRectangleAsString = SelectedRectangleWidthTextBox.Text;
                 int rectangleWidth = int.Parse(widthRectangleAsString);
                 _currentRectangle.Width = rectangleWidth;
+                UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
             $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
@@ -553,6 +601,7 @@ namespace Programming.View
                 string lengthRectangleAsString = SelectedRectangleLengthTextBox.Text;
                 int rectangleLength = int.Parse(lengthRectangleAsString);
                 _currentRectangle.Length = rectangleLength;
+                UpdateRectangleInfo(_currentRectangle);
                 int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
                 Rectangles2ListBox.Items[index] = $"{_currentRectangle.Id}: " +
             $"(X: {_currentRectangle.Center.X};" + $" Y: {_currentRectangle.Center.Y};" +
