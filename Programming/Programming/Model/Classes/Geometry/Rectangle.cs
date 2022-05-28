@@ -8,13 +8,13 @@ namespace Programming.Model.Classes
 {
     public class Rectangle
     {
-        private static int MaxWidthOfRectangle = 110;
+        private static int MaxWidthOfRectangle = 160;
 
-        private static int MaxLengthOfRectangle = 110;
+        private static int MaxLengthOfRectangle = 160;
 
-        private static int MinWidthOfRectangle = 10;
+        private static int MinWidthOfRectangle = 1;
 
-        private static int MinLengthOfRectangle = 10;
+        private static int MinLengthOfRectangle = 1;
 
         private static int _allRectanglesCount;
 

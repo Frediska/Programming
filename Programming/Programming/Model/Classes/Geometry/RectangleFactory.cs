@@ -27,8 +27,20 @@ namespace Programming.Model.Classes
             Rectangle rectangle = new Rectangle();
             rectangle.Width = _random.Next(MinWidthOfRectangle, MaxWidthOfRectangle);
             rectangle.Length = _random.Next(MinLengthOfRectangle, MaxLengthOfRectangle);
-            rectangle.Center = new Point2D(_random.Next(Margin, widthCanvas - rectangle.Width),
-                _random.Next(Margin, lengthCanvas - rectangle.Length));
+            rectangle.Center = new Point2D(_random.Next(Margin, widthCanvas - rectangle.Width - Margin),
+                _random.Next(Margin, lengthCanvas - rectangle.Length - Margin));
+            rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
+
+            return rectangle;
+        }
+
+        public static Rectangle Randomize()
+        {
+            var colors = Enum.GetValues(typeof(Color));
+            Rectangle rectangle = new Rectangle();
+            rectangle.Center = new Point2D(_random.Next(Margin, 500), _random.Next(Margin, 500));
+            rectangle.Width = _random.Next(MinWidthOfRectangle, MaxWidthOfRectangle);
+            rectangle.Length = _random.Next(MinLengthOfRectangle, MaxLengthOfRectangle);
             rectangle.Color = colors.GetValue(_random.Next(0, colors.Length)).ToString();
 
             return rectangle;

@@ -8,9 +8,9 @@ namespace Programming.Model.Classes
 {
     public class Point2D
     {
-        private const int MaxConvasWidth = 1220;
+        private const int MaxConvasWidth = 1285;
 
-        private const int MaxConvasHeight = 750;
+        private const int MaxConvasHeight = 798;
 
         private const int Margin = 15;
 
@@ -33,7 +33,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(X), value);
-                Validator.AssertValueInRange(nameof(X), value, Margin, MaxConvasWidth);
+                Validator.AssertValueInRange(nameof(X), value, Margin, MaxConvasWidth - Margin);
                 _x = value;
             }
         }
@@ -47,7 +47,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Y), value);
-                Validator.AssertValueInRange(nameof(Y), value, Margin, MaxConvasHeight);
+                Validator.AssertValueInRange(nameof(Y), value, Margin, MaxConvasHeight - Margin);
                 _y = value;
             }
         }
