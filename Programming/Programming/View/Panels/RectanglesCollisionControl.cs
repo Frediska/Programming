@@ -136,7 +136,7 @@ namespace Programming.View.Panels
                    $"(X: {rectangle.Center.X};" +
                    $" Y: {rectangle.Center.Y};" +
                    $" W: {rectangle.Width};" +
-                   $" H: {rectangle.Length})";
+                   $" L: {rectangle.Length})";
         }
 
         private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
