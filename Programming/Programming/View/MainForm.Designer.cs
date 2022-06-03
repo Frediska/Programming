@@ -31,8 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.EnumsTabControl = new System.Windows.Forms.TabControl();
             this.EnumsTabPage = new System.Windows.Forms.TabPage();
+            this.groupBoxSeasonsHandleControl1 = new Programming.View.Panels.SeasonsHandleControl();
+            this.groupBoxWeekdayParsingControl1 = new Programming.View.Panels.WeekdayParsingControl();
+            this.groupBoxEnumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
             this.ClassesTabPage = new System.Windows.Forms.TabPage();
+            this.rectanglesControl1 = new Programming.View.Panels.RectanglesControl();
+            this.moviesControl1 = new Programming.View.Panels.MoviesControl();
             this.RectanglesTabPage = new System.Windows.Forms.TabPage();
+            this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
             this.MoviesGroupBox = new System.Windows.Forms.GroupBox();
             this.FindMoviesButton = new System.Windows.Forms.Button();
             this.MovieDurationMinutesLabel = new System.Windows.Forms.Label();
@@ -46,12 +52,6 @@
             this.MovieRatingTextBox = new System.Windows.Forms.TextBox();
             this.MovieTitleTextBox = new System.Windows.Forms.TextBox();
             this.MoviesListBox = new System.Windows.Forms.ListBox();
-            this.groupBoxSeasonsHandleControl1 = new Programming.View.Panels.SeasonsHandleControl();
-            this.groupBoxWeekdayParsingControl1 = new Programming.View.Panels.WeekdayParsingControl();
-            this.groupBoxEnumerationsControl1 = new Programming.View.Panels.EnumerationsControl();
-            this.rectanglesControl1 = new Programming.View.Panels.RectanglesControl();
-            this.moviesControl1 = new Programming.View.Panels.MoviesControl();
-            this.rectanglesCollisionControl1 = new Programming.View.Panels.RectanglesCollisionControl();
             this.EnumsTabControl.SuspendLayout();
             this.EnumsTabPage.SuspendLayout();
             this.ClassesTabPage.SuspendLayout();
@@ -87,6 +87,27 @@
             this.EnumsTabPage.Text = "Enums";
             this.EnumsTabPage.UseVisualStyleBackColor = true;
             // 
+            // groupBoxSeasonsHandleControl1
+            // 
+            this.groupBoxSeasonsHandleControl1.Location = new System.Drawing.Point(465, 282);
+            this.groupBoxSeasonsHandleControl1.Name = "groupBoxSeasonsHandleControl1";
+            this.groupBoxSeasonsHandleControl1.Size = new System.Drawing.Size(317, 135);
+            this.groupBoxSeasonsHandleControl1.TabIndex = 8;
+            // 
+            // groupBoxWeekdayParsingControl1
+            // 
+            this.groupBoxWeekdayParsingControl1.Location = new System.Drawing.Point(2, 282);
+            this.groupBoxWeekdayParsingControl1.Name = "groupBoxWeekdayParsingControl1";
+            this.groupBoxWeekdayParsingControl1.Size = new System.Drawing.Size(456, 135);
+            this.groupBoxWeekdayParsingControl1.TabIndex = 7;
+            // 
+            // groupBoxEnumerationsControl1
+            // 
+            this.groupBoxEnumerationsControl1.Location = new System.Drawing.Point(2, 3);
+            this.groupBoxEnumerationsControl1.Name = "groupBoxEnumerationsControl1";
+            this.groupBoxEnumerationsControl1.Size = new System.Drawing.Size(780, 276);
+            this.groupBoxEnumerationsControl1.TabIndex = 6;
+            // 
             // ClassesTabPage
             // 
             this.ClassesTabPage.Controls.Add(this.rectanglesControl1);
@@ -100,6 +121,20 @@
             this.ClassesTabPage.Text = "Classes";
             this.ClassesTabPage.UseVisualStyleBackColor = true;
             // 
+            // rectanglesControl1
+            // 
+            this.rectanglesControl1.Location = new System.Drawing.Point(3, 0);
+            this.rectanglesControl1.Name = "rectanglesControl1";
+            this.rectanglesControl1.Size = new System.Drawing.Size(389, 417);
+            this.rectanglesControl1.TabIndex = 2;
+            // 
+            // moviesControl1
+            // 
+            this.moviesControl1.Location = new System.Drawing.Point(395, 0);
+            this.moviesControl1.Name = "moviesControl1";
+            this.moviesControl1.Size = new System.Drawing.Size(389, 417);
+            this.moviesControl1.TabIndex = 2;
+            // 
             // RectanglesTabPage
             // 
             this.RectanglesTabPage.Controls.Add(this.rectanglesCollisionControl1);
@@ -110,6 +145,14 @@
             this.RectanglesTabPage.TabIndex = 2;
             this.RectanglesTabPage.Text = "Rectangles";
             this.RectanglesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // rectanglesCollisionControl1
+            // 
+            this.rectanglesCollisionControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rectanglesCollisionControl1.Location = new System.Drawing.Point(3, 3);
+            this.rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
+            this.rectanglesCollisionControl1.Size = new System.Drawing.Size(786, 415);
+            this.rectanglesCollisionControl1.TabIndex = 0;
             // 
             // MoviesGroupBox
             // 
@@ -203,49 +246,6 @@
             this.MoviesListBox.Name = "MoviesListBox";
             this.MoviesListBox.Size = new System.Drawing.Size(120, 84);
             this.MoviesListBox.TabIndex = 0;
-            // 
-            // groupBoxSeasonsHandleControl1
-            // 
-            this.groupBoxSeasonsHandleControl1.Location = new System.Drawing.Point(465, 282);
-            this.groupBoxSeasonsHandleControl1.Name = "groupBoxSeasonsHandleControl1";
-            this.groupBoxSeasonsHandleControl1.Size = new System.Drawing.Size(317, 135);
-            this.groupBoxSeasonsHandleControl1.TabIndex = 8;
-            // 
-            // groupBoxWeekdayParsingControl1
-            // 
-            this.groupBoxWeekdayParsingControl1.Location = new System.Drawing.Point(2, 282);
-            this.groupBoxWeekdayParsingControl1.Name = "groupBoxWeekdayParsingControl1";
-            this.groupBoxWeekdayParsingControl1.Size = new System.Drawing.Size(456, 135);
-            this.groupBoxWeekdayParsingControl1.TabIndex = 7;
-            // 
-            // groupBoxEnumerationsControl1
-            // 
-            this.groupBoxEnumerationsControl1.Location = new System.Drawing.Point(2, 3);
-            this.groupBoxEnumerationsControl1.Name = "groupBoxEnumerationsControl1";
-            this.groupBoxEnumerationsControl1.Size = new System.Drawing.Size(780, 276);
-            this.groupBoxEnumerationsControl1.TabIndex = 6;
-            // 
-            // rectanglesControl1
-            // 
-            this.rectanglesControl1.Location = new System.Drawing.Point(3, 0);
-            this.rectanglesControl1.Name = "rectanglesControl1";
-            this.rectanglesControl1.Size = new System.Drawing.Size(389, 417);
-            this.rectanglesControl1.TabIndex = 2;
-            // 
-            // moviesControl1
-            // 
-            this.moviesControl1.Location = new System.Drawing.Point(395, 0);
-            this.moviesControl1.Name = "moviesControl1";
-            this.moviesControl1.Size = new System.Drawing.Size(389, 417);
-            this.moviesControl1.TabIndex = 2;
-            // 
-            // rectanglesCollisionControl1
-            // 
-            this.rectanglesCollisionControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rectanglesCollisionControl1.Location = new System.Drawing.Point(3, 3);
-            this.rectanglesCollisionControl1.Name = "rectanglesCollisionControl1";
-            this.rectanglesCollisionControl1.Size = new System.Drawing.Size(786, 415);
-            this.rectanglesCollisionControl1.TabIndex = 0;
             // 
             // MainForm
             // 

@@ -18,10 +18,6 @@ namespace Programming.View.Panels
     {
         private const int ElementsCount = 5;
 
-        private readonly System.Drawing.Color ErrorColor = System.Drawing.Color.LightPink;
-
-        private readonly System.Drawing.Color CorrectColor = System.Drawing.Color.White;
-
         private Rectangle[] _rectangles;
 
         private Rectangle _currentRectangle;
@@ -88,10 +84,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                RectangleLengthTextBox.BackColor = ErrorColor;
+                RectangleLengthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleLengthTextBox.BackColor = CorrectColor;
+            RectangleLengthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectangleWidthTextBox_TextChanged(object sender, EventArgs e)
@@ -104,10 +100,10 @@ namespace Programming.View.Panels
             }
             catch
             {
-                RectangleWidthTextBox.BackColor = ErrorColor;
+                RectangleWidthTextBox.BackColor = AppColors.ErrorColor;
                 return;
             }
-            RectangleWidthTextBox.BackColor = CorrectColor;
+            RectangleWidthTextBox.BackColor = AppColors.CorrectColor;
         }
 
         private void RectangleColorTextBox_TextChanged(object sender, EventArgs e)

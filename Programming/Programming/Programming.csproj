@@ -52,9 +52,9 @@
     <Compile Include="Model\Classes\Geometry\Point2D.cs" />
     <Compile Include="Model\Classes\Geometry\RectangleFactory.cs" />
     <Compile Include="Model\Classes\Geometry\Ring.cs" />
-    <Compile Include="Model\Classes\MovieFactory.cs" />
+    <Compile Include="Model\Classes\Movie\MovieFactory.cs" />
     <Compile Include="Model\Classes\Subject.cs" />
-    <Compile Include="Model\Classes\Movie.cs" />
+    <Compile Include="Model\Classes\Movie\Movie.cs" />
     <Compile Include="Model\Classes\Flight.cs" />
     <Compile Include="Model\Classes\Geometry\Rectangle.cs" />
     <Compile Include="Model\Classes\Song.cs" />
