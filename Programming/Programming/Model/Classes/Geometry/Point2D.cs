@@ -6,24 +6,53 @@ using System.Threading.Tasks;
 
 namespace Programming.Model.Classes
 {
+    /// <summary>
+    /// Хранит данные о координатах центра геометрической фигуры.
+    /// </summary>
     public class Point2D
     {
+        /// <summary>
+        /// Максимальная ширина конвы.
+        /// </summary>
         private const int MaxConvasWidth = 1285;
 
+        /// <summary>
+        /// Максимальная высота конвы.
+        /// </summary>
         private const int MaxConvasHeight = 798;
 
+        /// <summary>
+        /// Отступ внутри элемента размещения прямоугольников.
+        /// </summary>
         private const int Margin = 15;
 
+        /// <summary>
+        /// Координата x.
+        /// </summary>
         private int _x;
 
+        /// <summary>
+        /// Координата y.
+        /// </summary>
         private int _y;
 
+        /// <summary>
+        ///Создаёт экземпляр класса <see cref="Point2D"/>.
+        /// </summary>
+        /// <param name="x">Координата X. Должна быть положительным числом.
+        /// Должна быть в промежутке от 15 до 1270.</param>
+        /// <param name="y">Координата Y. Должна быть положительным числом.
+        /// Должна быть в промежутке от 15 до 783.</param>
         public Point2D(int x, int y)
         {
             X = x;
             Y = y;
         }
 
+        /// <summary>
+        /// Возвращает и задаёт координату X. Должна быть положительным числом.
+        /// Должна быть в промежутке от 15 до 1270.
+        /// </summary>
         public int X
         {
             get
@@ -38,6 +67,10 @@ namespace Programming.Model.Classes
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт координату Y. Должна быть положительным числом.
+        /// Должна быть в промежутке от 15 до 783.
+        /// </summary>
         public int Y
         {
             get

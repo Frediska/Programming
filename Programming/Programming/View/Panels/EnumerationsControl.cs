@@ -12,8 +12,14 @@ using Color = Programming.Model.Enums.Color;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Предоставляет реализацию по представлению перечислений.
+    /// </summary>
     public partial class EnumerationsControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="EnumerationControl"/>.
+        /// </summary>
         public EnumerationsControl()
         {
             InitializeComponent();

@@ -12,13 +12,29 @@ using Programming.Model.Classes;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Предоставляет реализацию по представлению прямоугольников.
+    /// </summary>
     public partial class RectanglesCollisionControl : UserControl
     {
+        /// <summary>
+        /// Коллекция прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectangles;
 
+        /// <summary>
+        /// Коллекция отображаемых прямоугольников.
+        /// </summary>
         private List<Panel> _rectanglePanels;
 
+        /// <summary>
+        /// Выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle;
+
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="RectangleCollisionControl"/>.
+        /// </summary>
         public RectanglesCollisionControl()
         {
             InitializeComponent();
@@ -29,6 +45,9 @@ namespace Programming.View.Panels
 
         }
 
+        /// <summary>
+        /// Находит пересекающиеся прямоугольники и перекрашивает их.
+        /// </summary>
         private void FindCollisions()
         {
             for (int k = 0; k < _rectangles.Count; k++)
@@ -49,6 +68,10 @@ namespace Programming.View.Panels
             }
         }
 
+        /// <summary>
+        /// Обновляет информацию в списке при изменении значений.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
         private void UpdateRectangleInfo(Rectangle rectangle)
         {
             if (rectangle != null)
@@ -85,6 +108,9 @@ namespace Programming.View.Panels
             }
         }
 
+        /// <summary>
+        /// Очищает информацию о прямоугольнике с текстовых полей и со списка.
+        /// </summary>
         private void ClearRectangleInfo()
         {
             Rectangles2ListBox.Items.Clear();
@@ -99,6 +125,11 @@ namespace Programming.View.Panels
             SelectedRectangleLengthTextBox.BackColor = AppColors.CorrectColor;
         }
 
+        /// <summary>
+        /// Из данных прямоугольника преобразует текст.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
+        /// <returns>Возвращает текст.</returns>
         private string RectangleInfo(Rectangle rectangle)
         {
             return $"{rectangle.Id}: " +

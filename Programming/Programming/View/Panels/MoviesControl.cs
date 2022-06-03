@@ -12,17 +12,35 @@ using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Предоставляет реализацию по представлению фильмов.
+    /// </summary>
     public partial class MoviesControl : UserControl
     {
+        /// <summary>
+        /// Количество элементов.
+        /// </summary>
         private const int ElementsCount = 5;
 
+        /// <summary>
+        /// Массив фильмов.
+        /// </summary>
         private Movie[] _movies;
 
+        /// <summary>
+        /// Массив названиий фильмов.
+        /// </summary>
         private string[] _titlesMovies = { "Intouchables", "Deadly Class", "Aladdin",
             "Fight Club", "Harry Potter and the Sorcerer's Stone" };
 
+        /// <summary>
+        /// Выбранный фильм.
+        /// </summary>
         private Movie _currentMovie;
 
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="MoviesControl"/>.
+        /// </summary>
         public MoviesControl()
         {
             InitializeComponent();
@@ -32,6 +50,10 @@ namespace Programming.View.Panels
             MoviesListBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Инициализирует массив фильмов.
+        /// </summary>
+        /// <returns>Возвращает массив фильмов.</returns>
         private Movie[] CreateMovie()
         {
             Movie[] movies = new Movie[ElementsCount];
@@ -46,6 +68,11 @@ namespace Programming.View.Panels
             return movies;
         }
 
+        /// <summary>
+        /// Находит фильмс наибольшим рейтингом.
+        /// </summary>
+        /// <param name="movies">Массив фильмов.</param>
+        /// <returns>Возвращает индекс элемента коллекции, чей рейтинг больше остальных.</returns>
         private int FindMovieWithMaxRating(Movie[] movies)
         {
             int maxRatingIndex = 0;

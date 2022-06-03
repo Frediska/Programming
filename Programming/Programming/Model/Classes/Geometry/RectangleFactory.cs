@@ -7,20 +7,47 @@ using Color = Programming.Model.Enums.Color;
 
 namespace Programming.Model.Classes
 {
-    public class RectangleFactory
+    /// <summary>
+    /// Предоставляет методы для создания прямоугольников.
+    /// </summary>
+    public static class RectangleFactory
     {
+        /// <summary>
+        /// Отступ внутри элемента размещения прямоугольников.
+        /// </summary>
         private const int Margin = 15;
 
-        private const int MaxWidthOfRectangle = 110;
+        /// <summary>
+        /// Максимальная ширина прямоугольника.
+        /// </summary>
+        private const int MaxWidthOfRectangle = 160;
 
-        private const int MaxLengthOfRectangle = 110;
+        /// <summary>
+        /// Максимальная длина прямоугольника.
+        /// </summary>
+        private const int MaxLengthOfRectangle = 160;
 
-        private const int MinLengthOfRectangle = 10;
+        /// <summary>
+        /// Минимальная длина прямоугольника.
+        /// </summary>
+        private const int MinLengthOfRectangle = 1;
 
-        private const int MinWidthOfRectangle = 10;
+        /// <summary>
+        /// Минимальная ширина прямоугольника.
+        /// </summary>
+        private const int MinWidthOfRectangle = 1;
 
+        /// <summary>
+        /// Случайные значения.
+        /// </summary>
         private static Random _random = new Random();
 
+        /// <summary>
+        /// Создаёт прямоугольник со случайными значениями длины, ширины и координат.
+        /// </summary>
+        /// <param name="widthCanvas">Ширина элемента размещения.</param>
+        /// <param name="lengthCanvas">Длина элемента размещения.</param>
+        /// <returns>Возвращает объект <see cref="Rectangle"/>.</returns>
         public static Rectangle Randomize(int widthCanvas, int lengthCanvas)
         {
             var colors = Enum.GetValues(typeof(Color));
@@ -34,6 +61,10 @@ namespace Programming.Model.Classes
             return rectangle;
         }
 
+        /// <summary>
+        /// Создаёт прямоугольник со случайными значениями длины, ширины и координат.
+        /// </summary>
+        /// <returns>Возвращает объект <see cref="Rectangle"/>.</returns>
         public static Rectangle Randomize()
         {
             var colors = Enum.GetValues(typeof(Color));

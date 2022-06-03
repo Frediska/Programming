@@ -11,8 +11,14 @@ using Programming.Model.Enums;
 
 namespace Programming.View.Panels
 {
+    /// <summary>
+    /// Предоставляет реализацию по изменению цвета фона окна.
+    /// </summary>
     public partial class SeasonsHandleControl : UserControl
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="SeasonHandleControl"/>.
+        /// </summary>
         public SeasonsHandleControl()
         {
             InitializeComponent();
