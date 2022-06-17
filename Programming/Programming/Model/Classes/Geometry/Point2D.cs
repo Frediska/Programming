@@ -14,12 +14,12 @@ namespace Programming.Model.Classes
         /// <summary>
         /// Максимальная ширина конвы.
         /// </summary>
-        private const int MaxConvasWidth = 1285;
+        private const int MaxCanvasWidth = 1285;
 
         /// <summary>
         /// Максимальная высота конвы.
         /// </summary>
-        private const int MaxConvasHeight = 798;
+        private const int MaxCanvasHeight = 798;
 
         /// <summary>
         /// Отступ внутри элемента размещения прямоугольников.
@@ -62,7 +62,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(X), value);
-                Validator.AssertValueInRange(nameof(X), value, Margin, MaxConvasWidth - Margin);
+                Validator.AssertValueInRange(nameof(X), value, Margin, MaxCanvasWidth - Margin);
                 _x = value;
             }
         }
@@ -80,7 +80,7 @@ namespace Programming.Model.Classes
             set
             {
                 Validator.AssertOnPositiveValue(nameof(Y), value);
-                Validator.AssertValueInRange(nameof(Y), value, Margin, MaxConvasHeight - Margin);
+                Validator.AssertValueInRange(nameof(Y), value, Margin, MaxCanvasHeight - Margin);
                 _y = value;
             }
         }

@@ -77,7 +77,7 @@ namespace Programming.View.Panels
             if (rectangle != null)
             {
                 var newRectangle = new Rectangle(rectangle);
-                var oldRectangle = _rectangles[Rectangles2ListBox.SelectedIndex];
+                var oldRectangle = _rectangles[RectanglesListBox.SelectedIndex];
 
                 var halfDifferenceWidth = Math.Abs(oldRectangle.Width - newRectangle.Width) / 2;
                 var halfDifferenceLength = Math.Abs(oldRectangle.Length - newRectangle.Length) / 2;
@@ -113,7 +113,7 @@ namespace Programming.View.Panels
         /// </summary>
         private void ClearRectangleInfo()
         {
-            Rectangles2ListBox.Items.Clear();
+            RectanglesListBox.Items.Clear();
             SelectedRectangleIDTextBox.Clear();
             SelectedRectangleXTextBox.Clear();
             SelectedRectangleYTextBox.Clear();
@@ -139,11 +139,11 @@ namespace Programming.View.Panels
                    $" L: {rectangle.Length})";
         }
 
-        private void Rectangles2ListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedIndex != -1)
+            if (RectanglesListBox.SelectedIndex != -1)
             {
-                int indexSelectedRectangle = Rectangles2ListBox.SelectedIndex;
+                int indexSelectedRectangle = RectanglesListBox.SelectedIndex;
                 _currentRectangle = new Rectangle(_rectangles[indexSelectedRectangle]);
                 SelectedRectangleLengthTextBox.Text = _currentRectangle.Length.ToString();
                 SelectedRectangleWidthTextBox.Text = _currentRectangle.Width.ToString();
@@ -177,7 +177,7 @@ namespace Programming.View.Panels
         {
             var rectangle = RectangleFactory.Randomize(CanvasPanel.Width, CanvasPanel.Height);
             _rectangles.Add(rectangle);
-            Rectangles2ListBox.Items.Add(RectangleInfo(rectangle));
+            RectanglesListBox.Items.Add(RectangleInfo(rectangle));
 
             Panel rectanglePanel = new Panel();
             rectanglePanel.Width = rectangle.Width;
@@ -193,7 +193,7 @@ namespace Programming.View.Panels
         {
             if (_rectangles.Count > 0)
             {
-                int selectedIndexRectangle = Rectangles2ListBox.SelectedIndex;
+                int selectedIndexRectangle = RectanglesListBox.SelectedIndex;
                 if (selectedIndexRectangle == -1) return;
                 _rectangles.RemoveAt(selectedIndexRectangle);
                 CanvasPanel.Controls.RemoveAt(selectedIndexRectangle);
@@ -202,8 +202,8 @@ namespace Programming.View.Panels
 
                 for (int i = 0; i < _rectangles.Count; i++)
                 {
-                    Rectangles2ListBox.Items.Add(RectangleInfo(_rectangles[i]));
-                    Rectangles2ListBox.SelectedIndex = 0;
+                    RectanglesListBox.Items.Add(RectangleInfo(_rectangles[i]));
+                    RectanglesListBox.SelectedIndex = 0;
                 }
                 FindCollisions();
             }
@@ -211,7 +211,7 @@ namespace Programming.View.Panels
 
         private void SelectedRectangleXTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedIndex == -1) return;
+            if (RectanglesListBox.SelectedIndex == -1) return;
 
             try
             {
@@ -219,8 +219,8 @@ namespace Programming.View.Panels
                 int rectangleX = int.Parse(xRectangleAsString);
                 _currentRectangle.Center.X = rectangleX;
                 UpdateRectangleInfo(_currentRectangle);
-                int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = RectangleInfo(_currentRectangle);
+                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
+                RectanglesListBox.Items[index] = RectangleInfo(_currentRectangle);
             }
 
             catch
@@ -233,7 +233,7 @@ namespace Programming.View.Panels
 
         private void SelectedRectangleYTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedIndex == -1) return;
+            if (RectanglesListBox.SelectedIndex == -1) return;
 
             try
             {
@@ -241,8 +241,8 @@ namespace Programming.View.Panels
                 int rectangleY = int.Parse(yRectangleAsString);
                 _currentRectangle.Center.Y = rectangleY;
                 UpdateRectangleInfo(_currentRectangle);
-                int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = RectangleInfo(_currentRectangle);
+                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
+                RectanglesListBox.Items[index] = RectangleInfo(_currentRectangle);
             }
 
             catch
@@ -255,7 +255,7 @@ namespace Programming.View.Panels
 
         private void SelectedRectangleWidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedIndex == -1) return;
+            if (RectanglesListBox.SelectedIndex == -1) return;
 
             try
             {
@@ -263,8 +263,8 @@ namespace Programming.View.Panels
                 int rectangleWidth = int.Parse(widthRectangleAsString);
                 _currentRectangle.Width = rectangleWidth;
                 UpdateRectangleInfo(_currentRectangle);
-                int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = RectangleInfo(_currentRectangle);
+                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
+                RectanglesListBox.Items[index] = RectangleInfo(_currentRectangle);
             }
 
             catch
@@ -277,7 +277,7 @@ namespace Programming.View.Panels
 
         private void SelectedRectangleLengthTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (Rectangles2ListBox.SelectedIndex == -1) return;
+            if (RectanglesListBox.SelectedIndex == -1) return;
 
             try
             {
@@ -285,8 +285,8 @@ namespace Programming.View.Panels
                 int rectangleLength = int.Parse(lengthRectangleAsString);
                 _currentRectangle.Length = rectangleLength;
                 UpdateRectangleInfo(_currentRectangle);
-                int index = Rectangles2ListBox.FindString(_currentRectangle.Id.ToString());
-                Rectangles2ListBox.Items[index] = RectangleInfo(_currentRectangle);
+                int index = RectanglesListBox.FindString(_currentRectangle.Id.ToString());
+                RectanglesListBox.Items[index] = RectangleInfo(_currentRectangle);
             }
 
             catch

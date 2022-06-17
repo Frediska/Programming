@@ -42,7 +42,7 @@
             this.CanvasPanel = new System.Windows.Forms.Panel();
             this.RemoveRectangleButton = new System.Windows.Forms.Button();
             this.AddRectangleButton = new System.Windows.Forms.Button();
-            this.Rectangles2ListBox = new System.Windows.Forms.ListBox();
+            this.RectanglesListBox = new System.Windows.Forms.ListBox();
             this.RectanglesLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -200,17 +200,17 @@
             this.AddRectangleButton.MouseEnter += new System.EventHandler(this.AddRectangleButton_MouseEnter);
             this.AddRectangleButton.MouseLeave += new System.EventHandler(this.AddRectangleButton_MouseLeave);
             // 
-            // Rectangles2ListBox
+            // RectanglesListBox
             // 
-            this.Rectangles2ListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.RectanglesListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.Rectangles2ListBox.FormattingEnabled = true;
-            this.Rectangles2ListBox.ItemHeight = 16;
-            this.Rectangles2ListBox.Location = new System.Drawing.Point(7, 26);
-            this.Rectangles2ListBox.Name = "Rectangles2ListBox";
-            this.Rectangles2ListBox.Size = new System.Drawing.Size(297, 84);
-            this.Rectangles2ListBox.TabIndex = 16;
-            this.Rectangles2ListBox.SelectedIndexChanged += new System.EventHandler(this.Rectangles2ListBox_SelectedIndexChanged);
+            this.RectanglesListBox.FormattingEnabled = true;
+            this.RectanglesListBox.ItemHeight = 16;
+            this.RectanglesListBox.Location = new System.Drawing.Point(7, 26);
+            this.RectanglesListBox.Name = "RectanglesListBox";
+            this.RectanglesListBox.Size = new System.Drawing.Size(297, 84);
+            this.RectanglesListBox.TabIndex = 16;
+            this.RectanglesListBox.SelectedIndexChanged += new System.EventHandler(this.RectanglesListBox_SelectedIndexChanged);
             // 
             // RectanglesLabel
             // 
@@ -240,7 +240,7 @@
             this.Controls.Add(this.CanvasPanel);
             this.Controls.Add(this.RemoveRectangleButton);
             this.Controls.Add(this.AddRectangleButton);
-            this.Controls.Add(this.Rectangles2ListBox);
+            this.Controls.Add(this.RectanglesListBox);
             this.Name = "RectanglesCollisionControl";
             this.Size = new System.Drawing.Size(792, 421);
             this.ResumeLayout(false);
@@ -264,7 +264,7 @@
         private System.Windows.Forms.Panel CanvasPanel;
         private System.Windows.Forms.Button RemoveRectangleButton;
         private System.Windows.Forms.Button AddRectangleButton;
-        private System.Windows.Forms.ListBox Rectangles2ListBox;
+        private System.Windows.Forms.ListBox RectanglesListBox;
         private System.Windows.Forms.Label RectanglesLabel;
     }
 }
