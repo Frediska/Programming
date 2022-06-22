@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace ListOfEstablishments.Model
 {
-    internal class Categories
+    public enum Categories
     {
+        Municipal,
+        Cafe,
+        Club,
+        Museum,
+        Educational,
+        Shop,
+        Restaurant,
+        Pub,
+        Hotel,
+        Other
     }
 }
