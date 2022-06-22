@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.EstablishmentsListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.AddEstablishmentButton = new System.Windows.Forms.Button();
@@ -161,6 +162,7 @@
             this.Controls.Add(this.AddEstablishmentButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.EstablishmentsListBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "EstablishmentApp";
             this.groupBox1.ResumeLayout(false);
