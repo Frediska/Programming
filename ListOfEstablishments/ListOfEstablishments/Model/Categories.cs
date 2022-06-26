@@ -8,15 +8,16 @@ namespace ListOfEstablishments.Model
 {
     public enum Categories
     {
-        Municipal,
+        Null,
         Cafe,
         Club,
-        Museum,
         Educational,
-        Shop,
-        Restaurant,
-        Pub,
         Hotel,
-        Other
+        Municipal,
+        Museum,
+        Other,
+        Pub,
+        Restaurant,
+        Shop
     }
 }

@@ -29,7 +29,7 @@ namespace ListOfEstablishments.Model
 
         public static void AssertStringContainsOnlyLetters(string nameProperty, string value)
         {
-            if (!Regex.IsMatch(value, @"^[а-яА-Яa-zA-z]+$"))
+            if (!Regex.IsMatch(value, @"^[а-яА-Яa-zA-z ]+$"))
             {
                 throw new ArgumentException(
                     $"the value of the {nameProperty} field should consist only of Russian and English letters");

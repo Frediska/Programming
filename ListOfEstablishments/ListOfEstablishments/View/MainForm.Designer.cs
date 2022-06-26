@@ -31,16 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.EstablishmentsListBox = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RatingLabel = new System.Windows.Forms.Label();
+            this.CategoryLabel = new System.Windows.Forms.Label();
+            this.AddressLabel = new System.Windows.Forms.Label();
+            this.TitleLabel = new System.Windows.Forms.Label();
+            this.RatingTextBox = new System.Windows.Forms.TextBox();
+            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
+            this.AddressTextBox = new System.Windows.Forms.TextBox();
+            this.TitleTextBox = new System.Windows.Forms.TextBox();
             this.AddEstablishmentButton = new System.Windows.Forms.Button();
             this.RemoveEstablishmentButton = new System.Windows.Forms.Button();
-            this.TitleTextBox = new System.Windows.Forms.TextBox();
-            this.AddressTextBox = new System.Windows.Forms.TextBox();
-            this.CategoryComboBox = new System.Windows.Forms.ComboBox();
-            this.RatingTextBox = new System.Windows.Forms.TextBox();
-            this.TitleLabel = new System.Windows.Forms.Label();
-            this.AddressLabel = new System.Windows.Forms.Label();
-            this.CategoryLabel = new System.Windows.Forms.Label();
-            this.RatingLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             this.EstablishmentsListBox.Name = "EstablishmentsListBox";
             this.EstablishmentsListBox.Size = new System.Drawing.Size(239, 388);
             this.EstablishmentsListBox.TabIndex = 0;
+            this.EstablishmentsListBox.SelectedIndexChanged += new System.EventHandler(this.EstablishmentsListBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -70,70 +71,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selected Establishment";
             // 
-            // AddEstablishmentButton
+            // RatingLabel
             // 
-            this.AddEstablishmentButton.Location = new System.Drawing.Point(258, 163);
-            this.AddEstablishmentButton.Name = "AddEstablishmentButton";
-            this.AddEstablishmentButton.Size = new System.Drawing.Size(75, 23);
-            this.AddEstablishmentButton.TabIndex = 2;
-            this.AddEstablishmentButton.Text = "button1";
-            this.AddEstablishmentButton.UseVisualStyleBackColor = true;
-            // 
-            // RemoveEstablishmentButton
-            // 
-            this.RemoveEstablishmentButton.Location = new System.Drawing.Point(339, 163);
-            this.RemoveEstablishmentButton.Name = "RemoveEstablishmentButton";
-            this.RemoveEstablishmentButton.Size = new System.Drawing.Size(75, 23);
-            this.RemoveEstablishmentButton.TabIndex = 3;
-            this.RemoveEstablishmentButton.Text = "button2";
-            this.RemoveEstablishmentButton.UseVisualStyleBackColor = true;
-            // 
-            // TitleTextBox
-            // 
-            this.TitleTextBox.Location = new System.Drawing.Point(104, 23);
-            this.TitleTextBox.Name = "TitleTextBox";
-            this.TitleTextBox.Size = new System.Drawing.Size(420, 22);
-            this.TitleTextBox.TabIndex = 0;
-            // 
-            // AddressTextBox
-            // 
-            this.AddressTextBox.Location = new System.Drawing.Point(104, 51);
-            this.AddressTextBox.Name = "AddressTextBox";
-            this.AddressTextBox.Size = new System.Drawing.Size(221, 22);
-            this.AddressTextBox.TabIndex = 1;
-            // 
-            // CategoryComboBox
-            // 
-            this.CategoryComboBox.FormattingEnabled = true;
-            this.CategoryComboBox.Location = new System.Drawing.Point(104, 79);
-            this.CategoryComboBox.Name = "CategoryComboBox";
-            this.CategoryComboBox.Size = new System.Drawing.Size(221, 24);
-            this.CategoryComboBox.TabIndex = 2;
-            // 
-            // RatingTextBox
-            // 
-            this.RatingTextBox.Location = new System.Drawing.Point(104, 109);
-            this.RatingTextBox.Name = "RatingTextBox";
-            this.RatingTextBox.Size = new System.Drawing.Size(221, 22);
-            this.RatingTextBox.TabIndex = 3;
-            // 
-            // TitleLabel
-            // 
-            this.TitleLabel.AutoSize = true;
-            this.TitleLabel.Location = new System.Drawing.Point(62, 26);
-            this.TitleLabel.Name = "TitleLabel";
-            this.TitleLabel.Size = new System.Drawing.Size(36, 16);
-            this.TitleLabel.TabIndex = 4;
-            this.TitleLabel.Text = "Title:";
-            // 
-            // AddressLabel
-            // 
-            this.AddressLabel.AutoSize = true;
-            this.AddressLabel.Location = new System.Drawing.Point(37, 54);
-            this.AddressLabel.Name = "AddressLabel";
-            this.AddressLabel.Size = new System.Drawing.Size(61, 16);
-            this.AddressLabel.TabIndex = 5;
-            this.AddressLabel.Text = "Address:";
+            this.RatingLabel.AutoSize = true;
+            this.RatingLabel.Location = new System.Drawing.Point(49, 112);
+            this.RatingLabel.Name = "RatingLabel";
+            this.RatingLabel.Size = new System.Drawing.Size(49, 16);
+            this.RatingLabel.TabIndex = 7;
+            this.RatingLabel.Text = "Rating:";
             // 
             // CategoryLabel
             // 
@@ -144,14 +89,77 @@
             this.CategoryLabel.TabIndex = 6;
             this.CategoryLabel.Text = "Category:";
             // 
-            // RatingLabel
+            // AddressLabel
             // 
-            this.RatingLabel.AutoSize = true;
-            this.RatingLabel.Location = new System.Drawing.Point(49, 112);
-            this.RatingLabel.Name = "RatingLabel";
-            this.RatingLabel.Size = new System.Drawing.Size(49, 16);
-            this.RatingLabel.TabIndex = 7;
-            this.RatingLabel.Text = "Rating:";
+            this.AddressLabel.AutoSize = true;
+            this.AddressLabel.Location = new System.Drawing.Point(37, 54);
+            this.AddressLabel.Name = "AddressLabel";
+            this.AddressLabel.Size = new System.Drawing.Size(61, 16);
+            this.AddressLabel.TabIndex = 5;
+            this.AddressLabel.Text = "Address:";
+            // 
+            // TitleLabel
+            // 
+            this.TitleLabel.AutoSize = true;
+            this.TitleLabel.Location = new System.Drawing.Point(62, 26);
+            this.TitleLabel.Name = "TitleLabel";
+            this.TitleLabel.Size = new System.Drawing.Size(36, 16);
+            this.TitleLabel.TabIndex = 4;
+            this.TitleLabel.Text = "Title:";
+            // 
+            // RatingTextBox
+            // 
+            this.RatingTextBox.Location = new System.Drawing.Point(104, 109);
+            this.RatingTextBox.Name = "RatingTextBox";
+            this.RatingTextBox.Size = new System.Drawing.Size(221, 22);
+            this.RatingTextBox.TabIndex = 3;
+            this.RatingTextBox.TextChanged += new System.EventHandler(this.RatingTextBox_TextChanged);
+            // 
+            // CategoryComboBox
+            // 
+            this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoryComboBox.FormattingEnabled = true;
+            this.CategoryComboBox.Location = new System.Drawing.Point(104, 79);
+            this.CategoryComboBox.Name = "CategoryComboBox";
+            this.CategoryComboBox.Size = new System.Drawing.Size(221, 24);
+            this.CategoryComboBox.TabIndex = 2;
+            this.CategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.CategoryComboBox_SelectedIndexChanged);
+            // 
+            // AddressTextBox
+            // 
+            this.AddressTextBox.Location = new System.Drawing.Point(104, 51);
+            this.AddressTextBox.Name = "AddressTextBox";
+            this.AddressTextBox.Size = new System.Drawing.Size(221, 22);
+            this.AddressTextBox.TabIndex = 1;
+            this.AddressTextBox.TextChanged += new System.EventHandler(this.AddressTextBox_TextChanged);
+            // 
+            // TitleTextBox
+            // 
+            this.TitleTextBox.Location = new System.Drawing.Point(104, 23);
+            this.TitleTextBox.Name = "TitleTextBox";
+            this.TitleTextBox.Size = new System.Drawing.Size(420, 22);
+            this.TitleTextBox.TabIndex = 0;
+            this.TitleTextBox.TextChanged += new System.EventHandler(this.TitleTextBox_TextChanged);
+            // 
+            // AddEstablishmentButton
+            // 
+            this.AddEstablishmentButton.Location = new System.Drawing.Point(258, 163);
+            this.AddEstablishmentButton.Name = "AddEstablishmentButton";
+            this.AddEstablishmentButton.Size = new System.Drawing.Size(75, 23);
+            this.AddEstablishmentButton.TabIndex = 2;
+            this.AddEstablishmentButton.Text = "button1";
+            this.AddEstablishmentButton.UseVisualStyleBackColor = true;
+            this.AddEstablishmentButton.Click += new System.EventHandler(this.AddEstablishmentButton_Click);
+            // 
+            // RemoveEstablishmentButton
+            // 
+            this.RemoveEstablishmentButton.Location = new System.Drawing.Point(339, 163);
+            this.RemoveEstablishmentButton.Name = "RemoveEstablishmentButton";
+            this.RemoveEstablishmentButton.Size = new System.Drawing.Size(75, 23);
+            this.RemoveEstablishmentButton.TabIndex = 3;
+            this.RemoveEstablishmentButton.Text = "button2";
+            this.RemoveEstablishmentButton.UseVisualStyleBackColor = true;
+            this.RemoveEstablishmentButton.Click += new System.EventHandler(this.RemoveEstablishmentButton_Click);
             // 
             // MainForm
             // 

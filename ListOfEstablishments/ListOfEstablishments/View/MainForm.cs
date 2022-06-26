@@ -13,6 +13,10 @@ namespace ListOfEstablishments
 {
     public partial class MainForm : Form
     {
+        private readonly Color _errorColor = Color.LightPink;
+
+        private readonly Color _correctColor = Color.White;
+
         private List<Establishment> _establishments;
 
         private Establishment _currentEstablishment;
@@ -23,6 +27,146 @@ namespace ListOfEstablishments
         public MainForm()
         {
             InitializeComponent();
+
+            _establishments = new List<Establishment>();
+
+            var values = Enum.GetValues(typeof(Categories));
+            foreach (var value in values)
+            {
+                CategoryComboBox.Items.Add(value);
+            }
+        }
+
+        private string EstablishmentInfo(Establishment establishment)
+        {
+            return $"{establishment.Id}: " +
+                   $"{establishment.Category} - {establishment.Title}";
+        }
+
+        private void UpdateEstablishmentInfo()
+        {
+            EstablishmentsListBox.Items.Clear();
+
+            _establishments = EstablishmentFactory.SortEstablishments(_establishments);
+            foreach (var value in _establishments)
+            {
+                EstablishmentsListBox.Items.Add(EstablishmentInfo(value));
+            }
+            var index = _establishments.IndexOf(_currentEstablishment);
+            EstablishmentsListBox.SelectedIndex = Convert.ToInt32(index);
+        }
+
+        public void ClearEstablishmentInfo()
+        {
+            TitleTextBox.Clear();
+            AddressTextBox.Clear();
+            RatingTextBox.Clear();
+        }
+
+        private void AddEstablishmentButton_Click(object sender, EventArgs e)
+        {
+            _currentEstablishment = EstablishmentFactory.DefaultInfo();
+
+            _establishments.Add(_currentEstablishment);
+            EstablishmentsListBox.Items.Add(EstablishmentInfo(_currentEstablishment));
+            EstablishmentFactory.SortEstablishments(_establishments);
+            UpdateEstablishmentInfo();
+
+            EstablishmentsListBox.SelectedIndex = _establishments.Count - 1;
+        }
+
+        private void RemoveEstablishmentButton_Click(object sender, EventArgs e)
+        {
+            int index = EstablishmentsListBox.SelectedIndex;
+
+            if (index != - 1)
+            {
+                _establishments.RemoveAt(index);
+                EstablishmentsListBox.Items.RemoveAt(index);
+                ClearEstablishmentInfo();
+
+                for (int i = 0; i < _establishments.Count; i++)
+                {
+                    EstablishmentsListBox.Items.Add(EstablishmentInfo(_establishments[i]));
+                    EstablishmentsListBox.SelectedIndex = 0;
+                }
+            }
+            UpdateEstablishmentInfo();
+        }
+
+        private void EstablishmentsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (EstablishmentsListBox.SelectedIndex != - 1)
+            {
+                int indexEstablishment = EstablishmentsListBox.SelectedIndex;
+                _currentEstablishment = _establishments[indexEstablishment];
+                TitleTextBox.Text = _currentEstablishment.Title;
+                AddressTextBox.Text = _currentEstablishment.Address;
+                RatingTextBox.Text = _currentEstablishment.Rating.ToString();
+                CategoryComboBox.SelectedItem = _currentEstablishment.Category;
+            }
+        }
+
+        private void TitleTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (EstablishmentsListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string currentEstablishmentTitle = TitleTextBox.Text;
+                _currentEstablishment.Title = currentEstablishmentTitle;
+                UpdateEstablishmentInfo();
+            }
+            catch
+            {
+                TitleTextBox.BackColor = _errorColor;
+                return;
+            }
+            TitleTextBox.BackColor = _correctColor;
+        }
+
+        private void AddressTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (EstablishmentsListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string currentEstablishmentAddress = AddressTextBox.Text;
+                _currentEstablishment.Address = currentEstablishmentAddress;
+
+            }
+            catch
+            {
+                AddressTextBox.BackColor = _errorColor;
+                return;
+            }
+            AddressTextBox.BackColor = _correctColor;
+        }
+
+        private void CategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (EstablishmentsListBox.SelectedItem == null) return;
+
+            _currentEstablishment.Category = (Categories)CategoryComboBox.SelectedItem;
+            UpdateEstablishmentInfo();
+        }
+
+        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (EstablishmentsListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                string ratingAsString = RatingTextBox.Text;
+                double currentEstablishmentRating = double.Parse(ratingAsString);
+                _currentEstablishment.Rating = currentEstablishmentRating;
+            }
+            catch
+            {
+                RatingTextBox.BackColor = _errorColor;
+                return;
+            }
+            RatingTextBox.BackColor = _correctColor;
         }
     }
 }

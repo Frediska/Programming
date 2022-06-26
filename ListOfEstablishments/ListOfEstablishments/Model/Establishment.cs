@@ -10,13 +10,15 @@ namespace ListOfEstablishments.Model
     {
         private static int _allEstablishmentsCount;
 
+        private int _id;
+
         private string _title;
 
         private string _address;
 
         private double _rating;
 
-        private int _id;
+        public static int AllEstablishmentsCount { get { return _allEstablishmentsCount; } }
 
         public Establishment(string title, string address, double rating, Categories category)
         {
@@ -51,7 +53,6 @@ namespace ListOfEstablishments.Model
             get { return _address; }
             set
             {
-                Validator.AssertStringContainsOnlyLetters(nameof(Address), value);
                 _address = value;
             }
         }
@@ -71,6 +72,11 @@ namespace ListOfEstablishments.Model
         {
             get { return _id; }
             set { _id = value; }
+        }
+
+        public string InstitutionDescription()
+        {
+            return $"{Id}: {Category} - {Title}";
         }
     }
 }
