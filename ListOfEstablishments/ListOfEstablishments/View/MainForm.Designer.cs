@@ -46,16 +46,20 @@
             // 
             // EstablishmentsListBox
             // 
+            this.EstablishmentsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.EstablishmentsListBox.FormattingEnabled = true;
             this.EstablishmentsListBox.ItemHeight = 16;
             this.EstablishmentsListBox.Location = new System.Drawing.Point(12, 12);
             this.EstablishmentsListBox.Name = "EstablishmentsListBox";
-            this.EstablishmentsListBox.Size = new System.Drawing.Size(239, 388);
+            this.EstablishmentsListBox.Size = new System.Drawing.Size(239, 356);
             this.EstablishmentsListBox.TabIndex = 0;
             this.EstablishmentsListBox.SelectedIndexChanged += new System.EventHandler(this.EstablishmentsListBox_SelectedIndexChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.RatingLabel);
             this.groupBox1.Controls.Add(this.CategoryLabel);
             this.groupBox1.Controls.Add(this.AddressLabel);
@@ -73,6 +77,8 @@
             // 
             // RatingLabel
             // 
+            this.RatingLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RatingLabel.AutoSize = true;
             this.RatingLabel.Location = new System.Drawing.Point(49, 112);
             this.RatingLabel.Name = "RatingLabel";
@@ -82,6 +88,8 @@
             // 
             // CategoryLabel
             // 
+            this.CategoryLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CategoryLabel.AutoSize = true;
             this.CategoryLabel.Location = new System.Drawing.Point(33, 82);
             this.CategoryLabel.Name = "CategoryLabel";
@@ -91,6 +99,8 @@
             // 
             // AddressLabel
             // 
+            this.AddressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressLabel.AutoSize = true;
             this.AddressLabel.Location = new System.Drawing.Point(37, 54);
             this.AddressLabel.Name = "AddressLabel";
@@ -100,6 +110,8 @@
             // 
             // TitleLabel
             // 
+            this.TitleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TitleLabel.AutoSize = true;
             this.TitleLabel.Location = new System.Drawing.Point(62, 26);
             this.TitleLabel.Name = "TitleLabel";
@@ -109,6 +121,8 @@
             // 
             // RatingTextBox
             // 
+            this.RatingTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RatingTextBox.Location = new System.Drawing.Point(104, 109);
             this.RatingTextBox.Name = "RatingTextBox";
             this.RatingTextBox.Size = new System.Drawing.Size(221, 22);
@@ -117,6 +131,8 @@
             // 
             // CategoryComboBox
             // 
+            this.CategoryComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CategoryComboBox.FormattingEnabled = true;
             this.CategoryComboBox.Location = new System.Drawing.Point(104, 79);
@@ -127,6 +143,8 @@
             // 
             // AddressTextBox
             // 
+            this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressTextBox.Location = new System.Drawing.Point(104, 51);
             this.AddressTextBox.Name = "AddressTextBox";
             this.AddressTextBox.Size = new System.Drawing.Size(221, 22);
@@ -135,6 +153,8 @@
             // 
             // TitleTextBox
             // 
+            this.TitleTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TitleTextBox.Location = new System.Drawing.Point(104, 23);
             this.TitleTextBox.Name = "TitleTextBox";
             this.TitleTextBox.Size = new System.Drawing.Size(420, 22);
@@ -143,10 +163,11 @@
             // 
             // RemoveEstablishmentButton
             // 
+            this.RemoveEstablishmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveEstablishmentButton.FlatAppearance.BorderSize = 0;
             this.RemoveEstablishmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.RemoveEstablishmentButton.Image = global::ListOfEstablishments.Properties.Resources.remove_establishment_24x24_uncolor;
-            this.RemoveEstablishmentButton.Location = new System.Drawing.Point(376, 163);
+            this.RemoveEstablishmentButton.Location = new System.Drawing.Point(139, 374);
             this.RemoveEstablishmentButton.Name = "RemoveEstablishmentButton";
             this.RemoveEstablishmentButton.Size = new System.Drawing.Size(112, 71);
             this.RemoveEstablishmentButton.TabIndex = 3;
@@ -157,10 +178,11 @@
             // 
             // AddEstablishmentButton
             // 
+            this.AddEstablishmentButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddEstablishmentButton.FlatAppearance.BorderSize = 0;
             this.AddEstablishmentButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddEstablishmentButton.Image = global::ListOfEstablishments.Properties.Resources.add_establishment_24x24_uncolor;
-            this.AddEstablishmentButton.Location = new System.Drawing.Point(258, 163);
+            this.AddEstablishmentButton.Location = new System.Drawing.Point(12, 374);
             this.AddEstablishmentButton.Name = "AddEstablishmentButton";
             this.AddEstablishmentButton.Size = new System.Drawing.Size(112, 71);
             this.AddEstablishmentButton.TabIndex = 2;
