@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ListOfEstablishments.Model
 {
+    /// <summary>
+    /// Перечисление категорий заведений.
+    /// </summary>
     public enum Categories
     {
         Null,

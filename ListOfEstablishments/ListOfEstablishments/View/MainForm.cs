@@ -11,16 +11,34 @@ using ListOfEstablishments.Model;
 
 namespace ListOfEstablishments
 {
+    /// <summary>
+    /// Предоставляет реализацию расположения элементов на форме.
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Цвет корректного значения.
+        /// </summary>
         private readonly Color _errorColor = Color.LightPink;
 
+        /// <summary>
+        /// Цвет некорректного значения.
+        /// </summary>
         private readonly Color _correctColor = Color.White;
 
+        /// <summary>
+        /// Список сотрудников.
+        /// </summary>
         private List<Establishment> _establishments;
 
+        /// <summary>
+        /// Выбранный сотрудник.
+        /// </summary>
         private Establishment _currentEstablishment;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="MainForm"/>
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -34,12 +52,20 @@ namespace ListOfEstablishments
             }
         }
 
+        /// <summary>
+        /// Из данных заведения преобразует текст.
+        /// </summary>
+        /// <param name="establishment">Заведение.</param>
+        /// <returns>Возвращает текст.</returns>
         private string EstablishmentInfo(Establishment establishment)
         {
             return $"{establishment.Id}: " +
                    $"{establishment.Category} - {establishment.Title}";
         }
 
+        /// <summary>
+        /// Обновляет информацию в списке при изменении значений.
+        /// </summary>
         private void UpdateEstablishmentInfo()
         {
             EstablishmentsListBox.Items.Clear();
@@ -53,6 +79,9 @@ namespace ListOfEstablishments
             EstablishmentsListBox.SelectedIndex = Convert.ToInt32(index);
         }
 
+        /// <summary>
+        /// Очищает информацию с текстовых полей.
+        /// </summary>
         public void ClearEstablishmentInfo()
         {
             TitleTextBox.Clear();

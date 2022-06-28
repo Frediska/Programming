@@ -7,8 +7,17 @@ using System.Text.RegularExpressions;
 
 namespace ListOfEstablishments.Model
 {
+    /// <summary>
+    /// Предоставляет методы для проверки входных данных.
+    /// </summary>
     public static class Validator
     {
+        /// <summary>
+        /// Проверяет, является ли число положительным.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="value">Число.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда число меньше или равно нулю.</exception>
         public static void AssertOnPositiveValue(string nameProperty, double value)
         {
             if (value < 0)
@@ -18,6 +27,14 @@ namespace ListOfEstablishments.Model
             }
         }
 
+        /// <summary>
+        /// Проверяет, что число находится в определённом промежутке.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="value">Число.</param>
+        /// <param name="min">Левая граница промежутка.</param>
+        /// <param name="max">Правая граница промежутка.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если число находится вне промежутка.</exception>
         public static void AssertValueInRange(string nameProperty, double value, double min, double max)
         {
             if (value < min || value > max)
@@ -27,6 +44,13 @@ namespace ListOfEstablishments.Model
             }
         }
 
+        /// <summary>
+        /// Проверяет, что строка состоит только из букв русского м английского алфавита.
+        /// </summary>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="value">Строка.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, если строка состоит не только из
+        /// букв английского алфавита.</exception>
         public static void AssertStringContainsOnlyLetters(string nameProperty, string value)
         {
             if (!Regex.IsMatch(value, @"^[а-яА-Яa-zA-z ]+$"))
@@ -36,6 +60,14 @@ namespace ListOfEstablishments.Model
             }
         }
 
+        /// <summary>
+        /// Проверка на то, что строка по длине не больше, чем максимальная возможная длина.
+        /// </summary>
+        /// <param name="value">Строка.</param>
+        /// <param name="maxLength">Максимальная длина.</param>
+        /// <param name="nameProperty">Имя свойства, откуда был вызван метод.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда строка превышает максимально
+        /// возможную длину.</exception>
         public static void NoMoreThan(string value, int maxLength, string nameProperty)
         {
             if (value.Length > maxLength)
