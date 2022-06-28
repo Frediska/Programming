@@ -11,7 +11,7 @@
 #define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 
 [Setup]
-AppId={{2BE77778-B439-4DCD-8278-5751A1AFA61F}
+AppId={{0DD0DC08-2E93-4F43-B963-A7631AED3461}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
