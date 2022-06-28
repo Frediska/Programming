@@ -35,5 +35,13 @@ namespace ListOfEstablishments.Model
                     $"the value of the {nameProperty} field should consist only of Russian and English letters");
             }
         }
+
+        public static void NoMoreThan(string value, int maxLength, string nameProperty)
+        {
+            if (value.Length > maxLength)
+            {
+                throw new ArgumentException($"the value of the {nameProperty} more than {maxLength}");
+            }
+        }
     }
 }

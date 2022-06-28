@@ -21,14 +21,11 @@ namespace ListOfEstablishments
 
         private Establishment _currentEstablishment;
 
-
-
-
         public MainForm()
         {
             InitializeComponent();
 
-            _establishments = new List<Establishment>();
+            _establishments = ProjectSerializer.Deserialize();
 
             var values = Enum.GetValues(typeof(Categories));
             foreach (var value in values)
@@ -92,6 +89,28 @@ namespace ListOfEstablishments
                 }
             }
             UpdateEstablishmentInfo();
+
+            ProjectSerializer.Serialize(_establishments);
+        }
+
+        private void AddEstablishmentButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddEstablishmentButton.Image = Properties.Resources.add_establishment_24x24;
+        }
+
+        private void AddEstablishmentButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddEstablishmentButton.Image = Properties.Resources.add_establishment_24x24_uncolor;
+        }
+
+        private void RemoveEstablishmentButton_MouseEnter(object sender, EventArgs e)
+        {
+            RemoveEstablishmentButton.Image = Properties.Resources.remove_establishment_24x24;
+        }
+
+        private void RemoveEstablishmentButton_MouseLeave(object sender, EventArgs e)
+        {
+            RemoveEstablishmentButton.Image = Properties.Resources.remove_establishment_24x24_uncolor;
         }
 
         private void EstablishmentsListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -116,6 +135,7 @@ namespace ListOfEstablishments
                 string currentEstablishmentTitle = TitleTextBox.Text;
                 _currentEstablishment.Title = currentEstablishmentTitle;
                 UpdateEstablishmentInfo();
+                ProjectSerializer.Serialize(_establishments);
             }
             catch
             {
@@ -133,7 +153,7 @@ namespace ListOfEstablishments
             {
                 string currentEstablishmentAddress = AddressTextBox.Text;
                 _currentEstablishment.Address = currentEstablishmentAddress;
-
+                ProjectSerializer.Serialize(_establishments);
             }
             catch
             {
@@ -149,6 +169,7 @@ namespace ListOfEstablishments
 
             _currentEstablishment.Category = (Categories)CategoryComboBox.SelectedItem;
             UpdateEstablishmentInfo();
+            ProjectSerializer.Serialize(_establishments);
         }
 
         private void RatingTextBox_TextChanged(object sender, EventArgs e)
@@ -160,6 +181,7 @@ namespace ListOfEstablishments
                 string ratingAsString = RatingTextBox.Text;
                 double currentEstablishmentRating = double.Parse(ratingAsString);
                 _currentEstablishment.Rating = currentEstablishmentRating;
+                ProjectSerializer.Serialize(_establishments);
             }
             catch
             {

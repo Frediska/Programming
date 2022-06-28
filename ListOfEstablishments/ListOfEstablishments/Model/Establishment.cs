@@ -43,6 +43,7 @@ namespace ListOfEstablishments.Model
             get { return _title; }
             set
             {
+                Validator.NoMoreThan(value, 200, nameof(Title));
                 Validator.AssertStringContainsOnlyLetters(nameof(Title), value);
                 _title = value;
             }
@@ -53,6 +54,7 @@ namespace ListOfEstablishments.Model
             get { return _address; }
             set
             {
+                Validator.NoMoreThan(value, 150, nameof(Address));
                 _address = value;
             }
         }
