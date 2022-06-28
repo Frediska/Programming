@@ -40,7 +40,7 @@ namespace ListOfEstablishments.Model
         private double _rating;
 
         /// <summary>
-        /// Возвращает и задает количество всех заведений.
+        /// Возвращает количество всех заведений.
         /// </summary>
         public static int AllEstablishmentsCount { get { return _allEstablishmentsCount; } }
 

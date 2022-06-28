@@ -15,6 +15,16 @@ namespace ListOfEstablishments.Model
     public static class ProjectSerializer
     {
         /// <summary>
+        /// Возвращает и задает путь куда будут сериализоватся данные.
+        /// </summary>
+        public static string Path { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает имя файла.
+        /// </summary>
+        public static string FileName { get; set; }
+
+        /// <summary>
         /// Создаёт экземпляр класса <see cref="ProjectSerializer"/>.
         /// </summary>
         static ProjectSerializer()
@@ -74,15 +84,5 @@ namespace ListOfEstablishments.Model
 
             return establishments;
         }
-
-        /// <summary>
-        /// Возвращает и задает путь куда будут сериализоватся данные.
-        /// </summary>
-        public static string Path { get; set; }
-
-        /// <summary>
-        /// Возвращает и задает имя файла.
-        /// </summary>
-        public static string FileName { get; set; }
     }
 }
