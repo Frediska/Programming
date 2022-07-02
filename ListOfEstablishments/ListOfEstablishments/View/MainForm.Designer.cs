@@ -1,4 +1,4 @@
-﻿namespace ListOfEstablishments
+﻿namespace ListOfEstablishments.View
 {
     partial class MainForm
     {

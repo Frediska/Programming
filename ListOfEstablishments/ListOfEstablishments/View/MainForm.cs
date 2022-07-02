@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using ListOfEstablishments.Model;
 
-namespace ListOfEstablishments
+namespace ListOfEstablishments.View
 {
     /// <summary>
     /// Предоставляет реализацию расположения элементов на форме.
