@@ -72,7 +72,7 @@ namespace ListOfEstablishments.View
                 EstablishmentsListBox.Items.Add(EstablishmentInfo(value));
             }
             var index = _establishments.IndexOf(_currentEstablishment);
-            EstablishmentsListBox.SelectedIndex = Convert.ToInt32(index);
+            EstablishmentsListBox.SelectedIndex = index;
         }
 
         /// <summary>
