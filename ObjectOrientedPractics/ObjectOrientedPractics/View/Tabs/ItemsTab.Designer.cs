@@ -46,9 +46,9 @@
             // ItemsListBox
             // 
             this.ItemsListBox.FormattingEnabled = true;
-            this.ItemsListBox.Location = new System.Drawing.Point(3, 25);
+            this.ItemsListBox.Location = new System.Drawing.Point(6, 25);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(273, 459);
+            this.ItemsListBox.Size = new System.Drawing.Size(270, 459);
             this.ItemsListBox.TabIndex = 0;
             // 
             // ItemsLabel
@@ -63,7 +63,7 @@
             // 
             // AddButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(3, 490);
+            this.AddButton.Location = new System.Drawing.Point(6, 490);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(87, 42);
             this.AddButton.TabIndex = 2;
@@ -72,7 +72,7 @@
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(96, 490);
+            this.RemoveButton.Location = new System.Drawing.Point(99, 490);
             this.RemoveButton.Name = "RemoveButton";
             this.RemoveButton.Size = new System.Drawing.Size(87, 42);
             this.RemoveButton.TabIndex = 3;
@@ -134,7 +134,7 @@
             // 
             this.NameRichTextBox.Location = new System.Drawing.Point(287, 112);
             this.NameRichTextBox.Name = "NameRichTextBox";
-            this.NameRichTextBox.Size = new System.Drawing.Size(403, 88);
+            this.NameRichTextBox.Size = new System.Drawing.Size(400, 88);
             this.NameRichTextBox.TabIndex = 10;
             this.NameRichTextBox.Text = "";
             // 
@@ -151,7 +151,7 @@
             // 
             this.DescriptionRichTextBox.Location = new System.Drawing.Point(287, 230);
             this.DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            this.DescriptionRichTextBox.Size = new System.Drawing.Size(403, 126);
+            this.DescriptionRichTextBox.Size = new System.Drawing.Size(400, 126);
             this.DescriptionRichTextBox.TabIndex = 12;
             this.DescriptionRichTextBox.Text = "";
             // 
