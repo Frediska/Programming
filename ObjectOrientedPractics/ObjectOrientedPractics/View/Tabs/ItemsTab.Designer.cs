@@ -109,6 +109,7 @@
             // 
             // IDTextBox
             // 
+            this.IDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.IDTextBox.Location = new System.Drawing.Point(327, 34);
             this.IDTextBox.Name = "IDTextBox";
             this.IDTextBox.Size = new System.Drawing.Size(124, 20);
@@ -116,6 +117,7 @@
             // 
             // CostTextBox
             // 
+            this.CostTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CostTextBox.Location = new System.Drawing.Point(327, 58);
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.Size = new System.Drawing.Size(124, 20);
@@ -132,9 +134,10 @@
             // 
             // NameRichTextBox
             // 
+            this.NameRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NameRichTextBox.Location = new System.Drawing.Point(287, 112);
             this.NameRichTextBox.Name = "NameRichTextBox";
-            this.NameRichTextBox.Size = new System.Drawing.Size(400, 88);
+            this.NameRichTextBox.Size = new System.Drawing.Size(392, 88);
             this.NameRichTextBox.TabIndex = 10;
             this.NameRichTextBox.Text = "";
             // 
@@ -149,9 +152,10 @@
             // 
             // DescriptionRichTextBox
             // 
+            this.DescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DescriptionRichTextBox.Location = new System.Drawing.Point(287, 230);
             this.DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            this.DescriptionRichTextBox.Size = new System.Drawing.Size(400, 126);
+            this.DescriptionRichTextBox.Size = new System.Drawing.Size(392, 126);
             this.DescriptionRichTextBox.TabIndex = 12;
             this.DescriptionRichTextBox.Text = "";
             // 
