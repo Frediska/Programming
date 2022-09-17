@@ -30,17 +30,17 @@
         {
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.ItemsLabel = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.RemoveButton = new System.Windows.Forms.Button();
+            this.AddItemButton = new System.Windows.Forms.Button();
+            this.RemoveCustomerButton = new System.Windows.Forms.Button();
             this.SelectedItemLabel = new System.Windows.Forms.Label();
-            this.IDLabel = new System.Windows.Forms.Label();
-            this.CostLabel = new System.Windows.Forms.Label();
-            this.IDTextBox = new System.Windows.Forms.TextBox();
-            this.CostTextBox = new System.Windows.Forms.TextBox();
-            this.NameLabel = new System.Windows.Forms.Label();
-            this.NameRichTextBox = new System.Windows.Forms.RichTextBox();
-            this.DescriptionLabel = new System.Windows.Forms.Label();
-            this.DescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.SelectedItemIDLabel = new System.Windows.Forms.Label();
+            this.SelectedItemCostLabel = new System.Windows.Forms.Label();
+            this.SelectedItemIDTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedItemCostTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedItemNameLabel = new System.Windows.Forms.Label();
+            this.SelectedItemNameRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.SelectedItemDescriptionLabel = new System.Windows.Forms.Label();
+            this.SelectedItemDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // ItemsListBox
@@ -61,23 +61,23 @@
             this.ItemsLabel.TabIndex = 1;
             this.ItemsLabel.Text = "Items";
             // 
-            // AddButton
+            // AddItemButton
             // 
-            this.AddButton.Location = new System.Drawing.Point(6, 490);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(87, 42);
-            this.AddButton.TabIndex = 2;
-            this.AddButton.Text = "Add";
-            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Location = new System.Drawing.Point(6, 490);
+            this.AddItemButton.Name = "AddItemButton";
+            this.AddItemButton.Size = new System.Drawing.Size(87, 42);
+            this.AddItemButton.TabIndex = 2;
+            this.AddItemButton.Text = "Add";
+            this.AddItemButton.UseVisualStyleBackColor = true;
             // 
-            // RemoveButton
+            // RemoveCustomerButton
             // 
-            this.RemoveButton.Location = new System.Drawing.Point(99, 490);
-            this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(87, 42);
-            this.RemoveButton.TabIndex = 3;
-            this.RemoveButton.Text = "Remove";
-            this.RemoveButton.UseVisualStyleBackColor = true;
+            this.RemoveCustomerButton.Location = new System.Drawing.Point(99, 490);
+            this.RemoveCustomerButton.Name = "RemoveCustomerButton";
+            this.RemoveCustomerButton.Size = new System.Drawing.Size(87, 42);
+            this.RemoveCustomerButton.TabIndex = 3;
+            this.RemoveCustomerButton.Text = "Remove";
+            this.RemoveCustomerButton.UseVisualStyleBackColor = true;
             // 
             // SelectedItemLabel
             // 
@@ -89,91 +89,91 @@
             this.SelectedItemLabel.TabIndex = 4;
             this.SelectedItemLabel.Text = "Selected Item";
             // 
-            // IDLabel
+            // SelectedItemIDLabel
             // 
-            this.IDLabel.AutoSize = true;
-            this.IDLabel.Location = new System.Drawing.Point(287, 37);
-            this.IDLabel.Name = "IDLabel";
-            this.IDLabel.Size = new System.Drawing.Size(21, 13);
-            this.IDLabel.TabIndex = 5;
-            this.IDLabel.Text = "ID:";
+            this.SelectedItemIDLabel.AutoSize = true;
+            this.SelectedItemIDLabel.Location = new System.Drawing.Point(287, 37);
+            this.SelectedItemIDLabel.Name = "SelectedItemIDLabel";
+            this.SelectedItemIDLabel.Size = new System.Drawing.Size(21, 13);
+            this.SelectedItemIDLabel.TabIndex = 5;
+            this.SelectedItemIDLabel.Text = "ID:";
             // 
-            // CostLabel
+            // SelectedItemCostLabel
             // 
-            this.CostLabel.AutoSize = true;
-            this.CostLabel.Location = new System.Drawing.Point(287, 61);
-            this.CostLabel.Name = "CostLabel";
-            this.CostLabel.Size = new System.Drawing.Size(31, 13);
-            this.CostLabel.TabIndex = 6;
-            this.CostLabel.Text = "Cost:";
+            this.SelectedItemCostLabel.AutoSize = true;
+            this.SelectedItemCostLabel.Location = new System.Drawing.Point(287, 61);
+            this.SelectedItemCostLabel.Name = "SelectedItemCostLabel";
+            this.SelectedItemCostLabel.Size = new System.Drawing.Size(31, 13);
+            this.SelectedItemCostLabel.TabIndex = 6;
+            this.SelectedItemCostLabel.Text = "Cost:";
             // 
-            // IDTextBox
+            // SelectedItemIDTextBox
             // 
-            this.IDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.IDTextBox.Location = new System.Drawing.Point(327, 34);
-            this.IDTextBox.Name = "IDTextBox";
-            this.IDTextBox.Size = new System.Drawing.Size(124, 20);
-            this.IDTextBox.TabIndex = 7;
+            this.SelectedItemIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemIDTextBox.Location = new System.Drawing.Point(327, 34);
+            this.SelectedItemIDTextBox.Name = "SelectedItemIDTextBox";
+            this.SelectedItemIDTextBox.Size = new System.Drawing.Size(124, 20);
+            this.SelectedItemIDTextBox.TabIndex = 7;
             // 
-            // CostTextBox
+            // SelectedItemCostTextBox
             // 
-            this.CostTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.CostTextBox.Location = new System.Drawing.Point(327, 58);
-            this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(124, 20);
-            this.CostTextBox.TabIndex = 8;
+            this.SelectedItemCostTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(327, 58);
+            this.SelectedItemCostTextBox.Name = "SelectedItemCostTextBox";
+            this.SelectedItemCostTextBox.Size = new System.Drawing.Size(124, 20);
+            this.SelectedItemCostTextBox.TabIndex = 8;
             // 
-            // NameLabel
+            // SelectedItemNameLabel
             // 
-            this.NameLabel.AutoSize = true;
-            this.NameLabel.Location = new System.Drawing.Point(287, 96);
-            this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(38, 13);
-            this.NameLabel.TabIndex = 9;
-            this.NameLabel.Text = "Name:";
+            this.SelectedItemNameLabel.AutoSize = true;
+            this.SelectedItemNameLabel.Location = new System.Drawing.Point(287, 96);
+            this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
+            this.SelectedItemNameLabel.Size = new System.Drawing.Size(38, 13);
+            this.SelectedItemNameLabel.TabIndex = 9;
+            this.SelectedItemNameLabel.Text = "Name:";
             // 
-            // NameRichTextBox
+            // SelectedItemNameRichTextBox
             // 
-            this.NameRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NameRichTextBox.Location = new System.Drawing.Point(287, 112);
-            this.NameRichTextBox.Name = "NameRichTextBox";
-            this.NameRichTextBox.Size = new System.Drawing.Size(392, 88);
-            this.NameRichTextBox.TabIndex = 10;
-            this.NameRichTextBox.Text = "";
+            this.SelectedItemNameRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemNameRichTextBox.Location = new System.Drawing.Point(287, 112);
+            this.SelectedItemNameRichTextBox.Name = "SelectedItemNameRichTextBox";
+            this.SelectedItemNameRichTextBox.Size = new System.Drawing.Size(392, 88);
+            this.SelectedItemNameRichTextBox.TabIndex = 10;
+            this.SelectedItemNameRichTextBox.Text = "";
             // 
-            // DescriptionLabel
+            // SelectedItemDescriptionLabel
             // 
-            this.DescriptionLabel.AutoSize = true;
-            this.DescriptionLabel.Location = new System.Drawing.Point(287, 214);
-            this.DescriptionLabel.Name = "DescriptionLabel";
-            this.DescriptionLabel.Size = new System.Drawing.Size(63, 13);
-            this.DescriptionLabel.TabIndex = 11;
-            this.DescriptionLabel.Text = "Description:";
+            this.SelectedItemDescriptionLabel.AutoSize = true;
+            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(287, 214);
+            this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
+            this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(63, 13);
+            this.SelectedItemDescriptionLabel.TabIndex = 11;
+            this.SelectedItemDescriptionLabel.Text = "Description:";
             // 
-            // DescriptionRichTextBox
+            // SelectedItemDescriptionRichTextBox
             // 
-            this.DescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.DescriptionRichTextBox.Location = new System.Drawing.Point(287, 230);
-            this.DescriptionRichTextBox.Name = "DescriptionRichTextBox";
-            this.DescriptionRichTextBox.Size = new System.Drawing.Size(392, 126);
-            this.DescriptionRichTextBox.TabIndex = 12;
-            this.DescriptionRichTextBox.Text = "";
+            this.SelectedItemDescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemDescriptionRichTextBox.Location = new System.Drawing.Point(287, 230);
+            this.SelectedItemDescriptionRichTextBox.Name = "SelectedItemDescriptionRichTextBox";
+            this.SelectedItemDescriptionRichTextBox.Size = new System.Drawing.Size(392, 126);
+            this.SelectedItemDescriptionRichTextBox.TabIndex = 12;
+            this.SelectedItemDescriptionRichTextBox.Text = "";
             // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.DescriptionRichTextBox);
-            this.Controls.Add(this.DescriptionLabel);
-            this.Controls.Add(this.NameRichTextBox);
-            this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.CostTextBox);
-            this.Controls.Add(this.IDTextBox);
-            this.Controls.Add(this.CostLabel);
-            this.Controls.Add(this.IDLabel);
+            this.Controls.Add(this.SelectedItemDescriptionRichTextBox);
+            this.Controls.Add(this.SelectedItemDescriptionLabel);
+            this.Controls.Add(this.SelectedItemNameRichTextBox);
+            this.Controls.Add(this.SelectedItemNameLabel);
+            this.Controls.Add(this.SelectedItemCostTextBox);
+            this.Controls.Add(this.SelectedItemIDTextBox);
+            this.Controls.Add(this.SelectedItemCostLabel);
+            this.Controls.Add(this.SelectedItemIDLabel);
             this.Controls.Add(this.SelectedItemLabel);
-            this.Controls.Add(this.RemoveButton);
-            this.Controls.Add(this.AddButton);
+            this.Controls.Add(this.RemoveCustomerButton);
+            this.Controls.Add(this.AddItemButton);
             this.Controls.Add(this.ItemsLabel);
             this.Controls.Add(this.ItemsListBox);
             this.Name = "ItemsTab";
@@ -187,16 +187,16 @@
 
         private System.Windows.Forms.ListBox ItemsListBox;
         private System.Windows.Forms.Label ItemsLabel;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button RemoveButton;
+        private System.Windows.Forms.Button AddItemButton;
+        private System.Windows.Forms.Button RemoveCustomerButton;
         private System.Windows.Forms.Label SelectedItemLabel;
-        private System.Windows.Forms.Label IDLabel;
-        private System.Windows.Forms.Label CostLabel;
-        private System.Windows.Forms.TextBox IDTextBox;
-        private System.Windows.Forms.TextBox CostTextBox;
-        private System.Windows.Forms.Label NameLabel;
-        private System.Windows.Forms.RichTextBox NameRichTextBox;
-        private System.Windows.Forms.Label DescriptionLabel;
-        private System.Windows.Forms.RichTextBox DescriptionRichTextBox;
+        private System.Windows.Forms.Label SelectedItemIDLabel;
+        private System.Windows.Forms.Label SelectedItemCostLabel;
+        private System.Windows.Forms.TextBox SelectedItemIDTextBox;
+        private System.Windows.Forms.TextBox SelectedItemCostTextBox;
+        private System.Windows.Forms.Label SelectedItemNameLabel;
+        private System.Windows.Forms.RichTextBox SelectedItemNameRichTextBox;
+        private System.Windows.Forms.Label SelectedItemDescriptionLabel;
+        private System.Windows.Forms.RichTextBox SelectedItemDescriptionRichTextBox;
     }
 }
