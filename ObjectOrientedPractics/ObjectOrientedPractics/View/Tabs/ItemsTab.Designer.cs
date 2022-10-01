@@ -38,9 +38,9 @@
             this.SelectedItemIDTextBox = new System.Windows.Forms.TextBox();
             this.SelectedItemCostTextBox = new System.Windows.Forms.TextBox();
             this.SelectedItemNameLabel = new System.Windows.Forms.Label();
-            this.SelectedItemNameRichTextBox = new System.Windows.Forms.RichTextBox();
             this.SelectedItemDescriptionLabel = new System.Windows.Forms.Label();
-            this.SelectedItemDescriptionRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.SelectedItemNameTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedItemDescriptionTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // ItemsListBox
@@ -50,6 +50,7 @@
             this.ItemsListBox.Name = "ItemsListBox";
             this.ItemsListBox.Size = new System.Drawing.Size(270, 459);
             this.ItemsListBox.TabIndex = 0;
+            this.ItemsListBox.SelectedIndexChanged += new System.EventHandler(this.ItemsListBox_SelectedIndexChanged);
             // 
             // ItemsLabel
             // 
@@ -69,6 +70,7 @@
             this.AddItemButton.TabIndex = 2;
             this.AddItemButton.Text = "Add";
             this.AddItemButton.UseVisualStyleBackColor = true;
+            this.AddItemButton.Click += new System.EventHandler(this.AddItemButton_Click);
             // 
             // RemoveCustomerButton
             // 
@@ -78,6 +80,7 @@
             this.RemoveCustomerButton.TabIndex = 3;
             this.RemoveCustomerButton.Text = "Remove";
             this.RemoveCustomerButton.UseVisualStyleBackColor = true;
+            this.RemoveCustomerButton.Click += new System.EventHandler(this.RemoveCustomerButton_Click);
             // 
             // SelectedItemLabel
             // 
@@ -110,8 +113,10 @@
             // SelectedItemIDTextBox
             // 
             this.SelectedItemIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemIDTextBox.Enabled = false;
             this.SelectedItemIDTextBox.Location = new System.Drawing.Point(327, 34);
             this.SelectedItemIDTextBox.Name = "SelectedItemIDTextBox";
+            this.SelectedItemIDTextBox.ReadOnly = true;
             this.SelectedItemIDTextBox.Size = new System.Drawing.Size(124, 20);
             this.SelectedItemIDTextBox.TabIndex = 7;
             // 
@@ -122,6 +127,7 @@
             this.SelectedItemCostTextBox.Name = "SelectedItemCostTextBox";
             this.SelectedItemCostTextBox.Size = new System.Drawing.Size(124, 20);
             this.SelectedItemCostTextBox.TabIndex = 8;
+            this.SelectedItemCostTextBox.TextChanged += new System.EventHandler(this.SelectedItemCostTextBox_TextChanged);
             // 
             // SelectedItemNameLabel
             // 
@@ -132,15 +138,6 @@
             this.SelectedItemNameLabel.TabIndex = 9;
             this.SelectedItemNameLabel.Text = "Name:";
             // 
-            // SelectedItemNameRichTextBox
-            // 
-            this.SelectedItemNameRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedItemNameRichTextBox.Location = new System.Drawing.Point(287, 112);
-            this.SelectedItemNameRichTextBox.Name = "SelectedItemNameRichTextBox";
-            this.SelectedItemNameRichTextBox.Size = new System.Drawing.Size(392, 88);
-            this.SelectedItemNameRichTextBox.TabIndex = 10;
-            this.SelectedItemNameRichTextBox.Text = "";
-            // 
             // SelectedItemDescriptionLabel
             // 
             this.SelectedItemDescriptionLabel.AutoSize = true;
@@ -150,22 +147,33 @@
             this.SelectedItemDescriptionLabel.TabIndex = 11;
             this.SelectedItemDescriptionLabel.Text = "Description:";
             // 
-            // SelectedItemDescriptionRichTextBox
+            // SelectedItemNameTextBox
             // 
-            this.SelectedItemDescriptionRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedItemDescriptionRichTextBox.Location = new System.Drawing.Point(287, 230);
-            this.SelectedItemDescriptionRichTextBox.Name = "SelectedItemDescriptionRichTextBox";
-            this.SelectedItemDescriptionRichTextBox.Size = new System.Drawing.Size(392, 126);
-            this.SelectedItemDescriptionRichTextBox.TabIndex = 12;
-            this.SelectedItemDescriptionRichTextBox.Text = "";
+            this.SelectedItemNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(290, 112);
+            this.SelectedItemNameTextBox.Multiline = true;
+            this.SelectedItemNameTextBox.Name = "SelectedItemNameTextBox";
+            this.SelectedItemNameTextBox.Size = new System.Drawing.Size(389, 99);
+            this.SelectedItemNameTextBox.TabIndex = 13;
+            this.SelectedItemNameTextBox.TextChanged += new System.EventHandler(this.SelectedItemNameTextBox_TextChanged);
+            // 
+            // SelectedItemDescriptionTextBox
+            // 
+            this.SelectedItemDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(290, 231);
+            this.SelectedItemDescriptionTextBox.Multiline = true;
+            this.SelectedItemDescriptionTextBox.Name = "SelectedItemDescriptionTextBox";
+            this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(389, 137);
+            this.SelectedItemDescriptionTextBox.TabIndex = 14;
+            this.SelectedItemDescriptionTextBox.TextChanged += new System.EventHandler(this.SelectedItemDescriptionTextBox_TextChanged);
             // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.SelectedItemDescriptionRichTextBox);
+            this.Controls.Add(this.SelectedItemDescriptionTextBox);
+            this.Controls.Add(this.SelectedItemNameTextBox);
             this.Controls.Add(this.SelectedItemDescriptionLabel);
-            this.Controls.Add(this.SelectedItemNameRichTextBox);
             this.Controls.Add(this.SelectedItemNameLabel);
             this.Controls.Add(this.SelectedItemCostTextBox);
             this.Controls.Add(this.SelectedItemIDTextBox);
@@ -195,8 +203,8 @@
         private System.Windows.Forms.TextBox SelectedItemIDTextBox;
         private System.Windows.Forms.TextBox SelectedItemCostTextBox;
         private System.Windows.Forms.Label SelectedItemNameLabel;
-        private System.Windows.Forms.RichTextBox SelectedItemNameRichTextBox;
         private System.Windows.Forms.Label SelectedItemDescriptionLabel;
-        private System.Windows.Forms.RichTextBox SelectedItemDescriptionRichTextBox;
+        private System.Windows.Forms.TextBox SelectedItemNameTextBox;
+        private System.Windows.Forms.TextBox SelectedItemDescriptionTextBox;
     }
 }

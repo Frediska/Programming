@@ -76,7 +76,7 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает и задает стоимость товара. Должно быть положительным числом.
         /// Должно быть в промежутке от 0 до 100000.
         /// </summary>
-        private double Cost
+        public double Cost
         {
             get { return _cost; }
             set
