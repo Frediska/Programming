@@ -58,6 +58,7 @@
             this.SelectedCustomerFullNameTextBox.Name = "SelectedCustomerFullNameTextBox";
             this.SelectedCustomerFullNameTextBox.Size = new System.Drawing.Size(329, 20);
             this.SelectedCustomerFullNameTextBox.TabIndex = 21;
+            this.SelectedCustomerFullNameTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerFullNameTextBox_TextChanged);
             // 
             // SelectedCustomerIDTextBox
             // 
@@ -103,6 +104,7 @@
             this.RemoveCustomerButton.TabIndex = 16;
             this.RemoveCustomerButton.Text = "Remove";
             this.RemoveCustomerButton.UseVisualStyleBackColor = true;
+            this.RemoveCustomerButton.Click += new System.EventHandler(this.RemoveCustomerButton_Click);
             // 
             // AddCustomerButton
             // 
@@ -112,6 +114,7 @@
             this.AddCustomerButton.TabIndex = 15;
             this.AddCustomerButton.Text = "Add";
             this.AddCustomerButton.UseVisualStyleBackColor = true;
+            this.AddCustomerButton.Click += new System.EventHandler(this.AddCustomerButton_Click);
             // 
             // CustomersLabel
             // 
@@ -130,6 +133,7 @@
             this.CustomersListBox.Name = "CustomersListBox";
             this.CustomersListBox.Size = new System.Drawing.Size(270, 459);
             this.CustomersListBox.TabIndex = 13;
+            this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
             // SelectedCustomerAddressTextBox
             // 
@@ -139,6 +143,7 @@
             this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
             this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(329, 98);
             this.SelectedCustomerAddressTextBox.TabIndex = 26;
+            this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
             // 
             // SelectedCustomerPanel
             // 
