@@ -44,6 +44,8 @@
             // 
             // SelectedCustomerAddressLabel
             // 
+            this.SelectedCustomerAddressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerAddressLabel.AutoSize = true;
             this.SelectedCustomerAddressLabel.Location = new System.Drawing.Point(287, 85);
             this.SelectedCustomerAddressLabel.Name = "SelectedCustomerAddressLabel";
@@ -53,6 +55,8 @@
             // 
             // SelectedCustomerFullNameTextBox
             // 
+            this.SelectedCustomerFullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerFullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedCustomerFullNameTextBox.Location = new System.Drawing.Point(350, 59);
             this.SelectedCustomerFullNameTextBox.Name = "SelectedCustomerFullNameTextBox";
@@ -70,6 +74,8 @@
             // 
             // SelectedCustomerFullNameLabel
             // 
+            this.SelectedCustomerFullNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerFullNameLabel.AutoSize = true;
             this.SelectedCustomerFullNameLabel.Location = new System.Drawing.Point(287, 61);
             this.SelectedCustomerFullNameLabel.Name = "SelectedCustomerFullNameLabel";
@@ -79,6 +85,8 @@
             // 
             // SelectedCustomerIDLabel
             // 
+            this.SelectedCustomerIDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerIDLabel.AutoSize = true;
             this.SelectedCustomerIDLabel.Location = new System.Drawing.Point(287, 37);
             this.SelectedCustomerIDLabel.Name = "SelectedCustomerIDLabel";
@@ -98,6 +106,7 @@
             // 
             // RemoveCustomerButton
             // 
+            this.RemoveCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveCustomerButton.Location = new System.Drawing.Point(99, 490);
             this.RemoveCustomerButton.Name = "RemoveCustomerButton";
             this.RemoveCustomerButton.Size = new System.Drawing.Size(87, 42);
@@ -108,6 +117,7 @@
             // 
             // AddCustomerButton
             // 
+            this.AddCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddCustomerButton.Location = new System.Drawing.Point(6, 490);
             this.AddCustomerButton.Name = "AddCustomerButton";
             this.AddCustomerButton.Size = new System.Drawing.Size(87, 42);
@@ -128,6 +138,8 @@
             // 
             // CustomersListBox
             // 
+            this.CustomersListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.CustomersListBox.FormattingEnabled = true;
             this.CustomersListBox.Location = new System.Drawing.Point(6, 25);
             this.CustomersListBox.Name = "CustomersListBox";
@@ -137,6 +149,8 @@
             // 
             // SelectedCustomerAddressTextBox
             // 
+            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(350, 83);
             this.SelectedCustomerAddressTextBox.Multiline = true;
@@ -147,6 +161,9 @@
             // 
             // SelectedCustomerPanel
             // 
+            this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedCustomerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedCustomerPanel.Location = new System.Drawing.Point(290, 187);
             this.SelectedCustomerPanel.Name = "SelectedCustomerPanel";

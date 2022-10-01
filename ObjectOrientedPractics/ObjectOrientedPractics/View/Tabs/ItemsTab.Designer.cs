@@ -45,6 +45,8 @@
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(6, 25);
             this.ItemsListBox.Name = "ItemsListBox";
@@ -64,6 +66,7 @@
             // 
             // AddItemButton
             // 
+            this.AddItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddItemButton.Location = new System.Drawing.Point(6, 490);
             this.AddItemButton.Name = "AddItemButton";
             this.AddItemButton.Size = new System.Drawing.Size(87, 42);
@@ -74,6 +77,7 @@
             // 
             // RemoveCustomerButton
             // 
+            this.RemoveCustomerButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveCustomerButton.Location = new System.Drawing.Point(99, 490);
             this.RemoveCustomerButton.Name = "RemoveCustomerButton";
             this.RemoveCustomerButton.Size = new System.Drawing.Size(87, 42);
@@ -94,6 +98,8 @@
             // 
             // SelectedItemIDLabel
             // 
+            this.SelectedItemIDLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemIDLabel.AutoSize = true;
             this.SelectedItemIDLabel.Location = new System.Drawing.Point(287, 37);
             this.SelectedItemIDLabel.Name = "SelectedItemIDLabel";
@@ -103,6 +109,8 @@
             // 
             // SelectedItemCostLabel
             // 
+            this.SelectedItemCostLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemCostLabel.AutoSize = true;
             this.SelectedItemCostLabel.Location = new System.Drawing.Point(287, 61);
             this.SelectedItemCostLabel.Name = "SelectedItemCostLabel";
@@ -131,6 +139,8 @@
             // 
             // SelectedItemNameLabel
             // 
+            this.SelectedItemNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemNameLabel.AutoSize = true;
             this.SelectedItemNameLabel.Location = new System.Drawing.Point(287, 96);
             this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
@@ -140,6 +150,8 @@
             // 
             // SelectedItemDescriptionLabel
             // 
+            this.SelectedItemDescriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemDescriptionLabel.AutoSize = true;
             this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(287, 214);
             this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
@@ -149,6 +161,8 @@
             // 
             // SelectedItemNameTextBox
             // 
+            this.SelectedItemNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedItemNameTextBox.Location = new System.Drawing.Point(290, 112);
             this.SelectedItemNameTextBox.Multiline = true;
@@ -159,6 +173,8 @@
             // 
             // SelectedItemDescriptionTextBox
             // 
+            this.SelectedItemDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(290, 231);
             this.SelectedItemDescriptionTextBox.Multiline = true;
