@@ -37,6 +37,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Customer _currentCustomer;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="CustomersTab"/>
+        /// </summary>
         public CustomersTab()
         {
             InitializeComponent();
