@@ -12,6 +12,9 @@ using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Представляет реализацию по представлению покупателей.
+    /// </summary>
     public partial class CustomersTab : UserControl
     {
         /// <summary>
@@ -40,11 +43,20 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers = new List<Customer>();
         }
 
+        /// <summary>
+        /// Из данных покупателя преобразует текст.
+        /// </summary>
+        /// <param name="customer">Покупатель.</param>
+        /// <returns>Возвращает текст.</returns>
         private string CustomerInfo(Customer customer)
         {
             return $"{customer.Id}. {customer.FullName}";
         }
 
+        /// <summary>
+        /// Обновляет данные о покупателе.
+        /// </summary>
+        /// <param name="selectedIndex"></param>
         private void UpdateCustomerInfo(int selectedIndex)
         {
             CustomersListBox.Items.Clear();
@@ -59,6 +71,9 @@ namespace ObjectOrientedPractics.View.Tabs
             CustomersListBox.SelectedIndex = selectedIndex;
         }
 
+        /// <summary>
+        /// Очищает поля ввода информации.
+        /// </summary>
         public void ClearCustomerInfo()
         {
             SelectedCustomerFullNameTextBox.Clear();

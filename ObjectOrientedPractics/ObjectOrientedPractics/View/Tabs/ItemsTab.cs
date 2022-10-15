@@ -12,6 +12,9 @@ using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
+    /// <summary>
+    /// Представляет реализацию по представлению товаров.
+    /// </summary>
     public partial class ItemsTab : UserControl
     {
         /// <summary>
@@ -24,10 +27,19 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private readonly Color _correctColor = Color.White;
 
+        /// <summary>
+        /// Коллекция товаров.
+        /// </summary>
         private List<Item> _items;
 
+        /// <summary>
+        /// Выбранный товар.
+        /// </summary>
         private Item _currentItem;
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="ItemsTab"/>
+        /// </summary>
         public ItemsTab()
         {
             InitializeComponent();
@@ -37,11 +49,20 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateItemInfo(-1);
         }
 
+        /// <summary>
+        /// Из данных товара преобразует текст.
+        /// </summary>
+        /// <param name="item">Товар.</param>
+        /// <returns>Возвращает текст.</returns>
         private string ItemInfo(Item item)
         {
             return $"{item.Id}. {item.Name}";
         }
 
+        /// <summary>
+        /// Обновляет данные о товаре.
+        /// </summary>
+        /// <param name="selectedIndex"></param>
         private void UpdateItemInfo(int selectedIndex)
         {
             ItemsListBox.Items.Clear();
@@ -56,6 +77,9 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = selectedIndex;
         }
 
+        /// <summary>
+        /// Очищает поля ввода информации.
+        /// </summary>
         public void ClearItemInfo()
         {
             SelectedItemNameTextBox.Clear();

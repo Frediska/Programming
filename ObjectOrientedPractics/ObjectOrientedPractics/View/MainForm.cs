@@ -10,8 +10,14 @@ using System.Windows.Forms;
 
 namespace ObjectOrientedPractics
 {
+    /// <summary>
+    /// Предоставляет реализацию по представлению главного окна.
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Создаёт экземпляр класса <see cref="MainForm"/>.
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
