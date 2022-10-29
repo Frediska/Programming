@@ -12,16 +12,34 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Address
     {
+        /// <summary>
+        /// Максимально возможное количество символов в почтовом индексе.
+        /// </summary>
         private const int MaxLengthOfIndex = 6;
 
+        /// <summary>
+        /// Максимально возможное количество символов в названии страны\региона.
+        /// </summary>
         private const int MaxLengthOfCountry = 50;
 
+        /// <summary>
+        /// Максимально возможное количество символов в названии города/населенного пункта.
+        /// </summary>
         private const int MaxLengthOfCity = 50;
 
+        /// <summary>
+        /// Максимально возможное количество символов в названии улицы.
+        /// </summary>
         private const int MaxLengthOfStreet = 100;
 
+        /// <summary>
+        /// Максимально возможное количество символов в номере дома.
+        /// </summary>
         private const int MaxLengthOfBuilding = 10;
 
+        /// <summary>
+        /// Максимально возможное количество символов в номере квартиры/помещения. 
+        /// </summary>
         private const int MaxLengthOfApartment = 10;
 
         /// <summary>
