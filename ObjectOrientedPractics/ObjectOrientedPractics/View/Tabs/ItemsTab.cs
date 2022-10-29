@@ -47,6 +47,11 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items = ProjectSerializer.Deserialize();
             UpdateItemInfo(-1);
+
+            var category = Enum.GetValues(typeof(Category));
+
+            foreach (var value in category)
+                SelectedItemCategoryComboBox.Items.Add(value);
         }
 
         /// <summary>
@@ -122,6 +127,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedItemCostTextBox.Text = _currentItem.Cost.ToString();
                 SelectedItemDescriptionTextBox.Text = _currentItem.Info;
                 SelectedItemIDTextBox.Text = _currentItem.Id.ToString();
+                SelectedItemCategoryComboBox.SelectedItem = _currentItem.Category;
             }
         }
 
@@ -189,6 +195,17 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 SelectedItemDescriptionTextBox.BackColor = _correctColor;
             }
+        }
+
+        private void SelectedItemCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedItem == null) return;
+            
+            _currentItem.Category = (Category)SelectedItemCategoryComboBox.SelectedItem;
+            int index = _items.IndexOf(_currentItem);
+            UpdateItemInfo(index);
+
+            ProjectSerializer.Serialize(_items);
         }
     }
 }

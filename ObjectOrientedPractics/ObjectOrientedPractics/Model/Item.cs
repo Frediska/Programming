@@ -43,6 +43,11 @@ namespace ObjectOrientedPractics.Model
         public static int AllItemCount { get { return _allItemCount;  } }
 
         /// <summary>
+        /// Возвращает и задает категорию товара.
+        /// </summary>
+        public Category Category { get; set; }
+
+        /// <summary>
         /// Возвращает и задает полное название товара. Не более 200 символов.
         /// Должно состоять только из символов русского и английского алфавита.
         /// </summary>
@@ -101,11 +106,13 @@ namespace ObjectOrientedPractics.Model
         /// <param name="name">Полное название товара.</param>
         /// <param name="info">Полное описание товара.</param>
         /// <param name="cost">Стоимость товара.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
             _allItemCount++;
             _id = _allItemCount;
         }
