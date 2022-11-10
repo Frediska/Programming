@@ -12,9 +12,6 @@ using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Controls
 {
-    /// <summary>
-    /// Реализация по представлению адресов.
-    /// </summary>
     public partial class AddressControl : UserControl
     {
         private Address _address;
