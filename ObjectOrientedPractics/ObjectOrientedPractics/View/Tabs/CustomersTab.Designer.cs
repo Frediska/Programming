@@ -55,8 +55,10 @@
             // SelectedCustomerIDTextBox
             // 
             this.SelectedCustomerIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedCustomerIDTextBox.Enabled = false;
             this.SelectedCustomerIDTextBox.Location = new System.Drawing.Point(350, 35);
             this.SelectedCustomerIDTextBox.Name = "SelectedCustomerIDTextBox";
+            this.SelectedCustomerIDTextBox.ReadOnly = true;
             this.SelectedCustomerIDTextBox.Size = new System.Drawing.Size(124, 20);
             this.SelectedCustomerIDTextBox.TabIndex = 20;
             // 
