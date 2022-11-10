@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -30,7 +31,7 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Полный адрес доставки для покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Возвращает количество всех покупателей. 
@@ -53,18 +54,13 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает адрес доставки для покупателя. Не более 500 символов.
+        /// Возвращает и задает адрес доставки для покупателя.
         /// Должен стостоять только из символов русского и английского алфавита.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get { return _address; }
-            set
-            {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
-                ValueValidator.AssertStringContainsOnlyLetters(nameof(Address), value);
-                _address = value;
-            }
+            set { _address = value; }
         }
 
         /// <summary>
@@ -80,7 +76,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         /// <param name="fullName">Полное ФИО покупателя.</param>
         /// <param name="address">Полный адрес доставки для покупателя.</param>
-        public Customer(string fullName, string address)
+        public Customer(string fullName, Address address)
         {
             FullName = fullName;
             Address = address;

@@ -18,16 +18,6 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
-        /// Цвет некорректного значения.
-        /// </summary>
-        private readonly Color _errorColor = Color.LightPink;
-
-        /// <summary>
-        /// Цвет корректного значения.
-        /// </summary>
-        private readonly Color _correctColor = Color.White;
-
-        /// <summary>
         /// Коллекция товаров.
         /// </summary>
         private List<Item> _items;
@@ -148,10 +138,10 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 catch
                 {
-                    SelectedItemCostTextBox.BackColor = _errorColor;
+                    SelectedItemCostTextBox.BackColor = AppColor.ErrorColor;
                     return;
                 }
-                SelectedItemCostTextBox.BackColor = _correctColor;
+                SelectedItemCostTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 
@@ -170,9 +160,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 catch
                 {
-                    SelectedItemNameTextBox.BackColor = _errorColor;
+                    SelectedItemNameTextBox.BackColor = AppColor.ErrorColor;
                 }
-                SelectedItemNameTextBox.BackColor = _correctColor;
+                SelectedItemNameTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 
@@ -191,9 +181,9 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 catch
                 {
-                    SelectedItemDescriptionTextBox.BackColor = _errorColor;
+                    SelectedItemDescriptionTextBox.BackColor = AppColor.ErrorColor;
                 }
-                SelectedItemDescriptionTextBox.BackColor = _correctColor;
+                SelectedItemDescriptionTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 

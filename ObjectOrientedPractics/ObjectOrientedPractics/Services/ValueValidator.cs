@@ -89,5 +89,19 @@ namespace ObjectOrientedPractics.Services
                 throw new ArgumentException(
                     $"the number of characters in {propertyName} must be equal to {length}.");
         }
+
+        /// <summary>
+        /// Проверяет является ли переданная строка пустой.
+        /// </summary>
+        /// <param name="value">Строка.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <exception cref="ArgumentException">Если строка оказалась пустой.</exception>
+        public static void AssertEmptyValue(string value, string propertyName)
+        {
+            if (value == "")
+            {
+                throw new ArgumentException($"Строка не может быть пустой в поле {propertyName}");
+            }
+        }
     }
 }

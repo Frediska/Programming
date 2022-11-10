@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SelectedCustomerAddressLabel = new System.Windows.Forms.Label();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerFullNameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerFullNameLabel = new System.Windows.Forms.Label();
@@ -38,20 +38,8 @@
             this.AddCustomerButton = new System.Windows.Forms.Button();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
-            this.SelectedCustomerAddressTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedCustomerPanel = new System.Windows.Forms.Panel();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.SuspendLayout();
-            // 
-            // SelectedCustomerAddressLabel
-            // 
-            this.SelectedCustomerAddressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressLabel.AutoSize = true;
-            this.SelectedCustomerAddressLabel.Location = new System.Drawing.Point(287, 85);
-            this.SelectedCustomerAddressLabel.Name = "SelectedCustomerAddressLabel";
-            this.SelectedCustomerAddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.SelectedCustomerAddressLabel.TabIndex = 22;
-            this.SelectedCustomerAddressLabel.Text = "Address:";
             // 
             // SelectedCustomerFullNameTextBox
             // 
@@ -147,36 +135,20 @@
             this.CustomersListBox.TabIndex = 13;
             this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
-            // SelectedCustomerAddressTextBox
+            // AddressControl
             // 
-            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(350, 83);
-            this.SelectedCustomerAddressTextBox.Multiline = true;
-            this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
-            this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(329, 98);
-            this.SelectedCustomerAddressTextBox.TabIndex = 26;
-            this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
-            // 
-            // SelectedCustomerPanel
-            // 
-            this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedCustomerPanel.Location = new System.Drawing.Point(290, 187);
-            this.SelectedCustomerPanel.Name = "SelectedCustomerPanel";
-            this.SelectedCustomerPanel.Size = new System.Drawing.Size(389, 345);
-            this.SelectedCustomerPanel.TabIndex = 27;
+            this.AddressControl.Address = address1;
+            this.AddressControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.AddressControl.Location = new System.Drawing.Point(282, 85);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(403, 172);
+            this.AddressControl.TabIndex = 27;
             // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.SelectedCustomerPanel);
-            this.Controls.Add(this.SelectedCustomerAddressTextBox);
-            this.Controls.Add(this.SelectedCustomerAddressLabel);
+            this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.SelectedCustomerFullNameTextBox);
             this.Controls.Add(this.SelectedCustomerIDTextBox);
             this.Controls.Add(this.SelectedCustomerFullNameLabel);
@@ -193,8 +165,7 @@
 
         }
 
-        #endregion
-        private System.Windows.Forms.Label SelectedCustomerAddressLabel;
+        #endregion      
         private System.Windows.Forms.TextBox SelectedCustomerFullNameTextBox;
         private System.Windows.Forms.TextBox SelectedCustomerIDTextBox;
         private System.Windows.Forms.Label SelectedCustomerFullNameLabel;
@@ -204,7 +175,6 @@
         private System.Windows.Forms.Button AddCustomerButton;
         private System.Windows.Forms.Label CustomersLabel;
         private System.Windows.Forms.ListBox CustomersListBox;
-        private System.Windows.Forms.TextBox SelectedCustomerAddressTextBox;
-        private System.Windows.Forms.Panel SelectedCustomerPanel;
+        private Controls.AddressControl AddressControl;
     }
 }

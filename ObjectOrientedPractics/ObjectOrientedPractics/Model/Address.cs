@@ -93,6 +93,7 @@ namespace ObjectOrientedPractics.Model
             get { return _country; }
             set
             {
+                ValueValidator.AssertEmptyValue(value, nameof(Country));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfCountry, nameof(Country));
                 _country = value;
             }
@@ -106,6 +107,7 @@ namespace ObjectOrientedPractics.Model
             get { return _city; }
             set
             {
+                ValueValidator.AssertEmptyValue(value, nameof(City));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfCity, nameof(City));
                 _city = value;
             }
@@ -119,6 +121,7 @@ namespace ObjectOrientedPractics.Model
             get { return _street; }
             set
             {
+                ValueValidator.AssertEmptyValue(value, nameof(Street));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfStreet, nameof(Street));
                 _street = value;
             }
@@ -132,6 +135,7 @@ namespace ObjectOrientedPractics.Model
             get { return _building; }
             set
             {
+                ValueValidator.AssertEmptyValue(value, nameof(Building)); 
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfBuilding, nameof(Building));
                 _building = value;
             }
@@ -146,17 +150,18 @@ namespace ObjectOrientedPractics.Model
             get { return _apartment; }
             set
             {
+                ValueValidator.AssertEmptyValue(value, nameof(Apartment));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfApartment, nameof(Apartment));
                 _apartment = value;
             }
         }
 
         /// <summary>
-        /// Создает экземпляр класса <see cref="Address"/>.
+        /// Создает экземпляр класса<see cref="Address"/>.
         /// </summary>
         public Address()
         {
-
+            
         }
 
         /// <summary>
