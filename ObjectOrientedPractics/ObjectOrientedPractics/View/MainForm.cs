@@ -36,6 +36,7 @@ namespace ObjectOrientedPractics
         {
             _store.Customers = customersTab1.Customers;
             _store.Items = itemsTab1.Items;
+            
 
             ProjectSerializer.Serialize(_store);
         }
