@@ -36,6 +36,20 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers = new List<Customer>();
         }
 
+        public List<Customer> Customers
+        {
+            get { return _customers; }
+            set
+            {
+                _customers = value;
+
+                if (_customers != null)
+                {
+                    UpdateCustomerInfo(-1);
+                }
+            }
+        }
+
         /// <summary>
         /// Из данных покупателя преобразует текст.
         /// </summary>
@@ -69,6 +83,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public void ClearCustomerInfo()
         {
+            SelectedCustomerIDTextBox.Clear();
             SelectedCustomerFullNameTextBox.Clear();
             AddressControl.Clear();
         }
@@ -80,8 +95,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _customers.Add(customer);
             CustomersListBox.Items.Add(CustomerInfo(_currentCustomer));
-
-            //CustomersListBox.SelectedIndex = Customer.AllCustomerCount - 1;
 
             UpdateCustomerInfo(0);
 

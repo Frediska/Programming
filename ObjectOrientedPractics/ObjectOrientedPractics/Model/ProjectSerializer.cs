@@ -42,7 +42,7 @@ namespace ObjectOrientedPractics.Model
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="establishments">Коллекция класса <see cref="Establishment"/></param>
-        public static void Serialize(List<Item> items)
+        public static void Serialize(Store store)
         {
             if (!File.Exists(Path))
             {
@@ -51,7 +51,7 @@ namespace ObjectOrientedPractics.Model
 
             using (StreamWriter writer = new StreamWriter(Path + FileName))
             {
-                writer.Write(JsonConvert.SerializeObject(items));
+                writer.Write(JsonConvert.SerializeObject(store));
             }
         }
 
@@ -59,30 +59,30 @@ namespace ObjectOrientedPractics.Model
         /// Проводит десериализацию данных.
         /// </summary>
         /// <returns>Возвращает коллекцию заведений.</returns>
-        public static List<Item> Deserialize()
+        public static Store Deserialize()
         {
             if (!File.Exists(Path))
             {
                 Directory.CreateDirectory(Path);
             }
 
-            var establishments = new List<Item>();
+            var store = new Store();
 
             try
             {
                 using (StreamReader reader = new StreamReader(Path + FileName))
                 {
-                    establishments = JsonConvert.DeserializeObject<List<Item>>(reader.ReadToEnd());
+                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd());
                 }
 
-                if (establishments == null) establishments = new List<Item>();
+                if (store == null) store = new Store();
             }
             catch
             {
-                return establishments;
+                return store;
             }
 
-            return establishments;
+            return store;
         }
     }
 }
