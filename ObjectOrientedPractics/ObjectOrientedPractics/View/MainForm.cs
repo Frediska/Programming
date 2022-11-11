@@ -26,10 +26,18 @@ namespace ObjectOrientedPractics
         {
             InitializeComponent();
 
-            _store = new Store();
+            _store = ProjectSerializer.Deserialize();
 
             itemsTab1.Items = _store.Items;
             customersTab1.Customers = _store.Customers;
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            _store.Items = itemsTab1.Items;
+            _store.Customers = customersTab1.Customers;
+
+            ProjectSerializer.Serialize(_store);
         }
     }
 }
