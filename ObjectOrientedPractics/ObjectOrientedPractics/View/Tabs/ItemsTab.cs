@@ -139,7 +139,6 @@ namespace ObjectOrientedPractics.View.Tabs
                     _currentItem.Cost = itemCost;
                     int index = _items.IndexOf(_currentItem);
                     UpdateItemInfo(index);
-
                 }
                 catch
                 {
