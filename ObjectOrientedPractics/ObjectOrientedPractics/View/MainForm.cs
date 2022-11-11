@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ObjectOrientedPractics.Model;
 
 namespace ObjectOrientedPractics
 {
@@ -16,19 +15,12 @@ namespace ObjectOrientedPractics
     /// </summary>
     public partial class MainForm : Form
     {
-        private Store _store;
-
         /// <summary>
         /// Создаёт экземпляр класса <see cref="MainForm"/>.
         /// </summary>
         public MainForm()
         {
             InitializeComponent();
-
-            _store = new Store();
-
-            itemsTab1.Items = _store.Items;
-            customersTab1.Customers = _store.Customers;
         }
     }
 }

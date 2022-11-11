@@ -26,7 +26,7 @@ namespace ObjectOrientedPractics.Services
             customer.Address.Building = "None";
             customer.Address.Street = "None";
             customer.Address.Country = "None";
-            customer.Address.Index = 111111;
+            customer.Address.Index = 100000;
 
             return customer;
         }
