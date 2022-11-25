@@ -41,9 +41,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedItemCategoryComboBox.Items.Add(value);
         }
 
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Item> Items
         {
             get { return _items; }

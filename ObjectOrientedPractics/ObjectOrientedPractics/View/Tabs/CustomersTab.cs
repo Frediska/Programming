@@ -36,9 +36,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers = new List<Customer>();
         }
 
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<Customer> Customers
         {
             get { return _customers; }
