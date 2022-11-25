@@ -34,6 +34,16 @@ namespace ObjectOrientedPractics.Model
         private Address _address;
 
         /// <summary>
+        /// Корзина товаров.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
+        /// Коллекция заказов.
+        /// </summary>
+        private List<Order> _orders;
+
+        /// <summary>
         /// Возвращает количество всех покупателей. 
         /// </summary>
         public static int AllCustomerCount { get { return _allCustomerCount; } }
@@ -72,16 +82,38 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает корзину товаров.
+        /// </summary>
+        public Cart Cart
+        {
+            get { return _cart; }
+            set {_cart = value; }
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию заказов.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get { return _orders; }
+            set { _orders = value; }
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullName">Полное ФИО покупателя.</param>
         /// <param name="address">Полный адрес доставки для покупателя.</param>
-        public Customer(string fullName, Address address)
+        /// <param name="cart">Корзина товаров.</param>
+        /// <param name="orders">Коллекция заказов.</param>
+        public Customer(string fullName, Address address, Cart cart, List<Order> orders)
         {
             FullName = fullName;
             Address = address;
+            Cart = cart;
+            Orders = orders;
             _allCustomerCount++;
-            _id = _allCustomerCount;
+            _id = _allCustomerCount;            
         }
 
         /// <summary>
@@ -91,6 +123,8 @@ namespace ObjectOrientedPractics.Model
         {
             _allCustomerCount++;
             _id = _allCustomerCount;
+            Cart = new Cart();
+            Orders = new List<Order>();
         }
     }
 }
