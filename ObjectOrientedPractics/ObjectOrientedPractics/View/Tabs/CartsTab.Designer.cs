@@ -38,6 +38,8 @@
             this.CreateOrderButton = new System.Windows.Forms.Button();
             this.ClearCartButton = new System.Windows.Forms.Button();
             this.RemoveItemButton = new System.Windows.Forms.Button();
+            this.AmountLabel = new System.Windows.Forms.Label();
+            this.AllAmountLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ItemsLabel
@@ -130,10 +132,32 @@
             this.RemoveItemButton.Text = "Remove Item";
             this.RemoveItemButton.UseVisualStyleBackColor = true;
             // 
+            // AmountLabel
+            // 
+            this.AmountLabel.AutoSize = true;
+            this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AmountLabel.Location = new System.Drawing.Point(631, 238);
+            this.AmountLabel.Name = "AmountLabel";
+            this.AmountLabel.Size = new System.Drawing.Size(53, 13);
+            this.AmountLabel.TabIndex = 11;
+            this.AmountLabel.Text = "Amount:";
+            // 
+            // AllAmountLabel
+            // 
+            this.AllAmountLabel.AutoSize = true;
+            this.AllAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllAmountLabel.Location = new System.Drawing.Point(631, 262);
+            this.AllAmountLabel.Name = "AllAmountLabel";
+            this.AllAmountLabel.Size = new System.Drawing.Size(14, 13);
+            this.AllAmountLabel.TabIndex = 12;
+            this.AllAmountLabel.Text = "0";
+            // 
             // CartsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.AllAmountLabel);
+            this.Controls.Add(this.AmountLabel);
             this.Controls.Add(this.RemoveItemButton);
             this.Controls.Add(this.ClearCartButton);
             this.Controls.Add(this.CreateOrderButton);
@@ -163,5 +187,7 @@
         private System.Windows.Forms.Button CreateOrderButton;
         private System.Windows.Forms.Button ClearCartButton;
         private System.Windows.Forms.Button RemoveItemButton;
+        private System.Windows.Forms.Label AmountLabel;
+        private System.Windows.Forms.Label AllAmountLabel;
     }
 }
