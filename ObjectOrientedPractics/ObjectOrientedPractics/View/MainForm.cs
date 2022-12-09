@@ -42,5 +42,14 @@ namespace ObjectOrientedPractics
 
             ProjectSerializer.Serialize(_store);
         }
+        private void tabControl1_SelectedIndexChanged(object sender, System.EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 2)
+            {
+                cartsTab1.Items = itemsTab1.Items;
+                cartsTab1.Customers = customersTab1.Customers;
+                cartsTab1.RefreshData();
+            }
+        }
     }
 }
