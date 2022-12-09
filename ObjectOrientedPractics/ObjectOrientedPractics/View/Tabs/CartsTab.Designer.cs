@@ -57,12 +57,12 @@
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(6, 27);
             this.ItemsListBox.Name = "ItemsListBox";
-            this.ItemsListBox.Size = new System.Drawing.Size(265, 472);
+            this.ItemsListBox.Size = new System.Drawing.Size(265, 459);
             this.ItemsListBox.TabIndex = 1;
             // 
             // AddToCartButton
             // 
-            this.AddToCartButton.Location = new System.Drawing.Point(6, 502);
+            this.AddToCartButton.Location = new System.Drawing.Point(6, 492);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(94, 33);
             this.AddToCartButton.TabIndex = 2;
