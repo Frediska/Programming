@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -28,6 +29,9 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Возвращает и задает коллекцию товаров.
+        /// </summary>
         public List<Item> Items
         {
             get { return _items; }
@@ -72,7 +76,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             foreach (Item item in _items)
             {
-                ItemsListBox.Items.Add($"{item.Id}: " + $"{item.Name};");
+                ItemsListBox.Items.Add($"{item.Name}");
             }
 
             if (selectedIndex == -1) return;
@@ -80,5 +84,106 @@ namespace ObjectOrientedPractics.View.Tabs
             ItemsListBox.SelectedIndex = selectedIndex;
         }
 
+        private void UpdateCartInfo(int selectedIndex)
+        {
+            CartListBox.Items.Clear();
+
+            foreach (Item item in CurrentCustomer.Cart.Items)
+            {
+                CartListBox.Items.Add($"{item.Name}");
+            }
+
+            if (selectedIndex == -1) return;
+
+            ItemsListBox.SelectedIndex = selectedIndex;
+        }
+
+        /// <summary>
+        /// Обновляет данные в списках.
+        /// </summary>
+        public void RefreshData()
+        {
+            CustomerComboBox.Items.Clear();
+            UpdateItemInfo(-1);
+
+            foreach (var customer in _customers)
+            {
+                CustomerComboBox.Items.Add(customer.FullName);
+            }
+
+            if (CustomerComboBox.Items.Count > 0)
+            {
+                CustomerComboBox.SelectedIndex = 0;
+            }
+            else
+            {
+                CustomerComboBox.SelectedIndex = -1;
+            }
+
+        }
+
+        /// <summary>
+        /// Возвращает и задает выбранного покупателя.
+        /// </summary>
+        private Customer CurrentCustomer { get; set; }
+
+        private void CustomerComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = CustomerComboBox.SelectedIndex;
+
+            if (index == -1) return;
+
+            CurrentCustomer = _customers[index];
+
+            if (CurrentCustomer.Cart.Items == null) return;
+
+            ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            UpdateCartInfo(-1);
+        }
+
+        private void AddToCartButton_Click(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex != -1 || CustomerComboBox.SelectedIndex != -1)
+            {
+                CurrentCustomer.Cart.Items.Add(_items[ItemsListBox.SelectedIndex]);
+                ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+
+                UpdateCartInfo(-1);
+                UpdateItemInfo(-1);
+            }
+        }
+
+        private void RemoveItemButton_Click(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex != -1 || CustomerComboBox.SelectedIndex != -1)
+            {
+                CurrentCustomer.Cart.Items.RemoveAt(CartListBox.SelectedIndex);
+                ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+
+                UpdateCartInfo(-1);
+                UpdateItemInfo(-1);
+            }
+        }
+
+        private void ClearCartButton_Click(object sender, EventArgs e)
+        {
+            CurrentCustomer.Cart = new Cart();
+            UpdateCartInfo(-1);
+            UpdateItemInfo(-1);
+            ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+        }
+
+        private void CreateOrderButton_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            order.Address = CurrentCustomer.Address;
+            order.Items = CurrentCustomer.Cart.Items;
+            order.Status = ОrderStatus.New;
+            CurrentCustomer.Orders.Add(order);
+            CurrentCustomer.Cart = new Cart();
+            ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            UpdateCartInfo(-1);
+            UpdateItemInfo(-1);
+        }
     }
 }
