@@ -31,6 +31,12 @@
             ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.OrdersLabel = new System.Windows.Forms.Label();
             this.OrdersDataGridView = new System.Windows.Forms.DataGridView();
+            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFullNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
             this.SelectedOrderIDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderCreatedLabel = new System.Windows.Forms.Label();
@@ -43,12 +49,6 @@
             this.OrderItemsListBox = new System.Windows.Forms.ListBox();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AllAmountLabel = new System.Windows.Forms.Label();
-            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerFullNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,10 +72,48 @@
             this.CustomerFullNameColumn,
             this.DeliveryAddressColumn,
             this.AmountColumn});
+            this.OrdersDataGridView.Enabled = false;
             this.OrdersDataGridView.Location = new System.Drawing.Point(6, 26);
+            this.OrdersDataGridView.MultiSelect = false;
             this.OrdersDataGridView.Name = "OrdersDataGridView";
             this.OrdersDataGridView.Size = new System.Drawing.Size(275, 492);
             this.OrdersDataGridView.TabIndex = 1;
+            // 
+            // IDColumn
+            // 
+            this.IDColumn.HeaderText = "IDColumn";
+            this.IDColumn.Name = "IDColumn";
+            this.IDColumn.ReadOnly = true;
+            // 
+            // CreatedColumn
+            // 
+            this.CreatedColumn.HeaderText = "CreatedColumn";
+            this.CreatedColumn.Name = "CreatedColumn";
+            this.CreatedColumn.ReadOnly = true;
+            // 
+            // OrderStatusColumn
+            // 
+            this.OrderStatusColumn.HeaderText = "OrderStatusColumn";
+            this.OrderStatusColumn.Name = "OrderStatusColumn";
+            this.OrderStatusColumn.ReadOnly = true;
+            // 
+            // CustomerFullNameColumn
+            // 
+            this.CustomerFullNameColumn.HeaderText = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.Name = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.ReadOnly = true;
+            // 
+            // DeliveryAddressColumn
+            // 
+            this.DeliveryAddressColumn.HeaderText = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.Name = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.ReadOnly = true;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.HeaderText = "AmountColumn";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
             // 
             // SelectedOrderLabel
             // 
@@ -187,42 +225,6 @@
             this.AllAmountLabel.Size = new System.Drawing.Size(14, 13);
             this.AllAmountLabel.TabIndex = 13;
             this.AllAmountLabel.Text = "0";
-            // 
-            // IDColumn
-            // 
-            this.IDColumn.HeaderText = "IDColumn";
-            this.IDColumn.Name = "IDColumn";
-            this.IDColumn.ReadOnly = true;
-            // 
-            // CreatedColumn
-            // 
-            this.CreatedColumn.HeaderText = "CreatedColumn";
-            this.CreatedColumn.Name = "CreatedColumn";
-            this.CreatedColumn.ReadOnly = true;
-            // 
-            // OrderStatusColumn
-            // 
-            this.OrderStatusColumn.HeaderText = "OrderStatusColumn";
-            this.OrderStatusColumn.Name = "OrderStatusColumn";
-            this.OrderStatusColumn.ReadOnly = true;
-            // 
-            // CustomerFullNameColumn
-            // 
-            this.CustomerFullNameColumn.HeaderText = "CustomerFullNameColumn";
-            this.CustomerFullNameColumn.Name = "CustomerFullNameColumn";
-            this.CustomerFullNameColumn.ReadOnly = true;
-            // 
-            // DeliveryAddressColumn
-            // 
-            this.DeliveryAddressColumn.HeaderText = "DeliveryAddressColumn";
-            this.DeliveryAddressColumn.Name = "DeliveryAddressColumn";
-            this.DeliveryAddressColumn.ReadOnly = true;
-            // 
-            // AmountColumn
-            // 
-            this.AmountColumn.HeaderText = "AmountColumn";
-            this.AmountColumn.Name = "AmountColumn";
-            this.AmountColumn.ReadOnly = true;
             // 
             // OrdersTab
             // 
