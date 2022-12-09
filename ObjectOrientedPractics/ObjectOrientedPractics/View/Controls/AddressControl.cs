@@ -61,7 +61,6 @@ namespace ObjectOrientedPractics.View.Controls
             {
                 int index = int.Parse(PostIndexTextBox.Text);
                 _address.Index = index;
-
             }
             catch
             {

@@ -32,7 +32,7 @@
             this.ItemsListBox = new System.Windows.Forms.ListBox();
             this.AddToCartButton = new System.Windows.Forms.Button();
             this.CustomerLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.CustomerComboBox = new System.Windows.Forms.ComboBox();
             this.CartLabel = new System.Windows.Forms.Label();
             this.CartTextBox = new System.Windows.Forms.TextBox();
             this.CreateOrderButton = new System.Windows.Forms.Button();
@@ -54,6 +54,8 @@
             // 
             // ItemsListBox
             // 
+            this.ItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.ItemsListBox.FormattingEnabled = true;
             this.ItemsListBox.Location = new System.Drawing.Point(6, 27);
             this.ItemsListBox.Name = "ItemsListBox";
@@ -62,6 +64,7 @@
             // 
             // AddToCartButton
             // 
+            this.AddToCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddToCartButton.Location = new System.Drawing.Point(6, 492);
             this.AddToCartButton.Name = "AddToCartButton";
             this.AddToCartButton.Size = new System.Drawing.Size(94, 33);
@@ -71,6 +74,8 @@
             // 
             // CustomerLabel
             // 
+            this.CustomerLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerLabel.AutoSize = true;
             this.CustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.CustomerLabel.Location = new System.Drawing.Point(286, 27);
@@ -79,13 +84,15 @@
             this.CustomerLabel.TabIndex = 3;
             this.CustomerLabel.Text = "Customer:";
             // 
-            // comboBox1
+            // CustomerComboBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(355, 24);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(327, 21);
-            this.comboBox1.TabIndex = 4;
+            this.CustomerComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CustomerComboBox.FormattingEnabled = true;
+            this.CustomerComboBox.Location = new System.Drawing.Point(355, 24);
+            this.CustomerComboBox.Name = "CustomerComboBox";
+            this.CustomerComboBox.Size = new System.Drawing.Size(327, 21);
+            this.CustomerComboBox.TabIndex = 4;
             // 
             // CartLabel
             // 
@@ -98,6 +105,9 @@
             // 
             // CartTextBox
             // 
+            this.CartTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CartTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CartTextBox.Location = new System.Drawing.Point(289, 80);
             this.CartTextBox.Multiline = true;
@@ -107,6 +117,7 @@
             // 
             // CreateOrderButton
             // 
+            this.CreateOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CreateOrderButton.Location = new System.Drawing.Point(289, 275);
             this.CreateOrderButton.Name = "CreateOrderButton";
             this.CreateOrderButton.Size = new System.Drawing.Size(94, 33);
@@ -116,6 +127,7 @@
             // 
             // ClearCartButton
             // 
+            this.ClearCartButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearCartButton.Location = new System.Drawing.Point(588, 275);
             this.ClearCartButton.Name = "ClearCartButton";
             this.ClearCartButton.Size = new System.Drawing.Size(94, 33);
@@ -125,6 +137,7 @@
             // 
             // RemoveItemButton
             // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.RemoveItemButton.Location = new System.Drawing.Point(488, 275);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(94, 33);
@@ -134,6 +147,7 @@
             // 
             // AmountLabel
             // 
+            this.AmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountLabel.AutoSize = true;
             this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AmountLabel.Location = new System.Drawing.Point(629, 237);
@@ -144,6 +158,7 @@
             // 
             // ALlAmountLabel
             // 
+            this.ALlAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ALlAmountLabel.AutoSize = true;
             this.ALlAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ALlAmountLabel.Location = new System.Drawing.Point(648, 259);
@@ -163,7 +178,7 @@
             this.Controls.Add(this.CreateOrderButton);
             this.Controls.Add(this.CartTextBox);
             this.Controls.Add(this.CartLabel);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.CustomerComboBox);
             this.Controls.Add(this.CustomerLabel);
             this.Controls.Add(this.AddToCartButton);
             this.Controls.Add(this.ItemsListBox);
@@ -181,7 +196,7 @@
         private System.Windows.Forms.ListBox ItemsListBox;
         private System.Windows.Forms.Button AddToCartButton;
         private System.Windows.Forms.Label CustomerLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CustomerComboBox;
         private System.Windows.Forms.Label CartLabel;
         private System.Windows.Forms.TextBox CartTextBox;
         private System.Windows.Forms.Button CreateOrderButton;
