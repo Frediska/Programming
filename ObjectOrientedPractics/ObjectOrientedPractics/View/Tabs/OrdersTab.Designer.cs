@@ -30,7 +30,7 @@
         {
             ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.OrdersLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.OrdersDataGridView = new System.Windows.Forms.DataGridView();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
             this.SelectedOrderIDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderCreatedLabel = new System.Windows.Forms.Label();
@@ -43,7 +43,13 @@
             this.OrderItemsListBox = new System.Windows.Forms.ListBox();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AllAmountLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFullNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // OrdersLabel
@@ -56,13 +62,20 @@
             this.OrdersLabel.TabIndex = 0;
             this.OrdersLabel.Text = "Orders:";
             // 
-            // dataGridView1
+            // OrdersDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(275, 492);
-            this.dataGridView1.TabIndex = 1;
+            this.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.OrdersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDColumn,
+            this.CreatedColumn,
+            this.OrderStatusColumn,
+            this.CustomerFullNameColumn,
+            this.DeliveryAddressColumn,
+            this.AmountColumn});
+            this.OrdersDataGridView.Location = new System.Drawing.Point(6, 26);
+            this.OrdersDataGridView.Name = "OrdersDataGridView";
+            this.OrdersDataGridView.Size = new System.Drawing.Size(275, 492);
+            this.OrdersDataGridView.TabIndex = 1;
             // 
             // SelectedOrderLabel
             // 
@@ -175,6 +188,42 @@
             this.AllAmountLabel.TabIndex = 13;
             this.AllAmountLabel.Text = "0";
             // 
+            // IDColumn
+            // 
+            this.IDColumn.HeaderText = "IDColumn";
+            this.IDColumn.Name = "IDColumn";
+            this.IDColumn.ReadOnly = true;
+            // 
+            // CreatedColumn
+            // 
+            this.CreatedColumn.HeaderText = "CreatedColumn";
+            this.CreatedColumn.Name = "CreatedColumn";
+            this.CreatedColumn.ReadOnly = true;
+            // 
+            // OrderStatusColumn
+            // 
+            this.OrderStatusColumn.HeaderText = "OrderStatusColumn";
+            this.OrderStatusColumn.Name = "OrderStatusColumn";
+            this.OrderStatusColumn.ReadOnly = true;
+            // 
+            // CustomerFullNameColumn
+            // 
+            this.CustomerFullNameColumn.HeaderText = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.Name = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.ReadOnly = true;
+            // 
+            // DeliveryAddressColumn
+            // 
+            this.DeliveryAddressColumn.HeaderText = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.Name = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.ReadOnly = true;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.HeaderText = "AmountColumn";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
+            // 
             // OrdersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,11 +240,11 @@
             this.Controls.Add(this.SelectedOrderCreatedLabel);
             this.Controls.Add(this.SelectedOrderIDLabel);
             this.Controls.Add(this.SelectedOrderLabel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.OrdersDataGridView);
             this.Controls.Add(this.OrdersLabel);
             this.Name = "OrdersTab";
             this.Size = new System.Drawing.Size(693, 538);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,7 +253,7 @@
         #endregion
 
         private System.Windows.Forms.Label OrdersLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView OrdersDataGridView;
         private System.Windows.Forms.Label SelectedOrderLabel;
         private System.Windows.Forms.Label SelectedOrderIDLabel;
         private System.Windows.Forms.Label SelectedOrderCreatedLabel;
@@ -217,5 +266,11 @@
         private System.Windows.Forms.ListBox OrderItemsListBox;
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label AllAmountLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CreatedColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatusColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerFullNameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryAddressColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
     }
 }
