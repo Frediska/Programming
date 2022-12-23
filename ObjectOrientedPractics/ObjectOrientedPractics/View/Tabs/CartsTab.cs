@@ -67,6 +67,11 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
+        /// Возвращает и задает выбранного покупателя.
+        /// </summary>
+        private Customer CurrentCustomer { get; set; }
+
+        /// <summary>
         /// Обновляет данные о товаре.
         /// </summary>
         /// <param name="selectedIndex"></param>
@@ -96,6 +101,8 @@ namespace ObjectOrientedPractics.View.Tabs
             if (selectedIndex == -1) return;
 
             ItemsListBox.SelectedIndex = selectedIndex;
+
+            CreateOrderButton.Enabled = false;
         }
 
         /// <summary>
@@ -103,8 +110,9 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public void RefreshData()
         {
-            CustomerComboBox.Items.Clear();
             UpdateItemInfo(-1);
+
+            CustomerComboBox.Items.Clear();
 
             foreach (var customer in _customers)
             {
@@ -121,11 +129,6 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
         }
-
-        /// <summary>
-        /// Возвращает и задает выбранного покупателя.
-        /// </summary>
-        private Customer CurrentCustomer { get; set; }
 
         private void CustomerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -149,7 +152,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
 
                 UpdateCartInfo(-1);
-                UpdateItemInfo(-1);
+                CreateOrderButton.Enabled = true;
             }
         }
 
@@ -161,7 +164,6 @@ namespace ObjectOrientedPractics.View.Tabs
                 ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
 
                 UpdateCartInfo(-1);
-                UpdateItemInfo(-1);
             }
         }
 
@@ -169,7 +171,6 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             CurrentCustomer.Cart = new Cart();
             UpdateCartInfo(-1);
-            UpdateItemInfo(-1);
             ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
         }
 
@@ -183,7 +184,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CurrentCustomer.Cart = new Cart();
             ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             UpdateCartInfo(-1);
-            UpdateItemInfo(-1);
+            CreateOrderButton.Enabled = false;
         }
     }
 }

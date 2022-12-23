@@ -50,6 +50,11 @@ namespace ObjectOrientedPractics
                 cartsTab1.Customers = customersTab1.Customers;
                 cartsTab1.RefreshData();
             }
+            else if (tabControl1.SelectedIndex == 3)
+            {
+                ordersTab1.Customers = cartsTab1.Customers;
+                ordersTab1.RefreshData();
+            }
         }
     }
 }

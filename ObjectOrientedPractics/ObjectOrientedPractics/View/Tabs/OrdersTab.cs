@@ -18,11 +18,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private List<Customer> _customers;
 
-        /// <summary>
-        /// Коллекция товаров.
-        /// </summary>
-        private List<Item> _items;
-
         private List<Order> _orders;
 
         private Order _currentOrder;
@@ -39,6 +34,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 SelectedOrderStatusComboBox.Items.Add(value);
             }
+
+            SelectedOrderStatusComboBox.Enabled = false;
         }
 
         public List<Customer> Customers
@@ -66,10 +63,29 @@ namespace ObjectOrientedPractics.View.Tabs
                 foreach (var order in customer.Orders)
                 {
                     _orders.Add(order);
-                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.DateOfCreateOrder,
-                        order.Status, customer.FullName, fullAddress, order.Amount.ToString());
+                    OrdersDataGridView.Rows.Add(
+                       new DataGridViewRow()
+                       {
+                           Cells =
+                           {
+                                new DataGridViewTextBoxCell() { Value = order.Id },
+                                new DataGridViewTextBoxCell() { Value = order.DateOfCreateOrder },
+                                new DataGridViewTextBoxCell() { Value = order.Status },
+                                new DataGridViewTextBoxCell() { Value = customer.FullName },
+                                new DataGridViewTextBoxCell() { Value = order.Address.ToString() },
+                                new DataGridViewTextBoxCell() { Value = order.Amount },
+                           }
+                       });
                 }
             }
+        }
+
+        public void RefreshData()
+        {
+            OrdersDataGridView.Rows.Clear();
+            _orders = new List<Order>();
+
+            UpdateOrders();
         }
 
         private void SetValueInTextBoxes()
@@ -87,6 +103,23 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             AllAmountLabel.Text = _currentOrder.Amount.ToString();
+        }
+
+        private void OrdersDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            int index = OrdersDataGridView.CurrentCell.RowIndex;
+            if (index == -1) return;
+
+            _currentOrder = _orders[index];
+            SetValueInTextBoxes();
+        }
+
+        private void SelectedOrderStatusComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = OrdersDataGridView.CurrentCell.RowIndex;
+
+            _currentOrder.Status = (ОrderStatus)SelectedOrderStatusComboBox.SelectedIndex;
+            OrdersDataGridView.Rows[index].Cells[2].Value = (ОrderStatus)SelectedOrderStatusComboBox.SelectedIndex;
         }
     }
 }

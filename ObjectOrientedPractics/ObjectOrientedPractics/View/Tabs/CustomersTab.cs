@@ -115,6 +115,15 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (CustomersListBox.SelectedIndex != -1)
             {
+                int index = CustomersListBox.SelectedIndex;
+
+                if (index == -1)
+                {
+                    AddressControl.Enabled = false;
+                    return;
+                }
+
+                AddressControl.Enabled = true;
                 int indexItem = CustomersListBox.SelectedIndex;
                 _currentCustomer = _customers[indexItem];
                 SelectedCustomerFullNameTextBox.Text = _currentCustomer.FullName;
