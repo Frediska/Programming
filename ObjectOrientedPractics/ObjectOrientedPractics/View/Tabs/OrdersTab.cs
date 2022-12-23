@@ -28,6 +28,18 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Order _currentOrder;
 
+        private PriorityOrder _currentPriorityOrder;
+
+        private string[] _deliveryTime =
+        {
+            "9:00 - 11:00",
+            "11:00 - 13:00",
+            "13:00 - 15:00",
+            "15:00 - 17:00",
+            "17:00 - 19:00",
+            "19:00 - 21:00"
+        };
+
         public OrdersTab()
         {
             InitializeComponent();

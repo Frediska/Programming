@@ -104,10 +104,12 @@ namespace ObjectOrientedPractics.Model
         /// Создает экземпляр класса <see cref="Order"/>.
         /// </summary>
         /// <param name="address">Адресс доставки заказа.</param>
-        public Order(Address address)
+        public Order(ОrderStatus status, Address address, List<Item> items)
         {
             _dateOfCreateOrder = DateTime.Today.ToString();
+            Status = status;
             Address = address;
+            Items = items;
             _allOrdersCount++;
             _id = _allOrdersCount;
         }
