@@ -139,7 +139,10 @@
             // 
             // AddressControl
             // 
+            address1.Index = 100000;
             this.AddressControl.Address = address1;
+            this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddressControl.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.AddressControl.Location = new System.Drawing.Point(282, 85);
             this.AddressControl.Name = "AddressControl";

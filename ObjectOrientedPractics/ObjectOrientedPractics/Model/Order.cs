@@ -117,6 +117,7 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public Order()
         {
+            _dateOfCreateOrder = DateTime.Today.ToString();
             _allOrdersCount++;
             _id = _allOrdersCount;
         }

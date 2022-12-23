@@ -18,8 +18,14 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private List<Customer> _customers;
 
+        /// <summary>
+        /// Коллекция заказов.
+        /// </summary>
         private List<Order> _orders;
 
+        /// <summary>
+        /// Выбранный заказ.
+        /// </summary>
         private Order _currentOrder;
 
         public OrdersTab()
@@ -52,6 +58,9 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        /// <summary>
+        /// Обновление заказа.
+        /// </summary>
         private void UpdateOrders()
         {
             foreach (var customer in _customers)
@@ -63,23 +72,15 @@ namespace ObjectOrientedPractics.View.Tabs
                 foreach (var order in customer.Orders)
                 {
                     _orders.Add(order);
-                    OrdersDataGridView.Rows.Add(
-                       new DataGridViewRow()
-                       {
-                           Cells =
-                           {
-                                new DataGridViewTextBoxCell() { Value = order.Id },
-                                new DataGridViewTextBoxCell() { Value = order.DateOfCreateOrder },
-                                new DataGridViewTextBoxCell() { Value = order.Status },
-                                new DataGridViewTextBoxCell() { Value = customer.FullName },
-                                new DataGridViewTextBoxCell() { Value = order.Address.ToString() },
-                                new DataGridViewTextBoxCell() { Value = order.Amount },
-                           }
-                       });
+                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.DateOfCreateOrder,
+                        order.Status, customer.FullName, fullAddress, order.Amount.ToString());
                 }
             }
         }
 
+        /// <summary>
+        /// Обновление данных.
+        /// </summary>
         public void RefreshData()
         {
             OrdersDataGridView.Rows.Clear();
@@ -88,6 +89,9 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateOrders();
         }
 
+        /// <summary>
+        /// Установка значений в текстбоксах.
+        /// </summary>
         private void SetValueInTextBoxes()
         {
             SelectedOrderStatusComboBox.Enabled = true;

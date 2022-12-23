@@ -27,6 +27,7 @@ namespace ObjectOrientedPractics.View.Tabs
         public CartsTab()
         {
             InitializeComponent();
+            CreateOrderButton.Enabled = false;
         }
 
         /// <summary>

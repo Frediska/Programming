@@ -72,6 +72,8 @@
             // 
             // CountryTextBox
             // 
+            this.CountryTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CountryTextBox.Location = new System.Drawing.Point(70, 53);
             this.CountryTextBox.Name = "CountryTextBox";
             this.CountryTextBox.Size = new System.Drawing.Size(164, 20);
@@ -80,6 +82,8 @@
             // 
             // StreetTextBox
             // 
+            this.StreetTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.StreetTextBox.Location = new System.Drawing.Point(70, 79);
             this.StreetTextBox.Name = "StreetTextBox";
             this.StreetTextBox.Size = new System.Drawing.Size(324, 20);
@@ -88,6 +92,8 @@
             // 
             // BuildingTextBox
             // 
+            this.BuildingTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.BuildingTextBox.Location = new System.Drawing.Point(70, 107);
             this.BuildingTextBox.Name = "BuildingTextBox";
             this.BuildingTextBox.Size = new System.Drawing.Size(100, 20);
@@ -123,6 +129,7 @@
             // 
             // CityLabel
             // 
+            this.CityLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CityLabel.AutoSize = true;
             this.CityLabel.Location = new System.Drawing.Point(240, 56);
             this.CityLabel.Name = "CityLabel";
@@ -132,6 +139,7 @@
             // 
             // CityTextBox
             // 
+            this.CityTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CityTextBox.Location = new System.Drawing.Point(273, 53);
             this.CityTextBox.Name = "CityTextBox";
             this.CityTextBox.Size = new System.Drawing.Size(121, 20);
@@ -140,6 +148,7 @@
             // 
             // ApartmentLabel
             // 
+            this.ApartmentLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ApartmentLabel.AutoSize = true;
             this.ApartmentLabel.Location = new System.Drawing.Point(176, 110);
             this.ApartmentLabel.Name = "ApartmentLabel";
@@ -149,6 +158,7 @@
             // 
             // ApartmentTextBox
             // 
+            this.ApartmentTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ApartmentTextBox.Location = new System.Drawing.Point(240, 107);
             this.ApartmentTextBox.Name = "ApartmentTextBox";
             this.ApartmentTextBox.Size = new System.Drawing.Size(100, 20);
