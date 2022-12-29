@@ -143,12 +143,7 @@
             // 
             // addressControl1
             // 
-            address4.Apartment = null;
-            address4.Building = null;
-            address4.City = null;
-            address4.Country = null;
-            address4.Index = 0;
-            address4.Street = null;
+            address4.Index = 100000;
             this.addressControl1.Address = address4;
             this.addressControl1.Location = new System.Drawing.Point(0, 111);
             this.addressControl1.Name = "addressControl1";

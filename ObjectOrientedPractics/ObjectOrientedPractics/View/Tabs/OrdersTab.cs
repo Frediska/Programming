@@ -53,7 +53,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedOrderStatusComboBox.Items.Add(value);
             }
 
+            foreach (var time in _deliveryTime)
+            {
+                DeliveryTimeComboBox.Items.Add(time);
+            }
+
             SelectedOrderStatusComboBox.Enabled = false;
+
+            PriorityOptionsPanel.Visible = false;
         }
 
         public List<Customer> Customers
@@ -119,6 +126,11 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             AllAmountLabel.Text = _currentOrder.Amount.ToString();
+
+            if (_currentOrder is PriorityOrder priority)
+            {
+                DeliveryTimeComboBox.SelectedIndex = Array.IndexOf(_deliveryTime, _currentPriorityOrder.DeliveryTime);
+            }
         }
 
         private void OrdersDataGridView_SelectionChanged(object sender, EventArgs e)
@@ -127,6 +139,18 @@ namespace ObjectOrientedPractics.View.Tabs
             if (index == -1) return;
 
             _currentOrder = _orders[index];
+
+            if (_currentOrder is PriorityOrder priority)
+            {
+                _currentPriorityOrder = (PriorityOrder)_orders[index];
+                PriorityOptionsPanel.Visible = true;
+            }
+            else
+            {
+                PriorityOptionsPanel.Visible = false;
+                _currentPriorityOrder = null;
+            }
+
             SetValueInTextBoxes();
         }
 
@@ -136,6 +160,11 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _currentOrder.Status = (ОrderStatus)SelectedOrderStatusComboBox.SelectedIndex;
             OrdersDataGridView.Rows[index].Cells[2].Value = (ОrderStatus)SelectedOrderStatusComboBox.SelectedIndex;
+        }
+
+        private void DeliveryTimeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _currentPriorityOrder.DeliveryTime = (string)DeliveryTimeComboBox.SelectedItem;
         }
     }
 }

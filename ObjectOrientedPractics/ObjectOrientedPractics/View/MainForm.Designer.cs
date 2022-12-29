@@ -38,6 +38,8 @@
             this.cartsTab1 = new ObjectOrientedPractics.View.Tabs.CartsTab();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.ordersTab1 = new ObjectOrientedPractics.View.Tabs.OrdersTab();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.priorityOrdersTab1 = new ObjectOrientedPractics.View.Tabs.PriorityOrdersTab();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -128,13 +130,13 @@
             this.tabPage4.Text = "Orders";
             this.tabPage4.UseVisualStyleBackColor = true;
             //
-            // priorityOrdersTab1
+            // ordersTab1
             //
-            this.priorityOrdersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.priorityOrdersTab1.Location = new System.Drawing.Point(3, 3);
-            this.priorityOrdersTab1.Name = "priorityOrdersTab1";
-            this.priorityOrdersTab1.Size = new System.Drawing.Size(684, 532);
-            this.priorityOrdersTab1.TabIndex = 0;
+            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ordersTab1.Location = new System.Drawing.Point(3, 3);
+            this.ordersTab1.Name = "ordersTab1";
+            this.ordersTab1.Size = new System.Drawing.Size(684, 532);
+            this.ordersTab1.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -147,13 +149,13 @@
             this.tabPage5.Text = "PriorityOrders";
             this.tabPage5.UseVisualStyleBackColor = true;
             //
-            // ordersTab1
+            // priorityOrdersTab1
             //
-            this.ordersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ordersTab1.Location = new System.Drawing.Point(3, 3);
-            this.ordersTab1.Name = "ordersTab1";
-            this.ordersTab1.Size = new System.Drawing.Size(684, 532);
-            this.ordersTab1.TabIndex = 0;
+            this.priorityOrdersTab1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.priorityOrdersTab1.Location = new System.Drawing.Point(3, 3);
+            this.priorityOrdersTab1.Name = "priorityOrdersTab1";
+            this.priorityOrdersTab1.Size = new System.Drawing.Size(684, 532);
+            this.priorityOrdersTab1.TabIndex = 0;
             // 
             // MainForm
             // 

@@ -41,11 +41,14 @@ namespace ObjectOrientedPractics.View.Tabs
                 DeliveryTimeComboBox.Items.Add(time);
             }
             DeliveryTimeComboBox.SelectedIndex = 0;
+
             var orderStatusValues = Enum.GetValues(typeof(ОrderStatus));
+
             foreach (var status in orderStatusValues)
             {
                 StatusComboBox.Items.Add(status);
             }
+
             StatusComboBox.SelectedIndex = 0;
             addressControl1.Address = _currentPriorityOrder.Address;
 

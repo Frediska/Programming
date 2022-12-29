@@ -23,8 +23,14 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public DateTime DeliveryDate
         {
-            get => _deliveryDate;
-            set => _deliveryDate = value;
+            get
+            {
+                return _deliveryDate;
+            }
+            set
+            {
+                _deliveryDate = value;
+            }
         }
 
         /// <summary>
@@ -32,8 +38,14 @@ namespace ObjectOrientedPractics.Model
         /// </summary>
         public string DeliveryTime
         {
-            get => _deliveryTime;
-            set => _deliveryTime = value;
+            get
+            {
+                return _deliveryTime;
+            }
+            set
+            {
+                _deliveryTime = value;
+            }
         }
 
         /// <summary>
