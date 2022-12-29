@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address4 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
             this.IDLabel = new System.Windows.Forms.Label();
             this.CreatedLabel = new System.Windows.Forms.Label();
@@ -115,6 +115,7 @@
             // 
             // DeliveryTimeLabel
             // 
+            this.DeliveryTimeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeliveryTimeLabel.AutoSize = true;
             this.DeliveryTimeLabel.Location = new System.Drawing.Point(263, 35);
             this.DeliveryTimeLabel.Name = "DeliveryTimeLabel";
@@ -124,6 +125,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(263, 10);
@@ -134,6 +136,7 @@
             // 
             // DeliveryTimeComboBox
             // 
+            this.DeliveryTimeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.DeliveryTimeComboBox.FormattingEnabled = true;
             this.DeliveryTimeComboBox.Location = new System.Drawing.Point(343, 32);
             this.DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
@@ -143,8 +146,10 @@
             // 
             // addressControl1
             // 
-            address4.Index = 100000;
-            this.addressControl1.Address = address4;
+            address1.Index = 100000;
+            this.addressControl1.Address = address1;
+            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.addressControl1.Location = new System.Drawing.Point(0, 111);
             this.addressControl1.Name = "addressControl1";
             this.addressControl1.Size = new System.Drawing.Size(474, 172);
@@ -162,6 +167,8 @@
             // 
             // OrderItemsListBox
             // 
+            this.OrderItemsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.OrderItemsListBox.FormattingEnabled = true;
             this.OrderItemsListBox.Location = new System.Drawing.Point(6, 269);
             this.OrderItemsListBox.Name = "OrderItemsListBox";
@@ -170,6 +177,7 @@
             // 
             // AddItemButton
             // 
+            this.AddItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddItemButton.Location = new System.Drawing.Point(6, 486);
             this.AddItemButton.Name = "AddItemButton";
             this.AddItemButton.Size = new System.Drawing.Size(97, 39);
@@ -180,6 +188,7 @@
             // 
             // RemoveItemButton
             // 
+            this.RemoveItemButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.RemoveItemButton.Location = new System.Drawing.Point(109, 486);
             this.RemoveItemButton.Name = "RemoveItemButton";
             this.RemoveItemButton.Size = new System.Drawing.Size(97, 39);
@@ -190,6 +199,7 @@
             // 
             // ClearOrderButton
             // 
+            this.ClearOrderButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ClearOrderButton.Location = new System.Drawing.Point(367, 486);
             this.ClearOrderButton.Name = "ClearOrderButton";
             this.ClearOrderButton.Size = new System.Drawing.Size(97, 39);
@@ -200,6 +210,8 @@
             // 
             // AmountLabel
             // 
+            this.AmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AmountLabel.AutoSize = true;
             this.AmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AmountLabel.Location = new System.Drawing.Point(411, 432);
@@ -210,6 +222,8 @@
             // 
             // AllAmountLabel
             // 
+            this.AllAmountLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AllAmountLabel.AutoSize = true;
             this.AllAmountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AllAmountLabel.Location = new System.Drawing.Point(429, 445);
