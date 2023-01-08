@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ObjectOrientedPractics.Model.Enums;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PercentDiscount
+    /// <summary>
+    /// Представляет реализацию по представлению процентной скидки.
+    /// </summary>
+    public class PercentDiscount : IDiscount
     {
         /// <summary>
         /// Возвращает и задает процентную скидку.

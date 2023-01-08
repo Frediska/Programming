@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ObjectOrientedPractics.Model.Enums;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Orders
 {
     /// <summary>
     /// Представляет реализацию по оформлению заказов.
@@ -40,6 +41,22 @@ namespace ObjectOrientedPractics.Model
         /// Общая стоимость всего заказа.
         /// </summary>
         private double _amount;
+
+        /// <summary>
+        /// Возвращает и задает скидку на товары.
+        /// </summary>
+        public double DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Возвращает итоговую стоимость заказа.
+        /// </summary>
+        public double Total
+        {
+            get
+            {
+                return Amount - DiscountAmount;
+            }
+        }
 
         /// <summary>
         /// Возвращает уникальный идентификатор заказа.

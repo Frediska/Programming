@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Services;
-using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Orders;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -52,6 +53,8 @@ namespace ObjectOrientedPractics.Model
         /// Возвращает количество всех покупателей. 
         /// </summary>
         public static int AllCustomerCount { get { return _allCustomerCount; } }
+
+        public List<IDiscount> Discounts { get; set; }
 
         /// <summary>
         /// Возвращает и задает ФИО покупателя. Не более 200 символов.
@@ -135,6 +138,8 @@ namespace ObjectOrientedPractics.Model
             _allCustomerCount++;
             _id = _allCustomerCount;
             IsPriority = isPriority;
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
 
         /// <summary>
@@ -147,6 +152,7 @@ namespace ObjectOrientedPractics.Model
             Cart = new Cart();
             Orders = new List<Order>();
             IsPriority = false;
+            Discounts = new List<IDiscount>();
         }
     }
 }

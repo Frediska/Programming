@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Services;
 
-namespace ObjectOrientedPractics.Model
+namespace ObjectOrientedPractics.Model.Discounts
 {
-    public class PointsDiscount
+    /// <summary>
+    /// Представляет реализацию по представлению накопительной скидки.
+    /// </summary>
+    public class PointsDiscount : IDiscount
     {
         private int _points;
 
