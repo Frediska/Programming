@@ -28,15 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
+            ObjectOrientedPractics.Model.Address address1 = new ObjectOrientedPractics.Model.Address();
             this.OrdersLabel = new System.Windows.Forms.Label();
             this.OrdersDataGridView = new System.Windows.Forms.DataGridView();
-            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreatedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerFullNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedOrderLabel = new System.Windows.Forms.Label();
             this.SelectedOrderIDLabel = new System.Windows.Forms.Label();
             this.SelectedOrderCreatedLabel = new System.Windows.Forms.Label();
@@ -48,11 +42,20 @@
             this.OrderItemsListBox = new System.Windows.Forms.ListBox();
             this.AmountLabel = new System.Windows.Forms.Label();
             this.AllAmountLabel = new System.Windows.Forms.Label();
-            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
             this.PriorityOptionsPanel = new System.Windows.Forms.Panel();
             this.DeliveryTimeComboBox = new System.Windows.Forms.ComboBox();
             this.DeliveryTimeLabel = new System.Windows.Forms.Label();
             this.PriorityOptionsLabel = new System.Windows.Forms.Label();
+            this.IDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CreatedColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFullNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeliveryAddressColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.addressControl1 = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.TotalLabel = new System.Windows.Forms.Label();
+            this.TotalDigitLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.OrdersDataGridView)).BeginInit();
             this.PriorityOptionsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +81,7 @@
             this.OrdersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.OrdersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.IDColumn,
+            this.TotalColumn,
             this.CreatedColumn,
             this.OrderStatusColumn,
             this.CustomerFullNameColumn,
@@ -92,48 +96,6 @@
             this.OrdersDataGridView.Size = new System.Drawing.Size(275, 492);
             this.OrdersDataGridView.TabIndex = 1;
             this.OrdersDataGridView.SelectionChanged += new System.EventHandler(this.OrdersDataGridView_SelectionChanged);
-            // 
-            // IDColumn
-            // 
-            this.IDColumn.HeaderText = "IDColumn";
-            this.IDColumn.Name = "IDColumn";
-            this.IDColumn.ReadOnly = true;
-            this.IDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CreatedColumn
-            // 
-            this.CreatedColumn.HeaderText = "CreatedColumn";
-            this.CreatedColumn.Name = "CreatedColumn";
-            this.CreatedColumn.ReadOnly = true;
-            this.CreatedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // OrderStatusColumn
-            // 
-            this.OrderStatusColumn.HeaderText = "OrderStatusColumn";
-            this.OrderStatusColumn.Name = "OrderStatusColumn";
-            this.OrderStatusColumn.ReadOnly = true;
-            this.OrderStatusColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // CustomerFullNameColumn
-            // 
-            this.CustomerFullNameColumn.HeaderText = "CustomerFullNameColumn";
-            this.CustomerFullNameColumn.Name = "CustomerFullNameColumn";
-            this.CustomerFullNameColumn.ReadOnly = true;
-            this.CustomerFullNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // DeliveryAddressColumn
-            // 
-            this.DeliveryAddressColumn.HeaderText = "DeliveryAddressColumn";
-            this.DeliveryAddressColumn.Name = "DeliveryAddressColumn";
-            this.DeliveryAddressColumn.ReadOnly = true;
-            this.DeliveryAddressColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // AmountColumn
-            // 
-            this.AmountColumn.HeaderText = "AmountColumn";
-            this.AmountColumn.Name = "AmountColumn";
-            this.AmountColumn.ReadOnly = true;
-            this.AmountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SelectedOrderLabel
             // 
@@ -242,23 +204,6 @@
             this.AllAmountLabel.TabIndex = 13;
             this.AllAmountLabel.Text = "0";
             // 
-            // addressControl1
-            // 
-            address2.Apartment = " ";
-            address2.Building = " ";
-            address2.City = " ";
-            address2.Country = " ";
-            address2.Index = 100000;
-            address2.Street = " ";
-            this.addressControl1.Address = address2;
-            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.addressControl1.Enabled = false;
-            this.addressControl1.Location = new System.Drawing.Point(287, 118);
-            this.addressControl1.Name = "addressControl1";
-            this.addressControl1.Size = new System.Drawing.Size(403, 172);
-            this.addressControl1.TabIndex = 9;
-            // 
             // PriorityOptionsPanel
             // 
             this.PriorityOptionsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -305,10 +250,102 @@
             this.PriorityOptionsLabel.TabIndex = 17;
             this.PriorityOptionsLabel.Text = "Priority Options";
             // 
+            // IDColumn
+            // 
+            this.IDColumn.HeaderText = "IDColumn";
+            this.IDColumn.Name = "IDColumn";
+            this.IDColumn.ReadOnly = true;
+            this.IDColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TotalColumn
+            // 
+            this.TotalColumn.HeaderText = "TotalColumn";
+            this.TotalColumn.Name = "TotalColumn";
+            this.TotalColumn.ReadOnly = true;
+            this.TotalColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CreatedColumn
+            // 
+            this.CreatedColumn.HeaderText = "CreatedColumn";
+            this.CreatedColumn.Name = "CreatedColumn";
+            this.CreatedColumn.ReadOnly = true;
+            this.CreatedColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // OrderStatusColumn
+            // 
+            this.OrderStatusColumn.HeaderText = "OrderStatusColumn";
+            this.OrderStatusColumn.Name = "OrderStatusColumn";
+            this.OrderStatusColumn.ReadOnly = true;
+            this.OrderStatusColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CustomerFullNameColumn
+            // 
+            this.CustomerFullNameColumn.HeaderText = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.Name = "CustomerFullNameColumn";
+            this.CustomerFullNameColumn.ReadOnly = true;
+            this.CustomerFullNameColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // DeliveryAddressColumn
+            // 
+            this.DeliveryAddressColumn.HeaderText = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.Name = "DeliveryAddressColumn";
+            this.DeliveryAddressColumn.ReadOnly = true;
+            this.DeliveryAddressColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.HeaderText = "AmountColumn";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.ReadOnly = true;
+            this.AmountColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // addressControl1
+            // 
+            address1.Apartment = " ";
+            address1.Building = " ";
+            address1.City = " ";
+            address1.Country = " ";
+            address1.Index = 100000;
+            address1.Street = " ";
+            this.addressControl1.Address = address1;
+            this.addressControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.addressControl1.Enabled = false;
+            this.addressControl1.Location = new System.Drawing.Point(287, 118);
+            this.addressControl1.Name = "addressControl1";
+            this.addressControl1.Size = new System.Drawing.Size(403, 172);
+            this.addressControl1.TabIndex = 9;
+            // 
+            // TotalLabel
+            // 
+            this.TotalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalLabel.AutoSize = true;
+            this.TotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalLabel.Location = new System.Drawing.Point(628, 505);
+            this.TotalLabel.Name = "TotalLabel";
+            this.TotalLabel.Size = new System.Drawing.Size(51, 13);
+            this.TotalLabel.TabIndex = 18;
+            this.TotalLabel.Text = "TOTAL:";
+            // 
+            // TotalDigitLabel
+            // 
+            this.TotalDigitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TotalDigitLabel.AutoSize = true;
+            this.TotalDigitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TotalDigitLabel.Location = new System.Drawing.Point(649, 518);
+            this.TotalDigitLabel.Name = "TotalDigitLabel";
+            this.TotalDigitLabel.Size = new System.Drawing.Size(14, 13);
+            this.TotalDigitLabel.TabIndex = 19;
+            this.TotalDigitLabel.Text = "0";
+            // 
             // OrdersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TotalDigitLabel);
+            this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.PriorityOptionsPanel);
             this.Controls.Add(this.AllAmountLabel);
             this.Controls.Add(this.AmountLabel);
@@ -350,15 +387,18 @@
         private System.Windows.Forms.ListBox OrderItemsListBox;
         private System.Windows.Forms.Label AmountLabel;
         private System.Windows.Forms.Label AllAmountLabel;
+        private System.Windows.Forms.Panel PriorityOptionsPanel;
+        private System.Windows.Forms.ComboBox DeliveryTimeComboBox;
+        private System.Windows.Forms.Label DeliveryTimeLabel;
+        private System.Windows.Forms.Label PriorityOptionsLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CreatedColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerFullNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn DeliveryAddressColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
-        private System.Windows.Forms.Panel PriorityOptionsPanel;
-        private System.Windows.Forms.ComboBox DeliveryTimeComboBox;
-        private System.Windows.Forms.Label DeliveryTimeLabel;
-        private System.Windows.Forms.Label PriorityOptionsLabel;
+        private System.Windows.Forms.Label TotalLabel;
+        private System.Windows.Forms.Label TotalDigitLabel;
     }
 }

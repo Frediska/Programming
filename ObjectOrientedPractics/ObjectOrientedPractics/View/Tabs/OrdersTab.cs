@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 foreach (var order in customer.Orders)
                 {
                     _orders.Add(order);
-                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.DateOfCreateOrder,
+                    OrdersDataGridView.Rows.Add(order.Id.ToString(), order.Total.ToString(), order.DateOfCreateOrder,
                         order.Status, customer.FullName, fullAddress, order.Amount.ToString());
                 }
             }
@@ -120,6 +120,7 @@ namespace ObjectOrientedPractics.View.Tabs
             SelectedOrderCreatedTextBox.Text = _currentOrder.DateOfCreateOrder;
             SelectedOrderStatusComboBox.SelectedIndex = (int)_currentOrder.Status;
             addressControl1.Address = _currentOrder.Address;
+            TotalDigitLabel.Text = _currentOrder.Total.ToString();
 
             OrderItemsListBox.Items.Clear();
             foreach (var item in _currentOrder.Items)

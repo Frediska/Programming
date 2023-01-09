@@ -74,6 +74,38 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private Customer CurrentCustomer { get; set; }
 
+        private void UpdateDiscountDigit()
+        {
+            double discountAmount = 0;
+
+            for (int i = 0; i < DiscountsCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountsCheckedListBox.GetItemChecked(i))
+                {
+                    discountAmount += CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.Items);
+                }
+            }
+
+            DiscountAmmountDigitLabel.Text = discountAmount.ToString();
+
+            if (CurrentCustomer.Cart.Amount == 0)
+            {
+                TOTALDigitLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+                return;
+            }
+
+            TOTALDigitLabel.Text = (CurrentCustomer.Cart.Amount - discountAmount).ToString();
+        }
+
+        private void UpdateDiscountsCheckedListBox()
+        {
+            DiscountsCheckedListBox.Items.Clear();
+            foreach (var discount in CurrentCustomer.Discounts)
+            {
+                DiscountsCheckedListBox.Items.Add(discount.Info, true);
+            }
+        }
+
         /// <summary>
         /// Обновляет данные о товаре.
         /// </summary>
@@ -130,7 +162,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 CustomerComboBox.SelectedIndex = -1;
             }
-
+            UpdateDiscountDigit();
         }
 
         private void CustomerComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,6 +177,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             UpdateCartInfo(-1);
+            UpdateDiscountsCheckedListBox();
         }
 
         private void AddToCartButton_Click(object sender, EventArgs e)
@@ -156,6 +189,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
                 UpdateCartInfo(-1);
                 CreateOrderButton.Enabled = true;
+                UpdateDiscountDigit();
             }
         }
 
@@ -167,6 +201,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
 
                 UpdateCartInfo(-1);
+                UpdateDiscountDigit();
             }
         }
 
@@ -175,6 +210,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CurrentCustomer.Cart = new Cart();
             UpdateCartInfo(-1);
             ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
+            UpdateDiscountDigit();
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
@@ -192,11 +228,37 @@ namespace ObjectOrientedPractics.View.Tabs
             order.Address = CurrentCustomer.Address;
             order.Items = CurrentCustomer.Cart.Items;
             order.Status = ОrderStatus.New;
+
+            double discountAmount = 0;
+            for (int i = 0; i < DiscountsCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountsCheckedListBox.GetItemChecked(i))
+                {
+                    discountAmount += CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.Items);
+                }
+            }
+            order.DiscountAmount = discountAmount;
             CurrentCustomer.Orders.Add(order);
+
+            for (int i = 0; i < DiscountsCheckedListBox.Items.Count; i++)
+            {
+                if (DiscountsCheckedListBox.GetItemChecked(i))
+                {
+                    CurrentCustomer.Discounts[i].Apply(CurrentCustomer.Cart.Items);
+                }
+                CurrentCustomer.Discounts[i].Update(CurrentCustomer.Cart.Items);
+            }
+            UpdateDiscountsCheckedListBox();
+
             CurrentCustomer.Cart = new Cart();
             ALlAmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             UpdateCartInfo(-1);
             CreateOrderButton.Enabled = false;
+        }
+
+        private void DiscountsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDiscountDigit();
         }
     }
 }

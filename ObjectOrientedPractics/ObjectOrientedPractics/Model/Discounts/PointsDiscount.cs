@@ -17,7 +17,7 @@ namespace ObjectOrientedPractics.Model.Discounts
         public int Points
         {
             get { return _points; }
-            private set
+            set
             {
                 ValueValidator.AssertOnPositiveValue(nameof(Points), value);
                 _points = value;
