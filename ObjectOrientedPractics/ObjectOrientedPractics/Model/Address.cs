@@ -12,6 +12,8 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Address
     {
+        public EventHandler<EventArgs> AddressChanged;
+
         /// <summary>
         /// Максимально возможное количество символов в почтовом индексе.
         /// </summary>
@@ -81,7 +83,11 @@ namespace ObjectOrientedPractics.Model
             set
             {
                 ValueValidator.AssertValueLength(nameof(Index), value, MaxLengthOfIndex);
-                _index = value;
+                if (_index != value)
+                {
+                    _index = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -95,7 +101,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertEmptyValue(value, nameof(Country));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfCountry, nameof(Country));
-                _country = value;
+                if (_country != value)
+                {
+                    _country = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -109,7 +119,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertEmptyValue(value, nameof(City));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfCity, nameof(City));
-                _city = value;
+                if (_city != value)
+                {
+                    _city = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -123,7 +137,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertEmptyValue(value, nameof(Street));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfStreet, nameof(Street));
-                _street = value;
+                if (_street != value)
+                {
+                    _street = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -137,7 +155,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertEmptyValue(value, nameof(Building)); 
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfBuilding, nameof(Building));
-                _building = value;
+                if (_building != value)
+                {
+                    _building = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -152,7 +174,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertEmptyValue(value, nameof(Apartment));
                 ValueValidator.AssertStringOnLength(value, MaxLengthOfApartment, nameof(Apartment));
-                _apartment = value;
+                if (_apartment != value)
+                {
+                    _apartment = value;
+                    AddressChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 

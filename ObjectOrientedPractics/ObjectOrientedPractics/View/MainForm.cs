@@ -26,7 +26,14 @@ namespace ObjectOrientedPractics
         {
             InitializeComponent();
 
-            _store = ProjectSerializer.Deserialize();
+            if (ProjectSerializer.IsFile("Store"))
+            {
+                _store = ProjectSerializer.Deserialize("Store");
+            }
+            else
+            {
+                _store = new Store();
+            }
 
             itemsTab1.Items = _store.Items;
             customersTab1.Customers = _store.Customers;
@@ -39,11 +46,10 @@ namespace ObjectOrientedPractics
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            _store.Items = itemsTab1.Items;
-            _store.Customers = customersTab1.Customers;
 
-            ProjectSerializer.Serialize(_store);
+            ProjectSerializer.Serialize("Store", _store);
         }
+
         private void tabControl1_SelectedIndexChanged(object sender, System.EventArgs e)
         {
             if (tabControl1.SelectedIndex == 2)

@@ -39,6 +39,9 @@ namespace ObjectOrientedPractics.View.Tabs
             EnabledField(false);
         }
 
+        /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
         public List<Customer> Customers
         {
             get { return _customers; }

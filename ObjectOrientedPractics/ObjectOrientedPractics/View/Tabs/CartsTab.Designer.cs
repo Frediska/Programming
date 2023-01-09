@@ -164,7 +164,7 @@
             this.ALlAmountLabel.Name = "ALlAmountLabel";
             this.ALlAmountLabel.Size = new System.Drawing.Size(14, 13);
             this.ALlAmountLabel.TabIndex = 11;
-            this.ALlAmountLabel.Text = "0";
+            this.ALlAmountLabel.Text = "1";
             // 
             // CartListBox
             // 
@@ -206,14 +206,14 @@
             this.DiscountAmmountDigitLabel.Name = "DiscountAmmountDigitLabel";
             this.DiscountAmmountDigitLabel.Size = new System.Drawing.Size(14, 13);
             this.DiscountAmmountDigitLabel.TabIndex = 15;
-            this.DiscountAmmountDigitLabel.Text = "0";
+            this.DiscountAmmountDigitLabel.Text = "1";
             // 
             // TOTALLabel
             // 
             this.TOTALLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TOTALLabel.AutoSize = true;
             this.TOTALLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TOTALLabel.Location = new System.Drawing.Point(629, 492);
+            this.TOTALLabel.Location = new System.Drawing.Point(611, 492);
             this.TOTALLabel.Name = "TOTALLabel";
             this.TOTALLabel.Size = new System.Drawing.Size(51, 13);
             this.TOTALLabel.TabIndex = 16;
@@ -224,11 +224,11 @@
             this.TOTALDigitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TOTALDigitLabel.AutoSize = true;
             this.TOTALDigitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.TOTALDigitLabel.Location = new System.Drawing.Point(648, 512);
+            this.TOTALDigitLabel.Location = new System.Drawing.Point(630, 512);
             this.TOTALDigitLabel.Name = "TOTALDigitLabel";
             this.TOTALDigitLabel.Size = new System.Drawing.Size(14, 13);
             this.TOTALDigitLabel.TabIndex = 17;
-            this.TOTALDigitLabel.Text = "0";
+            this.TOTALDigitLabel.Text = "1";
             // 
             // DiscountsCheckedListBox
             // 

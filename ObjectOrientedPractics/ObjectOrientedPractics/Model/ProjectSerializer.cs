@@ -31,55 +31,52 @@ namespace ObjectOrientedPractics.Model
         {
             Path = $@"{GetFolderPath(SpecialFolder.ApplicationData)}" + "/Makarov/ObjectOrientedPractics/";
             FileName = "data.json";
+        }
 
-            if (!File.Exists(Path))
-            {
-                Directory.CreateDirectory(Path);
-            }
+        private static JsonSerializerSettings settings = new JsonSerializerSettings
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
+
+        /// <summary>
+        /// Проверка на существование файла.
+        /// </summary>
+        /// <param name="nameFile">Имя файла.</param>
+        /// <returns></returns>
+        public static bool IsFile(string nameFile)
+        {
+            return File.Exists(Path + nameFile);
         }
 
         /// <summary>
         /// Проводит сериализацию данных.
         /// </summary>
         /// <param name="establishments">Коллекция класса <see cref="Establishment"/></param>
-        public static void Serialize(Store store)
+        public static void Serialize(string nameFile, object obj)
         {
-            if (!File.Exists(Path))
+            using (StreamWriter writer = new StreamWriter(Path + nameFile))
             {
-                Directory.CreateDirectory(Path);
-            }
-
-            using (StreamWriter writer = new StreamWriter(Path + FileName))
-            {
-                writer.Write(JsonConvert.SerializeObject(store));
+                writer.Write(JsonConvert.SerializeObject(obj, settings));
             }
         }
 
         /// <summary>
         /// Проводит десериализацию данных.
         /// </summary>
-        /// <returns>Возвращает коллекцию заведений.</returns>
-        public static Store Deserialize()
+        /// <param name="nameFile">Имя файла для загрузки объектов.</param>
+        /// <returns>Объект типа <see cref="Store"/></returns>
+        public static Store Deserialize(string nameFile)
         {
             if (!File.Exists(Path))
             {
                 Directory.CreateDirectory(Path);
             }
 
-            var store = new Store();
+            Store store;
 
-            try
+            using (StreamReader reader = new StreamReader(Path + nameFile))
             {
-                using (StreamReader reader = new StreamReader(Path + FileName))
-                {
-                    store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd());
-                }
-
-                if (store == null) store = new Store();
-            }
-            catch
-            {
-                return store;
+                store = JsonConvert.DeserializeObject<Store>(reader.ReadToEnd(), settings);
             }
 
             return store;

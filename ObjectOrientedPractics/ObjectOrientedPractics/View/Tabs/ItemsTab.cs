@@ -18,6 +18,8 @@ namespace ObjectOrientedPractics.View.Tabs
     /// </summary>
     public partial class ItemsTab : UserControl
     {
+        public event EventHandler<EventArgs> ItemsChanged;
+
         /// <summary>
         /// Коллекция товаров.
         /// </summary>
@@ -102,6 +104,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items.Add(item);
             ItemsListBox.Items.Add(ItemInfo(_currentItem));
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateItemInfo(0);
         }
 
@@ -111,6 +114,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _items.RemoveAt(ItemsListBox.SelectedIndex);
                 ItemsListBox.Items.RemoveAt(ItemsListBox.SelectedIndex);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 ClearItemInfo();
             }
         }
@@ -139,6 +143,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     int itemCost = int.Parse(currentItemCost);
                     _currentItem.Cost = itemCost;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
                 }
                 catch
@@ -159,6 +164,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     string currentItemName = SelectedItemNameTextBox.Text;
                     _currentItem.Name = currentItemName;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
                 }
                 catch
@@ -178,6 +184,7 @@ namespace ObjectOrientedPractics.View.Tabs
                     string currentItemInfo = SelectedItemDescriptionTextBox.Text;
                     _currentItem.Info = currentItemInfo;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
                 }
                 catch
@@ -194,6 +201,7 @@ namespace ObjectOrientedPractics.View.Tabs
             
             _currentItem.Category = (Category)SelectedItemCategoryComboBox.SelectedItem;
             int index = _items.IndexOf(_currentItem);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateItemInfo(index);
         }
     }

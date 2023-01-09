@@ -13,6 +13,12 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Item
     {
+        public event EventHandler<EventArgs> NameChanged;
+
+        public event EventHandler<EventArgs> CostChanged;
+
+        public event EventHandler<EventArgs> InfoChanged;
+
         /// <summary>
         /// Количество всех товаров.
         /// </summary>
@@ -59,7 +65,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertStringOnLength(value, 200, nameof(Name));
                 ValueValidator.AssertStringContainsOnlyLetters(nameof(Name), value);
-                _name = value;
+                if (_name != value)
+                {
+                    _name = value;
+                    NameChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -74,7 +84,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertStringOnLength(value, 1000, nameof(Info));
                 ValueValidator.AssertStringContainsOnlyLetters(nameof(Info), value);
-                _info = value;
+                if (_info != value)
+                {
+                    _info = value;
+                    InfoChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
@@ -89,7 +103,11 @@ namespace ObjectOrientedPractics.Model
             {
                 ValueValidator.AssertValueInRange(nameof(Cost), value, 0, 100000);
                 ValueValidator.AssertOnPositiveValue(nameof(Cost), value);
-                _cost = value;
+                if (_cost != value)
+                {
+                    _cost = value;
+                    CostChanged?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
 
