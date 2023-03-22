@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using View.Model;
 using View.Model.Services;
 
@@ -48,6 +49,37 @@ namespace View.ViewModel
             {
                 Contact.Email = value;
                 OnPropertyChanged(nameof(Email));
+            }
+        }
+
+        /// <summary>
+        /// Команда сериализации контакта.
+        /// </summary>
+        public ICommand SaveCommand
+        {
+            get
+            {
+                return new RelayCommand((obj) =>
+                {
+                    ContactSerializer.Serialize("Contact", Contact);
+                });
+            }
+        }
+
+        /// <summary>
+        /// Команда десериализации контакта.
+        /// </summary>
+        public ICommand LoadCommand
+        {
+            get
+            {
+                return new RelayCommand((obj) =>
+                {
+                    var contact = ContactSerializer.Deserialize(Path);
+                    Name = contact.Name;
+                    Email = contact.Email;
+                    Phone = contact.Phone;
+                });
             }
         }
 
