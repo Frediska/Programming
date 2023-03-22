@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Discounts;
+using ObjectOrientedPractics.View.Forms;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -17,16 +19,6 @@ namespace ObjectOrientedPractics.View.Tabs
     /// </summary>
     public partial class CustomersTab : UserControl
     {
-        /// <summary>
-        /// Цвет некорректного значения.
-        /// </summary>
-        private readonly Color _errorColor = Color.LightPink;
-
-        /// <summary>
-        /// Цвет корректного значения.
-        /// </summary>
-        private readonly Color _correctColor = Color.White;
-
         /// <summary>
         /// Коллекция покупателей.
         /// </summary>
@@ -43,7 +35,45 @@ namespace ObjectOrientedPractics.View.Tabs
         public CustomersTab()
         {
             InitializeComponent();
-            _customers = new List<Customer>();
+
+            EnabledField(false);
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию покупателей.
+        /// </summary>
+        public List<Customer> Customers
+        {
+            get { return _customers; }
+            set
+            {
+                _customers = value;
+
+                if (_customers != null)
+                {
+                    UpdateCustomerInfo(-1);
+                }
+            }
+        }
+
+        private void UpdateDiscountsListBox()
+        {
+            DiscountsListBox.Items.Clear();
+
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                DiscountsListBox.Items.Add(discount.Info);
+            }
+        }
+
+        void EnabledField(bool enabled)
+        {
+            AddressControl.Enabled = enabled;
+            IsPriorityCheckBox.Enabled = enabled;
+            SelectedCustomerFullNameTextBox.Enabled = enabled;
+            DiscountsListBox.Enabled = enabled;
+            AddDiscountButton.Enabled = enabled;
+            RemoveDiscountButton.Enabled = enabled;
         }
 
         /// <summary>
@@ -79,8 +109,10 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public void ClearCustomerInfo()
         {
+            SelectedCustomerIDTextBox.Clear();
             SelectedCustomerFullNameTextBox.Clear();
-            SelectedCustomerAddressTextBox.Clear();
+            AddressControl.Clear();
+            DiscountsListBox.Items.Clear();
         }
 
         private void AddCustomerButton_Click(object sender, EventArgs e)
@@ -90,8 +122,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _customers.Add(customer);
             CustomersListBox.Items.Add(CustomerInfo(_currentCustomer));
-            UpdateCustomerInfo(0);
 
+            UpdateCustomerInfo(0);
         }
 
         private void RemoveCustomerButton_Click(object sender, EventArgs e)
@@ -101,6 +133,8 @@ namespace ObjectOrientedPractics.View.Tabs
                 _customers.RemoveAt(CustomersListBox.SelectedIndex);
                 CustomersListBox.Items.RemoveAt(CustomersListBox.SelectedIndex);
                 ClearCustomerInfo();
+                CustomersListBox.SelectedIndex = 0;
+                EnabledField(false);
             }
         }
 
@@ -108,11 +142,22 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (CustomersListBox.SelectedIndex != -1)
             {
+                int index = CustomersListBox.SelectedIndex;
+
+                if (index == -1)
+                {
+                    EnabledField(false);
+                    return;
+                }
+                EnabledField(true);
+
                 int indexItem = CustomersListBox.SelectedIndex;
                 _currentCustomer = _customers[indexItem];
+                IsPriorityCheckBox.Checked = _currentCustomer.IsPriority;
                 SelectedCustomerFullNameTextBox.Text = _currentCustomer.FullName;
-                SelectedCustomerAddressTextBox.Text = _currentCustomer.Address;
                 SelectedCustomerIDTextBox.Text = _currentCustomer.Id.ToString();
+                AddressControl.Address = _currentCustomer.Address;
+                UpdateDiscountsListBox();
             }
         }
 
@@ -129,29 +174,41 @@ namespace ObjectOrientedPractics.View.Tabs
                 }
                 catch
                 {
-                    SelectedCustomerFullNameTextBox.BackColor = _errorColor;
+                    SelectedCustomerFullNameTextBox.BackColor = AppColor.ErrorColor;
                 }
-                SelectedCustomerFullNameTextBox.BackColor = _correctColor;
+                SelectedCustomerFullNameTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 
-        private void SelectedCustomerAddressTextBox_TextChanged(object sender, EventArgs e)
+        private void IsPriorityCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex != -1)
+            _currentCustomer.IsPriority = IsPriorityCheckBox.Checked;
+        }
+
+        private void AddDiscountButton_Click(object sender, EventArgs e)
+        {
+            AddDiscountForm addDiscountForm = new AddDiscountForm();
+
+            if (addDiscountForm.ShowDialog() == DialogResult.OK)
             {
-                try
+                foreach (var discount in _currentCustomer.Discounts)
                 {
-                    string currentCustomerAddres = SelectedCustomerAddressTextBox.Text;
-                    _currentCustomer.FullName = currentCustomerAddres;
-                    int index = _customers.IndexOf(_currentCustomer);
-                    UpdateCustomerInfo(index);
+                    if (discount is PointsDiscount) continue;
+                    if (((PercentDiscount)discount).Category ==
+                        addDiscountForm.PercentDiscount.Category) return;
                 }
-                catch
-                {
-                    SelectedCustomerAddressTextBox.BackColor = _errorColor;
-                }
-                SelectedCustomerAddressTextBox.BackColor = _correctColor;
+                _currentCustomer.Discounts.Add(addDiscountForm.PercentDiscount);
+                UpdateDiscountsListBox();
             }
+        }
+
+        private void RemoveDiscountButton_Click(object sender, EventArgs e)
+        {
+            int index = DiscountsListBox.SelectedIndex;
+            if (index == -1) return;
+            if (index == 0) return;
+            _currentCustomer.Discounts.RemoveAt(index);
+            UpdateDiscountsListBox();
         }
     }
 }

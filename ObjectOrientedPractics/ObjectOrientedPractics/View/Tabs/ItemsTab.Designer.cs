@@ -41,6 +41,8 @@
             this.SelectedItemDescriptionLabel = new System.Windows.Forms.Label();
             this.SelectedItemNameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedItemDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.SelectedItemCategoryLabel = new System.Windows.Forms.Label();
+            this.SelectedItemCategoryComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // ItemsListBox
@@ -122,7 +124,7 @@
             // 
             this.SelectedItemIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SelectedItemIDTextBox.Enabled = false;
-            this.SelectedItemIDTextBox.Location = new System.Drawing.Point(327, 34);
+            this.SelectedItemIDTextBox.Location = new System.Drawing.Point(345, 35);
             this.SelectedItemIDTextBox.Name = "SelectedItemIDTextBox";
             this.SelectedItemIDTextBox.ReadOnly = true;
             this.SelectedItemIDTextBox.Size = new System.Drawing.Size(124, 20);
@@ -131,7 +133,7 @@
             // SelectedItemCostTextBox
             // 
             this.SelectedItemCostTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(327, 58);
+            this.SelectedItemCostTextBox.Location = new System.Drawing.Point(345, 59);
             this.SelectedItemCostTextBox.Name = "SelectedItemCostTextBox";
             this.SelectedItemCostTextBox.Size = new System.Drawing.Size(124, 20);
             this.SelectedItemCostTextBox.TabIndex = 8;
@@ -142,7 +144,7 @@
             this.SelectedItemNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemNameLabel.AutoSize = true;
-            this.SelectedItemNameLabel.Location = new System.Drawing.Point(287, 96);
+            this.SelectedItemNameLabel.Location = new System.Drawing.Point(287, 132);
             this.SelectedItemNameLabel.Name = "SelectedItemNameLabel";
             this.SelectedItemNameLabel.Size = new System.Drawing.Size(38, 13);
             this.SelectedItemNameLabel.TabIndex = 9;
@@ -153,7 +155,7 @@
             this.SelectedItemDescriptionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemDescriptionLabel.AutoSize = true;
-            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(287, 214);
+            this.SelectedItemDescriptionLabel.Location = new System.Drawing.Point(287, 250);
             this.SelectedItemDescriptionLabel.Name = "SelectedItemDescriptionLabel";
             this.SelectedItemDescriptionLabel.Size = new System.Drawing.Size(63, 13);
             this.SelectedItemDescriptionLabel.TabIndex = 11;
@@ -164,7 +166,7 @@
             this.SelectedItemNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(290, 112);
+            this.SelectedItemNameTextBox.Location = new System.Drawing.Point(290, 148);
             this.SelectedItemNameTextBox.Multiline = true;
             this.SelectedItemNameTextBox.Name = "SelectedItemNameTextBox";
             this.SelectedItemNameTextBox.Size = new System.Drawing.Size(389, 99);
@@ -176,17 +178,38 @@
             this.SelectedItemDescriptionTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedItemDescriptionTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(290, 231);
+            this.SelectedItemDescriptionTextBox.Location = new System.Drawing.Point(290, 267);
             this.SelectedItemDescriptionTextBox.Multiline = true;
             this.SelectedItemDescriptionTextBox.Name = "SelectedItemDescriptionTextBox";
             this.SelectedItemDescriptionTextBox.Size = new System.Drawing.Size(389, 137);
             this.SelectedItemDescriptionTextBox.TabIndex = 14;
             this.SelectedItemDescriptionTextBox.TextChanged += new System.EventHandler(this.SelectedItemDescriptionTextBox_TextChanged);
             // 
+            // SelectedItemCategoryLabel
+            // 
+            this.SelectedItemCategoryLabel.AutoSize = true;
+            this.SelectedItemCategoryLabel.Location = new System.Drawing.Point(287, 86);
+            this.SelectedItemCategoryLabel.Name = "SelectedItemCategoryLabel";
+            this.SelectedItemCategoryLabel.Size = new System.Drawing.Size(52, 13);
+            this.SelectedItemCategoryLabel.TabIndex = 15;
+            this.SelectedItemCategoryLabel.Text = "Category:";
+            // 
+            // SelectedItemCategoryComboBox
+            // 
+            this.SelectedItemCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SelectedItemCategoryComboBox.FormattingEnabled = true;
+            this.SelectedItemCategoryComboBox.Location = new System.Drawing.Point(345, 84);
+            this.SelectedItemCategoryComboBox.Name = "SelectedItemCategoryComboBox";
+            this.SelectedItemCategoryComboBox.Size = new System.Drawing.Size(124, 21);
+            this.SelectedItemCategoryComboBox.TabIndex = 16;
+            this.SelectedItemCategoryComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectedItemCategoryComboBox_SelectedIndexChanged);
+            // 
             // ItemsTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.SelectedItemCategoryComboBox);
+            this.Controls.Add(this.SelectedItemCategoryLabel);
             this.Controls.Add(this.SelectedItemDescriptionTextBox);
             this.Controls.Add(this.SelectedItemNameTextBox);
             this.Controls.Add(this.SelectedItemDescriptionLabel);
@@ -222,5 +245,7 @@
         private System.Windows.Forms.Label SelectedItemDescriptionLabel;
         private System.Windows.Forms.TextBox SelectedItemNameTextBox;
         private System.Windows.Forms.TextBox SelectedItemDescriptionTextBox;
+        private System.Windows.Forms.Label SelectedItemCategoryLabel;
+        private System.Windows.Forms.ComboBox SelectedItemCategoryComboBox;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Enums;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -17,15 +18,7 @@ namespace ObjectOrientedPractics.View.Tabs
     /// </summary>
     public partial class ItemsTab : UserControl
     {
-        /// <summary>
-        /// Цвет некорректного значения.
-        /// </summary>
-        private readonly Color _errorColor = Color.LightPink;
-
-        /// <summary>
-        /// Цвет корректного значения.
-        /// </summary>
-        private readonly Color _correctColor = Color.White;
+        public event EventHandler<EventArgs> ItemsChanged;
 
         /// <summary>
         /// Коллекция товаров.
@@ -45,8 +38,24 @@ namespace ObjectOrientedPractics.View.Tabs
             InitializeComponent();
             _items = new List<Item>();
 
-            _items = ProjectSerializer.Deserialize();
-            UpdateItemInfo(-1);
+            var category = Enum.GetValues(typeof(Category));
+
+            foreach (var value in category)
+                SelectedItemCategoryComboBox.Items.Add(value);
+        }
+
+        public List<Item> Items
+        {
+            get { return _items; }
+            set
+            {
+                _items = value;
+
+                if (_items != null)
+                {
+                    UpdateItemInfo(-1);
+                }
+            }
         }
 
         /// <summary>
@@ -82,6 +91,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         public void ClearItemInfo()
         {
+            SelectedItemIDTextBox.Clear();
             SelectedItemNameTextBox.Clear();
             SelectedItemCostTextBox.Clear();
             SelectedItemDescriptionTextBox.Clear();
@@ -94,9 +104,8 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items.Add(item);
             ItemsListBox.Items.Add(ItemInfo(_currentItem));
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
             UpdateItemInfo(0);
-
-            ProjectSerializer.Serialize(_items);
         }
 
         private void RemoveCustomerButton_Click(object sender, EventArgs e)
@@ -105,10 +114,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 _items.RemoveAt(ItemsListBox.SelectedIndex);
                 ItemsListBox.Items.RemoveAt(ItemsListBox.SelectedIndex);
+                ItemsChanged?.Invoke(this, EventArgs.Empty);
                 ClearItemInfo();
-                //UpdateItemInfo(0);
-
-                ProjectSerializer.Serialize(_items);
             }
         }
 
@@ -122,6 +129,7 @@ namespace ObjectOrientedPractics.View.Tabs
                 SelectedItemCostTextBox.Text = _currentItem.Cost.ToString();
                 SelectedItemDescriptionTextBox.Text = _currentItem.Info;
                 SelectedItemIDTextBox.Text = _currentItem.Id.ToString();
+                SelectedItemCategoryComboBox.SelectedItem = _currentItem.Category;
             }
         }
 
@@ -135,17 +143,15 @@ namespace ObjectOrientedPractics.View.Tabs
                     int itemCost = int.Parse(currentItemCost);
                     _currentItem.Cost = itemCost;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
-
-                    ProjectSerializer.Serialize(_items);
-
                 }
                 catch
                 {
-                    SelectedItemCostTextBox.BackColor = _errorColor;
+                    SelectedItemCostTextBox.BackColor = AppColor.ErrorColor;
                     return;
                 }
-                SelectedItemCostTextBox.BackColor = _correctColor;
+                SelectedItemCostTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 
@@ -158,15 +164,14 @@ namespace ObjectOrientedPractics.View.Tabs
                     string currentItemName = SelectedItemNameTextBox.Text;
                     _currentItem.Name = currentItemName;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
-
-                    ProjectSerializer.Serialize(_items);
                 }
                 catch
                 {
-                    SelectedItemNameTextBox.BackColor = _errorColor;
+                    SelectedItemNameTextBox.BackColor = AppColor.ErrorColor;
                 }
-                SelectedItemNameTextBox.BackColor = _correctColor;
+                SelectedItemNameTextBox.BackColor = AppColor.CorrectColor;
             }
         }
 
@@ -179,16 +184,25 @@ namespace ObjectOrientedPractics.View.Tabs
                     string currentItemInfo = SelectedItemDescriptionTextBox.Text;
                     _currentItem.Info = currentItemInfo;
                     int index = _items.IndexOf(_currentItem);
+                    ItemsChanged?.Invoke(this, EventArgs.Empty);
                     UpdateItemInfo(index);
-
-                    ProjectSerializer.Serialize(_items);
                 }
                 catch
                 {
-                    SelectedItemDescriptionTextBox.BackColor = _errorColor;
+                    SelectedItemDescriptionTextBox.BackColor = AppColor.ErrorColor;
                 }
-                SelectedItemDescriptionTextBox.BackColor = _correctColor;
+                SelectedItemDescriptionTextBox.BackColor = AppColor.CorrectColor;
             }
+        }
+
+        private void SelectedItemCategoryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedItem == null) return;
+            
+            _currentItem.Category = (Category)SelectedItemCategoryComboBox.SelectedItem;
+            int index = _items.IndexOf(_currentItem);
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
+            UpdateItemInfo(index);
         }
     }
 }

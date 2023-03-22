@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Services;
+using ObjectOrientedPractics.Model.Orders;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.Model
 {
@@ -30,12 +32,29 @@ namespace ObjectOrientedPractics.Model
         /// <summary>
         /// Полный адрес доставки для покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
+
+        /// <summary>
+        /// Корзина товаров.
+        /// </summary>
+        private Cart _cart;
+
+        /// <summary>
+        /// Коллекция заказов.
+        /// </summary>
+        private List<Order> _orders;
+
+        /// <summary>
+        /// Приоритетный покупатель.
+        /// </summary>
+        private bool _isPriority;
 
         /// <summary>
         /// Возвращает количество всех покупателей. 
         /// </summary>
         public static int AllCustomerCount { get { return _allCustomerCount; } }
+
+        public List<IDiscount> Discounts { get; set; }
 
         /// <summary>
         /// Возвращает и задает ФИО покупателя. Не более 200 символов.
@@ -53,18 +72,13 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
-        /// Возвращает и задает адрес доставки для покупателя. Не более 500 символов.
+        /// Возвращает и задает адрес доставки для покупателя.
         /// Должен стостоять только из символов русского и английского алфавита.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get { return _address; }
-            set
-            {
-                ValueValidator.AssertStringOnLength(value, 500, nameof(Address));
-                ValueValidator.AssertStringContainsOnlyLetters(nameof(Address), value);
-                _address = value;
-            }
+            set { _address = value; }
         }
 
         /// <summary>
@@ -76,16 +90,56 @@ namespace ObjectOrientedPractics.Model
         }
 
         /// <summary>
+        /// Возвращает и задает корзину товаров.
+        /// </summary>
+        public Cart Cart
+        {
+            get { return _cart; }
+            set {_cart = value; }
+        }
+
+        /// <summary>
+        /// Возвращает и задает коллекцию заказов.
+        /// </summary>
+        public List<Order> Orders
+        {
+            get { return _orders; }
+            set { _orders = value; }
+        }
+
+        /// <summary>
+        /// Возвращает и задает булевое значение, является ли покупатель приоритетным или нет.
+        /// </summary>
+        public bool IsPriority
+        {
+            get
+            {
+                return _isPriority;
+            }
+            set
+            {
+                _isPriority = value;
+            }
+        }
+
+        /// <summary>
         /// Создает экземпляр класса <see cref="Customer"/>.
         /// </summary>
         /// <param name="fullName">Полное ФИО покупателя.</param>
         /// <param name="address">Полный адрес доставки для покупателя.</param>
-        public Customer(string fullName, string address)
+        /// <param name="cart">Корзина товаров.</param>
+        /// <param name="orders">Коллекция заказов.</param>
+        public Customer(string fullName, Address address, Cart cart, List<Order> orders, bool isPriority)
         {
             FullName = fullName;
             Address = address;
+            Cart = cart;
+            Orders = orders;
             _allCustomerCount++;
             _id = _allCustomerCount;
+            IsPriority = isPriority;
+            Discounts = new List<IDiscount>();
+            Discounts.Add(new PointsDiscount());
         }
 
         /// <summary>
@@ -95,6 +149,10 @@ namespace ObjectOrientedPractics.Model
         {
             _allCustomerCount++;
             _id = _allCustomerCount;
+            Cart = new Cart();
+            Orders = new List<Order>();
+            IsPriority = false;
+            Discounts = new List<IDiscount>();
         }
     }
 }

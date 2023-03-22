@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SelectedCustomerAddressLabel = new System.Windows.Forms.Label();
+            ObjectOrientedPractics.Model.Address address2 = new ObjectOrientedPractics.Model.Address();
             this.SelectedCustomerFullNameTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerIDTextBox = new System.Windows.Forms.TextBox();
             this.SelectedCustomerFullNameLabel = new System.Windows.Forms.Label();
@@ -38,20 +38,13 @@
             this.AddCustomerButton = new System.Windows.Forms.Button();
             this.CustomersLabel = new System.Windows.Forms.Label();
             this.CustomersListBox = new System.Windows.Forms.ListBox();
-            this.SelectedCustomerAddressTextBox = new System.Windows.Forms.TextBox();
-            this.SelectedCustomerPanel = new System.Windows.Forms.Panel();
+            this.AddressControl = new ObjectOrientedPractics.View.Controls.AddressControl();
+            this.IsPriorityCheckBox = new System.Windows.Forms.CheckBox();
+            this.DiscountsListBox = new System.Windows.Forms.ListBox();
+            this.AddDiscountButton = new System.Windows.Forms.Button();
+            this.RemoveDiscountButton = new System.Windows.Forms.Button();
+            this.DiscountsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // SelectedCustomerAddressLabel
-            // 
-            this.SelectedCustomerAddressLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressLabel.AutoSize = true;
-            this.SelectedCustomerAddressLabel.Location = new System.Drawing.Point(287, 85);
-            this.SelectedCustomerAddressLabel.Name = "SelectedCustomerAddressLabel";
-            this.SelectedCustomerAddressLabel.Size = new System.Drawing.Size(48, 13);
-            this.SelectedCustomerAddressLabel.TabIndex = 22;
-            this.SelectedCustomerAddressLabel.Text = "Address:";
             // 
             // SelectedCustomerFullNameTextBox
             // 
@@ -67,8 +60,10 @@
             // SelectedCustomerIDTextBox
             // 
             this.SelectedCustomerIDTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.SelectedCustomerIDTextBox.Enabled = false;
             this.SelectedCustomerIDTextBox.Location = new System.Drawing.Point(350, 35);
             this.SelectedCustomerIDTextBox.Name = "SelectedCustomerIDTextBox";
+            this.SelectedCustomerIDTextBox.ReadOnly = true;
             this.SelectedCustomerIDTextBox.Size = new System.Drawing.Size(124, 20);
             this.SelectedCustomerIDTextBox.TabIndex = 20;
             // 
@@ -147,36 +142,81 @@
             this.CustomersListBox.TabIndex = 13;
             this.CustomersListBox.SelectedIndexChanged += new System.EventHandler(this.CustomersListBox_SelectedIndexChanged);
             // 
-            // SelectedCustomerAddressTextBox
+            // AddressControl
             // 
-            this.SelectedCustomerAddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            address2.Index = 100000;
+            this.AddressControl.Address = address2;
+            this.AddressControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerAddressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedCustomerAddressTextBox.Location = new System.Drawing.Point(350, 83);
-            this.SelectedCustomerAddressTextBox.Multiline = true;
-            this.SelectedCustomerAddressTextBox.Name = "SelectedCustomerAddressTextBox";
-            this.SelectedCustomerAddressTextBox.Size = new System.Drawing.Size(329, 98);
-            this.SelectedCustomerAddressTextBox.TabIndex = 26;
-            this.SelectedCustomerAddressTextBox.TextChanged += new System.EventHandler(this.SelectedCustomerAddressTextBox_TextChanged);
+            this.AddressControl.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.AddressControl.Location = new System.Drawing.Point(282, 111);
+            this.AddressControl.Name = "AddressControl";
+            this.AddressControl.Size = new System.Drawing.Size(403, 172);
+            this.AddressControl.TabIndex = 27;
             // 
-            // SelectedCustomerPanel
+            // IsPriorityCheckBox
             // 
-            this.SelectedCustomerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.IsPriorityCheckBox.AutoSize = true;
+            this.IsPriorityCheckBox.Location = new System.Drawing.Point(290, 85);
+            this.IsPriorityCheckBox.Name = "IsPriorityCheckBox";
+            this.IsPriorityCheckBox.Size = new System.Drawing.Size(68, 17);
+            this.IsPriorityCheckBox.TabIndex = 28;
+            this.IsPriorityCheckBox.Text = "Is Priority";
+            this.IsPriorityCheckBox.UseVisualStyleBackColor = true;
+            this.IsPriorityCheckBox.CheckedChanged += new System.EventHandler(this.IsPriorityCheckBox_CheckedChanged);
+            // 
+            // DiscountsListBox
+            // 
+            this.DiscountsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedCustomerPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.SelectedCustomerPanel.Location = new System.Drawing.Point(290, 187);
-            this.SelectedCustomerPanel.Name = "SelectedCustomerPanel";
-            this.SelectedCustomerPanel.Size = new System.Drawing.Size(389, 345);
-            this.SelectedCustomerPanel.TabIndex = 27;
+            this.DiscountsListBox.FormattingEnabled = true;
+            this.DiscountsListBox.Location = new System.Drawing.Point(290, 319);
+            this.DiscountsListBox.Name = "DiscountsListBox";
+            this.DiscountsListBox.Size = new System.Drawing.Size(258, 95);
+            this.DiscountsListBox.TabIndex = 29;
+            // 
+            // AddDiscountButton
+            // 
+            this.AddDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddDiscountButton.Location = new System.Drawing.Point(554, 319);
+            this.AddDiscountButton.Name = "AddDiscountButton";
+            this.AddDiscountButton.Size = new System.Drawing.Size(87, 42);
+            this.AddDiscountButton.TabIndex = 30;
+            this.AddDiscountButton.Text = "Add";
+            this.AddDiscountButton.UseVisualStyleBackColor = true;
+            this.AddDiscountButton.Click += new System.EventHandler(this.AddDiscountButton_Click);
+            // 
+            // RemoveDiscountButton
+            // 
+            this.RemoveDiscountButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RemoveDiscountButton.Location = new System.Drawing.Point(554, 372);
+            this.RemoveDiscountButton.Name = "RemoveDiscountButton";
+            this.RemoveDiscountButton.Size = new System.Drawing.Size(87, 42);
+            this.RemoveDiscountButton.TabIndex = 31;
+            this.RemoveDiscountButton.Text = "Remove";
+            this.RemoveDiscountButton.UseVisualStyleBackColor = true;
+            this.RemoveDiscountButton.Click += new System.EventHandler(this.RemoveDiscountButton_Click);
+            // 
+            // DiscountsLabel
+            // 
+            this.DiscountsLabel.AutoSize = true;
+            this.DiscountsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.DiscountsLabel.Location = new System.Drawing.Point(287, 303);
+            this.DiscountsLabel.Name = "DiscountsLabel";
+            this.DiscountsLabel.Size = new System.Drawing.Size(63, 13);
+            this.DiscountsLabel.TabIndex = 32;
+            this.DiscountsLabel.Text = "Discounts";
             // 
             // CustomersTab
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.SelectedCustomerPanel);
-            this.Controls.Add(this.SelectedCustomerAddressTextBox);
-            this.Controls.Add(this.SelectedCustomerAddressLabel);
+            this.Controls.Add(this.DiscountsLabel);
+            this.Controls.Add(this.RemoveDiscountButton);
+            this.Controls.Add(this.AddDiscountButton);
+            this.Controls.Add(this.DiscountsListBox);
+            this.Controls.Add(this.IsPriorityCheckBox);
+            this.Controls.Add(this.AddressControl);
             this.Controls.Add(this.SelectedCustomerFullNameTextBox);
             this.Controls.Add(this.SelectedCustomerIDTextBox);
             this.Controls.Add(this.SelectedCustomerFullNameLabel);
@@ -193,8 +233,7 @@
 
         }
 
-        #endregion
-        private System.Windows.Forms.Label SelectedCustomerAddressLabel;
+        #endregion      
         private System.Windows.Forms.TextBox SelectedCustomerFullNameTextBox;
         private System.Windows.Forms.TextBox SelectedCustomerIDTextBox;
         private System.Windows.Forms.Label SelectedCustomerFullNameLabel;
@@ -204,7 +243,11 @@
         private System.Windows.Forms.Button AddCustomerButton;
         private System.Windows.Forms.Label CustomersLabel;
         private System.Windows.Forms.ListBox CustomersListBox;
-        private System.Windows.Forms.TextBox SelectedCustomerAddressTextBox;
-        private System.Windows.Forms.Panel SelectedCustomerPanel;
+        private Controls.AddressControl AddressControl;
+        private System.Windows.Forms.CheckBox IsPriorityCheckBox;
+        private System.Windows.Forms.ListBox DiscountsListBox;
+        private System.Windows.Forms.Button AddDiscountButton;
+        private System.Windows.Forms.Button RemoveDiscountButton;
+        private System.Windows.Forms.Label DiscountsLabel;
     }
 }

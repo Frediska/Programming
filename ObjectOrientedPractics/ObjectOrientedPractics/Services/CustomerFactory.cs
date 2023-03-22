@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Discounts;
 
 namespace ObjectOrientedPractics.Services
 {
@@ -20,7 +21,14 @@ namespace ObjectOrientedPractics.Services
         {
             Customer customer = new Customer();
             customer.FullName = "Name";
-            customer.Address = "info";
+            customer.Address = new Address();
+            customer.Address.Apartment = "None";
+            customer.Address.City = "None";
+            customer.Address.Building = "None";
+            customer.Address.Street = "None";
+            customer.Address.Country = "None";
+            customer.Address.Index = 111111;
+            customer.Discounts.Add(new PointsDiscount());
 
             return customer;
         }

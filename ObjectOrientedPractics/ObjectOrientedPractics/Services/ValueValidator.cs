@@ -75,5 +75,33 @@ namespace ObjectOrientedPractics.Services
                     $"the value of the {nameProperty} must be positive.");
             }
         }
+
+        /// <summary>
+        /// Проверяет, что количество цифр в числе равно заданному.
+        /// </summary>
+        /// <param name="propertyName">Имя свойства, откуда был вызван метод.</param>
+        /// <param name="length">Заданная длина.</param>
+        /// <param name="value">Число.</param>
+        /// <exception cref="ArgumentException">Выбрасывается, когда количество цифр числа не равно заданному.</exception>
+        public static void AssertValueLength(string propertyName, int value, int length)
+        {
+            if (value.ToString().Length != length)
+                throw new ArgumentException(
+                    $"the number of characters in {propertyName} must be equal to {length}.");
+        }
+
+        /// <summary>
+        /// Проверяет является ли переданная строка пустой.
+        /// </summary>
+        /// <param name="value">Строка.</param>
+        /// <param name="propertyName">Имя свойства.</param>
+        /// <exception cref="ArgumentException">Если строка оказалась пустой.</exception>
+        public static void AssertEmptyValue(string value, string propertyName)
+        {
+            if (value == "")
+            {
+                throw new ArgumentException($"Строка не может быть пустой в поле {propertyName}");
+            }
+        }
     }
 }
