@@ -11,8 +11,14 @@ using View.Model.Services;
 
 namespace View.ViewModel
 {
+    /// <summary>
+    /// ViewModel для главного окна.
+    /// </summary>
     internal class MainVM : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Контакт.
+        /// </summary>
         public Contact Contact { get; private set; } = new Contact();
 
         /// <summary>
@@ -22,6 +28,9 @@ namespace View.ViewModel
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
             + @"\Contacts\contacts.json";
 
+        /// <summary>
+        /// Возвращает и задаёт имя контакта.
+        /// </summary>
         public string Name
         {
             get { return Contact.Name; }
@@ -32,6 +41,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт номер контакта.
+        /// </summary>
         public string Phone
         {
             get => Contact.Phone;
@@ -42,6 +54,9 @@ namespace View.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задаёт электронную почту контакта.
+        /// </summary>
         public string Email
         {
             get => Contact.Email;
@@ -61,7 +76,7 @@ namespace View.ViewModel
             {
                 return new RelayCommand((obj) =>
                 {
-                    ContactSerializer.Serialize("Contact", Contact);
+                    ContactSerializer.Serialize(Contact, Path);
                 });
             }
         }
@@ -83,7 +98,11 @@ namespace View.ViewModel
             }
         }
 
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        /// <summary>
+        /// При вызове зажигает событие <see cref="PropertyChanged"/>.
+        /// </summary>
+        /// <param name="prop">Имя свойства, вызвавшего метод.</param>
+        protected void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }

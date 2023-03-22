@@ -11,69 +11,49 @@ namespace View.Model.Services
     public static class ContactSerializer
     {
         /// <summary>
-        /// Возвращает и задает путь куда будут сериализоватся данные.
+        /// Сериализацию данных.
         /// </summary>
-        public static string Path { get; set; }
-
-        /// <summary>
-        /// Возвращает и задает имя файла.
-        /// </summary>
-        public static string FileName { get; set; }
-
-        /// <summary>
-        /// Создаёт экземпляр класса <see cref="ContactSerializer"/>.
-        /// </summary>
-        static ContactSerializer()
+        /// <param name="contact">Контакт.</param>
+        /// <param name="path">Путь сериализации.</param>
+        public static void Serialize(Contact contact, string path)
         {
-            Path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            FileName = "data.json";
-        }
-
-        private static JsonSerializerSettings settings = new JsonSerializerSettings
-        {
-            TypeNameHandling = TypeNameHandling.All
-        };
-
-        /// <summary>
-        /// Проверка на существование файла.
-        /// </summary>
-        /// <param name="nameFile">Имя файла.</param>
-        /// <returns></returns>
-        public static bool IsFile(string nameFile)
-        {
-            return File.Exists(Path + nameFile);
-        }
-
-        /// <summary>
-        /// Проводит сериализацию данных.
-        /// </summary>
-        /// <param name="nameFile">Имя файла.</param>
-        /// <param name="obj">Объект.</param>
-        public static void Serialize(string nameFile, object obj)
-        {
-            using (StreamWriter writer = new StreamWriter(Path + nameFile))
+            if (!Directory.Exists(Path.GetDirectoryName(path)))
             {
-                writer.Write(JsonConvert.SerializeObject(obj, settings));
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
+            }
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                writer.Write(JsonConvert.SerializeObject(contact));
             }
         }
 
         /// <summary>
-        /// Проводит десериализацию данных.
+        /// Десериализация данных.
         /// </summary>
-        /// <param name="nameFile">Имя файла.</param>
+        /// <param name="path">Путь.</param>
         /// <returns>Возвращает экземпляр класса <see cref="Contact"/>.</returns>
-        public static Contact Deserialize(string nameFile)
+        public static Contact Deserialize(string path)
         {
-            if (!File.Exists(Path))
+            if (!File.Exists(path))
             {
-                Directory.CreateDirectory(Path);
+                Directory.CreateDirectory(Path.GetDirectoryName(path));
             }
 
-            Contact contact;
+            var contact = new Contact();
 
-            using (StreamReader reader = new StreamReader(Path + nameFile))
+            try
             {
-                contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd(), settings);
+                using (StreamReader reader = new StreamReader(path))
+                {
+                    contact = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd());
+                }
+
+                if (contact == null) contact = new Contact();
+            }
+            catch (FileNotFoundException e)
+            {
+                return contact;
             }
 
             return contact;
