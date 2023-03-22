@@ -5,8 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contacts"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Contacts" Height="450" Width="550"
+        Icon="Resource\icon_96x96.ico">
+    <Grid x:Name="Contacts" Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="EditContactGroupBox" Grid.Row="0" Grid.Column="0" Margin="3" Header="Edit Contact">
+            <StackPanel>
+                <TextBlock Margin="3">Name:</TextBlock>
+                <TextBox Margin="3"></TextBox>
+                <TextBlock Margin="3">Phone Number:</TextBlock>
+                <TextBox Margin="3"></TextBox>
+                <TextBlock Margin="3">Email:</TextBlock>
+                <TextBox Margin="3"></TextBox>
+            </StackPanel> 
+        </GroupBox>
+        <GroupBox x:Name="ReadContactGroupBox" Grid.Row="0" Grid.Column="1" Margin="3" Header="Read Contact">
+            <StackPanel>
+                <TextBlock Margin="3">Name:</TextBlock>
+                <TextBlock Margin="3" FontWeight="Bold"></TextBlock>
+                <TextBlock Margin="3">Phone Number:</TextBlock>
+                <TextBlock Margin="3" FontWeight="Bold"></TextBlock>
+                <TextBlock Margin="3">Email:</TextBlock>
+                <TextBlock Margin="3" FontWeight="Bold"></TextBlock>
+            </StackPanel>
+        </GroupBox>
+        <StackPanel Grid.Row="1" Grid.Column="1" FlowDirection="RightToLeft" Orientation="Horizontal">
+            <Button x:Name="LoadButton" Width="75" Height="25" Margin="3">Load</Button>
+            <Button x:Name="SaveButton" Width="75" Height="25" Margin="3">Save</Button>
+        </StackPanel>
     </Grid>
 </Window>
