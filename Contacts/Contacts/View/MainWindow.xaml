@@ -4,13 +4,17 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:View.Model.Services"
+    xmlns:service="clr-namespace:View.Model.Services"
     mc:Ignorable="d"
     Closing="Window_Closing"
-    Title="Contacts" Height="450" Width="550"
-    Icon="\Resource\icon_96x96.ico" MinWidth="550" MinHeight="450">
+    Title="Contacts" 
+    Height="450" 
+    Width="550"
+    Icon="\Resource\icon_96x96.ico"  
+    MinHeight="450"
+    MinWidth="550">
     <Window.Resources>
-        <local:VisibleConverter x:Key="VisibleConverter"/>
+        <service:VisibleConverter x:Key="VisibleConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>

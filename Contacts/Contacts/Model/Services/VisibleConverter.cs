@@ -15,7 +15,7 @@ namespace View.Model.Services
         /// <param name="targetType">Целевой тип.</param>
         /// <param name="parameter">Параметр.</param>
         /// <param name="culture">Региональная культура</param>
-        /// <returns>Значение из перечисления <see cref="Visibility"/>.</returns>
+        /// <returns>Значение видимости элемента.</returns>
         public object Convert(object value,
                               Type targetType,
                               object parameter,
