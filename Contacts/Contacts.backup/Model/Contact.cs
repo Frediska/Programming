@@ -1,12 +1,31 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace View.Model
 {
     /// <summary>
     /// Хранит данные о контакте.
     /// </summary>
-    public class Contact : ICloneable
+    public class Contact
     {
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
+        private string _name;
+
+        /// <summary>
+        /// Номер контакта.
+        /// </summary>
+        private string _phone;
+
+        /// <summary>
+        /// Электронная почта контакта.
+        /// </summary>
+        private string _email;
+
         /// <summary>
         /// Создает экземпляр класса <see cref="Contact"/>.
         /// </summary>
@@ -49,10 +68,10 @@ namespace View.Model
         /// <summary>
         /// Возвращает копию экземпляра класса <see cref="Contact"/>
         /// </summary>
-        /// <returns>Объект класса <see cref="Contact"/>.</returns>
+        /// <returns></returns>
         public object Clone()
         {
-            return new Contact(Name, Email, Phone);
+            return new Contact(Name, Phone, Email);
         }
     }
 }

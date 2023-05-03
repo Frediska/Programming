@@ -1,8 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using View.ViewModel;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using View.ViewModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace View.Model.Services
 {
@@ -19,7 +23,7 @@ namespace View.Model.Services
         /// Загружает данные из файла в приложение.
         /// </summary>
         /// <returns>Список контактов.</returns>
-        public static ObservableCollection<ContactVM> Deserialize()
+        public static ObservableCollection<ContactVM> Load()
         {
             var contacts = new ObservableCollection<ContactVM>();
 
@@ -39,13 +43,13 @@ namespace View.Model.Services
             }
 
             return contacts;
-            }
+        }
 
         /// <summary>
         /// Сохраняет список объектов в файл.
         /// </summary>
         /// <param name="contacts">Список контактов.</param>
-        public static void Serialize(ObservableCollection<ContactVM> contacts)
+        public static void Save(ObservableCollection<ContactVM> contacts)
         {
             if (!File.Exists(Path))
             {
