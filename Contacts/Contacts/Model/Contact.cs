@@ -64,5 +64,14 @@ namespace View.Model
         /// Возвращает и задаёт электронную почту контакта.
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Возвращает копию экземпляра класса <see cref="Contact"/>
+        /// </summary>
+        /// <returns></returns>
+        public object Clone()
+        {
+            return new Contact(Name, Phone, Email);
+        }
     }
 }
