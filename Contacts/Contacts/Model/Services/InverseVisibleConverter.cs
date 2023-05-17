@@ -9,8 +9,7 @@ namespace View.Model.Services
     public class InverseVisibleConverter : IValueConverter
     {
         /// <summary>
-        /// Конвертирует булевое значение
-        /// в соотвествующие значение из перечисления <see cref="Visibility"/>.
+        /// Конвертирует булевое значение в противоположное.
         /// </summary>
         /// <param name="value">Значение.</param>
         /// <param name="targetType">Целевой тип.</param>
@@ -31,8 +30,7 @@ namespace View.Model.Services
         }
 
         /// <summary>
-        /// Конвертирует значение из перечисления <see cref="Visibility"/>
-        /// в соотвествующие булевое значение.
+        /// Конвертирует булевое значение в противоположное.
         /// </summary>
         /// <param name="value">Значение.</param>
         /// <param name="targetType">Целевой тип.</param>
