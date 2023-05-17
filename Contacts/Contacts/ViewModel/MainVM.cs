@@ -1,112 +1,184 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using View.Model;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using System.Collections.ObjectModel;
 using View.Model.Services;
+using View.Model;
 
 namespace View.ViewModel
 {
     /// <summary>
     /// ViewModel для главного окна.
     /// </summary>
-    internal class MainVM : INotifyPropertyChanged
+    public partial class MainVM : ObservableObject
     {
         /// <summary>
-        /// Контакт.
+        /// Объект, хранящий выбранный контакт.
         /// </summary>
-        public Contact Contact { get; private set; } = new Contact();
+        [ObservableProperty]
+        [NotifyCanExecuteChangedFor(nameof(EditContactCommand), nameof(RemoveContactCommand))]
+        private ContactVM _selectedContact;
 
         /// <summary>
-        /// Возвращает и задаёт путь сериализации. По умолчанию - папка "Мои документы".
+        /// Поле, хранящее значение для свойства окна IsReadOnly.
         /// </summary>
-        public string Path { get; set; } =
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
-            + @"\Contacts\contacts.json";
+        [ObservableProperty]
+        private bool _isReadOnly = false;
 
         /// <summary>
-        /// Возвращает и задаёт имя контакта.
+        /// Поле, хранящее значение, которое говорит о том, была ли нажата кнопка Apply.
         /// </summary>
-        public string Name
-        {
-            get { return Contact.Name; }
-            set
-            {
-                Contact.Name = value;
-                OnPropertyChanged(nameof(Name));
-            }
-        }
+        private bool _isApply = false;
 
         /// <summary>
-        /// Возвращает и задаёт номер контакта.
+        /// Возвращает и задает индекс выбранного контакты.
         /// </summary>
-        public string Phone
-        {
-            get => Contact.Phone;
-            set
-            {
-                Contact.Phone = value;
-                OnPropertyChanged(nameof(Phone));
-            }
-        }
+        public int SelectedIndex { get; set; }
 
         /// <summary>
-        /// Возвращает и задаёт электронную почту контакта.
+        /// Возвращает список контактов.
         /// </summary>
-        public string Email
-        {
-            get => Contact.Email;
-            set
-            {
-                Contact.Email = value;
-                OnPropertyChanged(nameof(Email));
-            }
-        }
+        public ObservableCollection<ContactVM> Contacts { get; private set; } = new ObservableCollection<ContactVM>();
 
         /// <summary>
-        /// Команда сериализации контакта.
+        /// Возвращает и задает, возможно ли редактирование контактов.
         /// </summary>
-        public ICommand SaveCommand
+        public bool IsEdit { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает, подтверждены ли изменения.
+        /// </summary>
+        public bool IsApply
         {
             get
             {
-                return new RelayCommand((obj) =>
-                {
-                    ContactSerializer.Serialize(Contact, Path);
-                });
+                return _isApply;
             }
-        }
-
-        /// <summary>
-        /// Команда десериализации контакта.
-        /// </summary>
-        public ICommand LoadCommand
-        {
-            get
+            set
             {
-                return new RelayCommand((obj) =>
+                _isApply = value;
+                IsReadOnly = !value;
+
+                if (value)
                 {
-                    var contact = ContactSerializer.Deserialize(Path);
-                    Name = contact.Name;
-                    Email = contact.Email;
-                    Phone = contact.Phone;
-                });
+                    IsEdit = false;
+                }
             }
         }
 
         /// <summary>
-        /// При вызове зажигает событие <see cref="PropertyChanged"/>.
+        /// Создает экземпляр класса <see cref="MainVM"/>.
         /// </summary>
-        /// <param name="prop">Имя свойства, вызвавшего метод.</param>
-        protected void OnPropertyChanged([CallerMemberName] string prop = "")
+        public MainVM()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+            Contacts = ContactSerializer.Deserialize();
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        partial void OnSelectedContactChanged(ContactVM value)
+        {
+            if (!IsEdit && Contacts.Contains(value))
+            {
+                SelectedIndex = Contacts.IndexOf(value);
+            }
+
+            if (!IsApply)
+            {
+                IsApply = true;
+            }
+        }
+
+        /// <summary>
+        /// Принятие действий над контактом.
+        /// </summary>
+        [RelayCommand]
+        private void ApplyContact()
+        {
+            if (!IsEdit)
+            {
+                Contacts.Add(SelectedContact);
+                SelectedContact = null;
+                SelectedContact = Contacts[Contacts.Count - 1];
+            }
+            else
+            {
+                Contacts[SelectedIndex] = SelectedContact;
+                SelectedContact = Contacts[SelectedIndex];
+            }
+
+            IsApply = true;
+        }
+
+        /// <summary>
+        /// Добавляет контакт.
+        /// </summary>
+        [RelayCommand]
+        private void AddContact()
+        {
+            SelectedContact = new ContactVM(new Contact());
+
+            IsApply = false;
+        }
+
+        /// <summary>
+        /// Редактирование контакта.
+        /// </summary>
+        [RelayCommand(CanExecute = nameof(CanExecuteEdit))]
+        private void EditContact()
+        {
+            IsEdit = true;
+
+            var tempContact = SelectedContact;
+            SelectedContact = null;
+            SelectedContact = (ContactVM)tempContact.Clone();
+
+            IsApply = false;
+        }
+
+        /// <summary>
+        /// Удаление контакта.
+        /// </summary>
+        [RelayCommand(CanExecute = nameof(CanExecuteRemove))]
+        private void RemoveContact()
+        {
+            if (Contacts.Count == 1)
+            {
+                Contacts.Remove(SelectedContact);
+            }
+            else if (SelectedIndex < Contacts.Count - 1)
+            {
+                Contacts.Remove(SelectedContact);
+                SelectedContact = Contacts[SelectedIndex];
+            }
+            else
+            {
+                Contacts.Remove(SelectedContact);
+                SelectedContact = Contacts[SelectedIndex - 1];
+            }
+        }
+
+        /// <summary>
+        /// Определяет возможность редактирования контакта.
+        /// </summary>
+        /// <returns>Возвращает данные о состоянии списка.</returns>
+        private bool CanExecuteEdit()
+        {
+            return Contacts.Count > 0 && SelectedContact != null;
+        }
+
+        /// <summary>
+        /// Определяет возможность удаления контакта.
+        /// </summary>
+        /// <returns>Возвращает данные о состоянии списка.</returns>
+        private bool CanExecuteRemove()
+        {
+            return Contacts.Count > 0 && SelectedContact != null;
+        }
+
+        /// <summary>
+        /// Сохранение списка контактов.
+        /// </summary>
+        public void Save()
+        {
+            ContactSerializer.Serialize(Contacts);
+        }
     }
 }

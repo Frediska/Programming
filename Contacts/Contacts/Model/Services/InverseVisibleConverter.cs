@@ -1,0 +1,52 @@
+﻿using System;
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+using System.Windows;
+using System.Windows.Data;
+
+namespace View.Model.Services
+{
+    public class InverseVisibleConverter : IValueConverter
+    {
+        /// <summary>
+        /// Конвертирует булевое значение
+        /// в соотвествующие значение из перечисления <see cref="Visibility"/>.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="targetType">Целевой тип.</param>
+        /// <param name="parameter">Параметр.</param>
+        /// <param name="culture">Региональная культура</param>
+        /// <returns>Значение видимости элемента.</returns>
+        public object Convert(object value,
+                              Type targetType,
+                              object parameter,
+                              CultureInfo culture)
+        {
+            if (value is bool boolValue)
+            {
+                return !boolValue;
+            }
+
+            return value;
+        }
+
+        /// <summary>
+        /// Конвертирует значение из перечисления <see cref="Visibility"/>
+        /// в соотвествующие булевое значение.
+        /// </summary>
+        /// <param name="value">Значение.</param>
+        /// <param name="targetType">Целевой тип.</param>
+        /// <param name="parameter">Параметр.</param>
+        /// <param name="culture">Региональная культура</param>
+        /// <returns>Булевое значение.</returns>
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is bool boolValue)
+            {
+                return !boolValue;
+            }
+
+            return value;
+        }
+    }
+}
