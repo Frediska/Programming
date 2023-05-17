@@ -22,13 +22,7 @@ namespace View.ViewModel
         /// Поле, хранящее значение для свойства окна IsReadOnly.
         /// </summary>
         [ObservableProperty]
-        private bool _isReadOnly = true;
-
-        /// <summary>
-        /// Поле, хранящее значение для свойства окна Visibility.
-        /// </summary>
-        [ObservableProperty]
-        private bool _isVisible = false;
+        private bool _isReadOnly = false;
 
         /// <summary>
         /// Поле, хранящее значение, которое говорит о том, была ли нажата кнопка Apply.
@@ -62,17 +56,11 @@ namespace View.ViewModel
             set
             {
                 _isApply = value;
+                IsReadOnly = !value;
 
                 if (value)
                 {
                     IsEdit = false;
-                    IsVisible = false;
-                    IsReadOnly = true;
-                }
-                else
-                {
-                    IsVisible = true;
-                    IsReadOnly = false;
                 }
             }
         }

@@ -39,7 +39,7 @@ namespace View.Model.Services
             }
 
             return contacts;
-            }
+        }
 
         /// <summary>
         /// Сохраняет список объектов в файл.

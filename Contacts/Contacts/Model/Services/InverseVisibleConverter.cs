@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Windows;
 using System.Windows.Data;
 
 namespace View.Model.Services
 {
-    public class VisibleConverter : IValueConverter
+    public class InverseVisibleConverter : IValueConverter
     {
         /// <summary>
         /// Конвертирует булевое значение
@@ -21,8 +22,12 @@ namespace View.Model.Services
                               object parameter,
                               CultureInfo culture)
         {
-            var asBool = (bool)value;
-            return asBool ? Visibility.Visible : Visibility.Hidden;
+            if (value is bool boolValue)
+            {
+                return !boolValue;
+            }
+
+            return value;
         }
 
         /// <summary>
@@ -36,8 +41,12 @@ namespace View.Model.Services
         /// <returns>Булевое значение.</returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var asVisibility = (Visibility)value;
-            return asVisibility == Visibility.Visible;
+            if (value is bool boolValue)
+            {
+                return !boolValue;
+            }
+
+            return value;
         }
     }
 }
