@@ -8,14 +8,47 @@
     mc:Ignorable="d"
     Closing="Window_Closing"
     Title="Contacts" 
-    Height="450" 
-    Width="550"
+    Height="500" 
+    Width="650"
     Icon="\Resource\icon_96x96.ico"  
-    MinHeight="450"
-    MinWidth="550">
+    MinHeight="500"
+    MinWidth="650">
     <Window.Resources>
-        <service:VisibleConverter x:Key="VisibleConverter"/>
-        <service:InverseVisibleConverter x:Key="InverseVisibleConverter"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resource/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <service:VisibleConverter x:Key="VisibleConverter"/>
+            <service:InverseVisibleConverter x:Key="InverseVisibleConverter"/>
+            <DataTemplate x:Key="ContactTemplate">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle
+                        Grid.Column="0"
+                        Width="40"
+                        Height="40"
+                        RadiusX="{StaticResource DefaultRadiusX}"
+                        RadiusY="{StaticResource DefaultRadiusY}"
+                        Margin="{StaticResource DefaultMargin}">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="{StaticResource PhotoPlaceholderImage}"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <StackPanel Grid.Column="1" Orientation="Vertical">
+                        <TextBlock
+                            Margin="{StaticResource DefaultMargin}"
+                            FontWeight="Bold"
+                            Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock
+                            Margin="{StaticResource DefaultMargin}"
+                            Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,11 +63,11 @@
                 LastChildFill="True">
                 <DockPanel DockPanel.Dock="Top" LastChildFill="True">
                     <TextBlock 
-                        Margin="3" 
+                        Margin="{StaticResource DefaultMargin}" 
                         VerticalAlignment="Center" 
                         DockPanel.Dock="Left" 
                         Text="Find:"/>
-                    <TextBox Width="Auto" Margin="3"></TextBox>
+                    <TextBox Width="Auto" Margin="{StaticResource DefaultMargin}"></TextBox>
                 </DockPanel>
                 <DockPanel LastChildFill="True">
                     <Grid DockPanel.Dock="Bottom">
@@ -45,35 +78,35 @@
                         </Grid.ColumnDefinitions>
                         <Button 
                             Grid.Column="0" 
-                            Height="25" 
-                            Margin="3" 
+                            Height="{StaticResource DefaultButtonHeight}" 
+                            Margin="{StaticResource DefaultMargin}" 
                             Command="{Binding Path=AddContactCommand}" 
                             Content="Add" 
                             IsEnabled="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
                     UpdateSourceTrigger=PropertyChanged}"/>
                         <Button 
                             Grid.Column="1" 
-                            Height="25" 
-                            Margin="3" 
+                            Height="{StaticResource DefaultButtonHeight}" 
+                            Margin="{StaticResource DefaultMargin}" 
                             Command="{Binding Path=EditContactCommand}" 
                             Content="Edit" 
                             IsEnabled="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
                     UpdateSourceTrigger=PropertyChanged}"/>
                         <Button 
                             Grid.Column="2" 
-                            Height="25" 
-                            Margin="3" 
+                            Height="{StaticResource DefaultButtonHeight}" 
+                            Margin="{StaticResource DefaultMargin}"  
                             Command="{Binding Path=RemoveContactCommand}" 
                             Content="Remove" 
                             IsEnabled="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
                     UpdateSourceTrigger=PropertyChanged}"/>
                     </Grid>
                     <ListBox
-                        Margin="3"
-                        DisplayMemberPath="Name"
-                        DockPanel.Dock="Top"
+                        x:Name="ContactsListBox"
+                        Margin="{StaticResource DefaultMargin}"
                         ItemsSource="{Binding Path=Contacts}"
-                        SelectedItem="{Binding Path=SelectedContact, UpdateSourceTrigger=PropertyChanged}"/>
+                        SelectedItem="{Binding Path=SelectedContact, UpdateSourceTrigger=PropertyChanged}"
+                        ItemTemplate="{StaticResource ContactTemplate}"/>
                 </DockPanel>
             </DockPanel>
         </Grid>
@@ -124,8 +157,8 @@
                     UpdateSourceTrigger=PropertyChanged}"
                     Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button
-                    Width="75"
-                    Height="25"
+                    Width="{StaticResource DefaultButtonWidth}"
+                    Height="{StaticResource DefaultButtonHeight}"
                     Margin="3 50 3 3"
                     HorizontalAlignment="Left"
                     Content="Apply"
