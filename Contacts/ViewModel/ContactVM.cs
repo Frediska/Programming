@@ -1,10 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
 using Model;
 using Model.Services;
+using System.ComponentModel.DataAnnotations;
 
 namespace ViewModel
 {
@@ -13,8 +10,6 @@ namespace ViewModel
     /// </summary>
     public class ContactVM : ObservableValidator, ICloneable
     {
-        private bool _isReadOnly = true;
-
         /// <summary>
         /// Возвращает и получает объект класса <see cref="Model.Contact"/>
         /// </summary>
@@ -74,21 +69,6 @@ namespace ViewModel
             set
             {
                 SetProperty(Contact.Email, value, Contact, (contact, email) => Contact.Email = email, true);
-            }
-        }
-
-        /// <summary>
-        /// Устанавливает и возвращает значение, указывающее, что поля доступны только для чтения.
-        /// </summary>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return _isReadOnly;
-            }
-            set
-            {
-                SetProperty(ref _isReadOnly, value);
             }
         }
 
