@@ -1,10 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
-using View.Model.Services;
-using View.Model;
+using Model.Services;
+using Model;
 
-namespace View.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel для главного окна.
@@ -70,7 +70,7 @@ namespace View.ViewModel
         /// </summary>
         public MainVM()
         {
-            Contacts = ContactSerializer.Deserialize();
+            Contacts = new ObservableCollection<ContactVM>(ContactSerializer.Deserialize().Select(c => new ContactVM(c)));
         }
 
         partial void OnSelectedContactChanged(ContactVM value)
@@ -178,7 +178,13 @@ namespace View.ViewModel
         /// </summary>
         public void Save()
         {
-            ContactSerializer.Serialize(Contacts);
+            ContactSerializer.Serialize(new ObservableCollection<Contact>(
+                Contacts.Select(c => new Contact
+                {
+                    Name = c.Name,
+                    Phone = c.Phone,
+                    Email = c.Email
+                })));
         }
     }
 }

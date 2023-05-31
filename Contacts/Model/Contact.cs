@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace View.Model
+namespace Model
 {
     /// <summary>
     /// Хранит данные о контакте.
@@ -19,7 +19,6 @@ namespace View.Model
             Email = email;
             Phone = phone;
         }
-
 
         /// <summary>
         /// Создает экземпляр класса <see cref="Contact"/>.

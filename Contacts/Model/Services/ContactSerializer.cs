@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.ObjectModel;
-using System.IO;
-using View.ViewModel;
 
-namespace View.Model.Services
+namespace Model.Services
 {
     public static class ContactSerializer
     {
@@ -19,9 +16,9 @@ namespace View.Model.Services
         /// Загружает данные из файла в приложение.
         /// </summary>
         /// <returns>Список контактов.</returns>
-        public static ObservableCollection<ContactVM> Deserialize()
+        public static ObservableCollection<Contact> Deserialize()
         {
-            var contacts = new ObservableCollection<ContactVM>();
+            var contacts = new ObservableCollection<Contact>();
 
             if (File.Exists(Path))
             {
@@ -29,13 +26,9 @@ namespace View.Model.Services
                 {
                     contacts
                         = JsonConvert.
-                        DeserializeObject<ObservableCollection<ContactVM>>
-                        (sr.ReadToEnd());
+                        DeserializeObject<ObservableCollection<Contact>>
+                        (sr.ReadToEnd()) ?? new ObservableCollection<Contact>();
                 }
-            }
-            else
-            {
-                File.Create(Path).Close();
             }
 
             return contacts;
@@ -45,7 +38,7 @@ namespace View.Model.Services
         /// Сохраняет список объектов в файл.
         /// </summary>
         /// <param name="contacts">Список контактов.</param>
-        public static void Serialize(ObservableCollection<ContactVM> contacts)
+        public static void Serialize(ObservableCollection<Contact> contacts)
         {
             if (!File.Exists(Path))
             {

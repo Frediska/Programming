@@ -1,20 +1,15 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System;
-using System.ComponentModel;
+using Model;
+using Model.Services;
 using System.ComponentModel.DataAnnotations;
-using System.Runtime.CompilerServices;
-using View.Model;
-using View.Model.Services;
 
-namespace View.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// ViewModel, агрегирующий в себе класс <see cref="Model.Contact"/>
     /// </summary>
     public class ContactVM : ObservableValidator, ICloneable
     {
-        private bool _isReadOnly = true;
-
         /// <summary>
         /// Возвращает и получает объект класса <see cref="Model.Contact"/>
         /// </summary>
@@ -74,21 +69,6 @@ namespace View.ViewModel
             set
             {
                 SetProperty(Contact.Email, value, Contact, (contact, email) => Contact.Email = email, true);
-            }
-        }
-
-        /// <summary>
-        /// Устанавливает и возвращает значение, указывающее, что поля доступны только для чтения.
-        /// </summary>
-        public bool IsReadOnly
-        {
-            get
-            {
-                return _isReadOnly;
-            }
-            set
-            {
-                SetProperty(ref _isReadOnly, value);
             }
         }
 

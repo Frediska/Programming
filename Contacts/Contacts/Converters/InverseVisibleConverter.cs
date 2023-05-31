@@ -4,7 +4,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Windows;
 using System.Windows.Data;
 
-namespace View.Model.Services
+namespace View.Converters
 {
     public class InverseVisibleConverter : IValueConverter
     {
