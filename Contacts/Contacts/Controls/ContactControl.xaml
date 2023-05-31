@@ -5,11 +5,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:viewmodel="clr-namespace:View.ViewModel" 
-    d:DataContext="{d:DesignInstance Type=viewmodel:ContactVM}"
+    xmlns:service="clr-namespace:View.Model.Services"
+    d:DataContext="{d:DesignInstance viewmodel:ContactVM}"
     mc:Ignorable="d" 
-    d:DesignHeight="450" d:DesignWidth="300">
+    d:DesignHeight="450" d:DesignWidth="300"
+    Validation.ErrorTemplate="{x:Null}">
     <UserControl.Resources>
-        <ResourceDictionary Source="/Resource/StyleDictionary.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resource/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <service:InverseVisibleConverter x:Key="InverseVisibleConverter"/>
+        </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -30,22 +37,28 @@
                 Text="Name: "/>
             <TextBox
                 Margin="{StaticResource DefaultMargin}"
-                IsReadOnly="{Binding Path=IsReadonly, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock
                 Margin="{StaticResource DefaultMargin}"
                 Text="Phone: "/>
             <TextBox
+                x:Name="PhoneNumber"
                 Margin="{StaticResource DefaultMargin}"
-                IsReadOnly="{Binding Path=IsReadonly, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+                DataObject.Pasting="PhoneNumber_Paste"
+                PreviewTextInput="PhoneNumber_PreviewTextInput"
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Phone, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock
                 Margin="{StaticResource DefaultMargin}"
                 Text="Email: "/>
             <TextBox
                 Margin="{StaticResource DefaultMargin}"
-                IsReadOnly="{Binding Path=IsReadonly, UpdateSourceTrigger=PropertyChanged}"
-                Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
     </Grid>
 </UserControl>

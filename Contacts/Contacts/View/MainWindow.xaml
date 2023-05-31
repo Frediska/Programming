@@ -5,6 +5,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:service="clr-namespace:View.Model.Services"
+    xmlns:controls="clr-namespace:View.Controls" 
+    xmlns:viewmodel="clr-namespace:View.ViewModel" 
+    d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
     mc:Ignorable="d"
     Closing="Window_Closing"
     Title="Contacts" 
@@ -127,44 +130,18 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Image 
-                Grid.Row="1" 
-                Grid.Column="0"
-                Width="100" Height="100"
-                Margin="3"
-                VerticalAlignment="Top"
-                Source="/Resource/user_icon_96x96.ico"/>
-            <TextBlock 
-                Grid.Column="1" 
-                Margin="3" 
-                Text="Name:"/>
             <StackPanel Grid.Row="1" Grid.Column="1">
-                <TextBox
-                    Margin="3"
-                    IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
-                    UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}" />
-                <TextBlock Margin="3" Text="Phone Number:"/>
-                <TextBox
-                    Margin="3"
-                    IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
-                    UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=SelectedContact.Phone, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Margin="3" Text="Email:"/>
-                <TextBox
-                    Margin="3"
-                    IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter}, 
-                    UpdateSourceTrigger=PropertyChanged}"
-                    Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
+                <controls:ContactControl SelectedContact="{Binding SelectedContact, Mode=TwoWay}" Validation.ErrorTemplate="{x:Null}"/>
                 <Button
                     Width="{StaticResource DefaultButtonWidth}"
                     Height="{StaticResource DefaultButtonHeight}"
                     Margin="3 50 3 3"
                     HorizontalAlignment="Left"
                     Content="Apply"
-                    Visibility="{Binding Path=IsReadOnly,Converter={StaticResource VisibleConverter}, 
+                    IsEnabled="{Binding SelectedContact.HasErrors, Converter={StaticResource InverseVisibleConverter}}"
+                    Visibility="{Binding Path=IsReadOnly,Converter={StaticResource VisibleConverter},
                     UpdateSourceTrigger=PropertyChanged}"
-                    Command="{Binding Path=ApplyContactCommand}"/>
+                    Command="{Binding Path=ApplyContactCommand}"/>  
             </StackPanel>
         </Grid>
     </Grid>
