@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:viewmodel="clr-namespace:View.ViewModel" 
-    xmlns:service="clr-namespace:View.Model.Services"
-    d:DataContext="{d:DesignInstance viewmodel:ContactVM}"
+    xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
+    xmlns:service="clr-namespace:View" 
+    d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
     mc:Ignorable="d" 
     d:DesignHeight="450" d:DesignWidth="300"
     Validation.ErrorTemplate="{x:Null}">
