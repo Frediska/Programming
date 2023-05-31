@@ -21,7 +21,8 @@ namespace Model.Services
                 return ValidationResult.Success;
             }
 
-            return new ValidationResult("The phone number is not correctly.");
+            return new ValidationResult(
+                "Phone Number can contains only digits and symbols '+()- '. Example: +7 (999) 111-22-33.");
         }
 
         /// <summary>
@@ -37,7 +38,7 @@ namespace Model.Services
                 return ValidationResult.Success;
             }
 
-            return new ValidationResult("The email is not correctly.");
+            return new ValidationResult("The email is not correctly. Example: abcdef@mail.ru");
         }
 
         /// <summary>
@@ -52,7 +53,7 @@ namespace Model.Services
                 return ValidationResult.Success;
             }
 
-            return new ValidationResult("The phone is not correctly.");
+            return new ValidationResult("The name is not correctly.");
         }
     }
 }

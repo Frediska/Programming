@@ -5,7 +5,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel"
-    xmlns:service="clr-namespace:View" 
+    xmlns:service="clr-namespace:View.Converters" 
     d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
     mc:Ignorable="d" 
     d:DesignHeight="450" d:DesignWidth="300"
@@ -37,6 +37,7 @@
                 Text="Name: "/>
             <TextBox
                 Margin="{StaticResource DefaultMargin}"
+                Style="{StaticResource ValidationStyleTextBox}"
                 IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
                 UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
@@ -48,6 +49,7 @@
                 Margin="{StaticResource DefaultMargin}"
                 DataObject.Pasting="PhoneNumber_Paste"
                 PreviewTextInput="PhoneNumber_PreviewTextInput"
+                Style="{StaticResource ValidationStyleTextBox}"
                 IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
                 UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Path=SelectedContact.Phone, UpdateSourceTrigger=PropertyChanged}"/>
@@ -56,6 +58,7 @@
                 Text="Email: "/>
             <TextBox
                 Margin="{StaticResource DefaultMargin}"
+                Style="{StaticResource ValidationStyleTextBox}"
                 IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
                 UpdateSourceTrigger=PropertyChanged}"
                 Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
