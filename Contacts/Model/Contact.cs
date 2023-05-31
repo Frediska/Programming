@@ -20,6 +20,9 @@ namespace Model
             Phone = phone;
         }
 
+        /// <summary>
+        /// Создает экземпляр класса <see cref="Contact"/>.
+        /// </summary>
         public Contact()
         {
 
