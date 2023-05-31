@@ -1,24 +1,24 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using View.Model;
+using View.Model.Services;
 
 namespace View.ViewModel
 {
     /// <summary>
     /// ViewModel, агрегирующий в себе класс <see cref="Model.Contact"/>
     /// </summary>
-    public class ContactVM : INotifyPropertyChanged, ICloneable
+    public class ContactVM : ObservableValidator, ICloneable
     {
+        private bool _isReadOnly = true;
+
         /// <summary>
         /// Возвращает и получает объект класса <see cref="Model.Contact"/>
         /// </summary>
         public Contact Contact { get; set; }
-
-        /// <summary>
-        /// Событие изменения свойства.
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Создает экземпляр класса <see cref="ContactVM"/>.
@@ -32,6 +32,7 @@ namespace View.ViewModel
         /// <summary>
         /// Возращает и получает имя объекта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateName))]
         public string Name
         {
             get
@@ -40,14 +41,14 @@ namespace View.ViewModel
             }
             set
             {
-                Contact.Name = value;
-                OnPropertyChanged(nameof(Name));
+                SetProperty(Contact.Name, value, Contact, (contact, name) => Contact.Name = name, true);
             }
         }
 
         /// <summary>
         /// Возращает и получает номер объекта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidatePhone))]
         public string Phone
         {
             get
@@ -56,14 +57,14 @@ namespace View.ViewModel
             }
             set
             {
-                Contact.Phone = value;
-                OnPropertyChanged(nameof(Phone));
+                SetProperty(Contact.Phone, value, Contact, (contact, phone) => Contact.Phone = phone, true);
             }
         }
 
         /// <summary>
         /// Возращает и получает почту объекта.
         /// </summary>
+        [CustomValidation(typeof(ValueValidator), nameof(ValueValidator.ValidateEmail))]
         public string Email
         {
             get
@@ -72,18 +73,23 @@ namespace View.ViewModel
             }
             set
             {
-                Contact.Email = value;
-                OnPropertyChanged(nameof(Email));
+                SetProperty(Contact.Email, value, Contact, (contact, email) => Contact.Email = email, true);
             }
         }
 
         /// <summary>
-        /// Вызывает событие при изменении свойств объекта.
+        /// Устанавливает и возвращает значение, указывающее, что поля доступны только для чтения.
         /// </summary>
-        /// <param name="properyName">Свойство, вызвавшее событие.</param>
-        protected void OnPropertyChanged([CallerMemberName] string properyName = "")
+        public bool IsReadOnly
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(properyName));
+            get
+            {
+                return _isReadOnly;
+            }
+            set
+            {
+                SetProperty(ref _isReadOnly, value);
+            }
         }
 
         /// <summary>

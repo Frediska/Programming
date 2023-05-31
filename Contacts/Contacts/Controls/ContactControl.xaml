@@ -1,0 +1,64 @@
+﻿<UserControl 
+    x:Class="View.Controls.ContactControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:viewmodel="clr-namespace:View.ViewModel" 
+    xmlns:service="clr-namespace:View.Model.Services"
+    d:DataContext="{d:DesignInstance viewmodel:ContactVM}"
+    mc:Ignorable="d" 
+    d:DesignHeight="450" d:DesignWidth="300"
+    Validation.ErrorTemplate="{x:Null}">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Resource/StyleDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <service:InverseVisibleConverter x:Key="InverseVisibleConverter"/>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Margin="{StaticResource DefaultMargin}"/>
+            <Image
+                Width="100"
+                Height="100"
+                Margin="{StaticResource DefaultMargin}"
+                Source="{StaticResource PhotoPlaceholderImage}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock
+                Margin="{StaticResource DefaultMargin}"
+                Text="Name: "/>
+            <TextBox
+                Margin="{StaticResource DefaultMargin}"
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Name, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock
+                Margin="{StaticResource DefaultMargin}"
+                Text="Phone: "/>
+            <TextBox
+                x:Name="PhoneNumber"
+                Margin="{StaticResource DefaultMargin}"
+                DataObject.Pasting="PhoneNumber_Paste"
+                PreviewTextInput="PhoneNumber_PreviewTextInput"
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Phone, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock
+                Margin="{StaticResource DefaultMargin}"
+                Text="Email: "/>
+            <TextBox
+                Margin="{StaticResource DefaultMargin}"
+                IsReadOnly="{Binding Path=IsReadOnly, Converter={StaticResource InverseVisibleConverter},
+                UpdateSourceTrigger=PropertyChanged}"
+                Text="{Binding Path=SelectedContact.Email, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

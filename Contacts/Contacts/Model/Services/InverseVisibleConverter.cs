@@ -26,7 +26,7 @@ namespace View.Model.Services
                 return !boolValue;
             }
 
-            return value;
+            throw new ArgumentException("Value must be bool.");
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace View.Model.Services
                 return !boolValue;
             }
 
-            return value;
+            throw new ArgumentException("Value must be bool.");
         }
     }
 }
